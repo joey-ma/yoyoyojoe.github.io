@@ -1,0 +1,53 @@
+/* body {
+    margin: 0;
+} */
+
+.header {
+    background-color: #f3f3f3;
+    display: flex;
+    align-items: baseline;
+    padding: .5rem;
+    gap: 1rem;
+}
+
+.link {
+    background: none;
+    border: none;
+    text-decoration: none;
+    color: #777;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: inherit;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* focus: keyboard or mouse event */
+.dropdown-container > .link:focus, .link:hover {
+    color: black;
+}
+.dropdown-container {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute; 
+    /* inside of our dropdown container */
+    left: 0;
+    top: calc(100% + .25rem);
+    background-color: white;
+    padding: .75rem;
+    border-radius: .25rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+    /* offset-x | offset-y | blur-radius | spread-radius | color: -> rgba for a transparent color */
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px); 
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+}
+
+/* inside of our dropdown-container, for when link is focused and the dropdown-menu (sibling) that comes after the link */
+.dropdown-container.active > .link:focus + .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0px); 
+    pointer-events: auto;
+}
