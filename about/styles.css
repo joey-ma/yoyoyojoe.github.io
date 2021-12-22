@@ -7,12 +7,15 @@ body {
 .header {
     background-color: #f3f3f3;
     display: flex;
-    align-items: baseline;
+    align-items: center;
     padding: .5rem;
     gap: 1rem;
 }
 
 .main-menu {
+    position: relative;
+    display: flex;
+    align-items: center;
     margin: 10px 10px;
 }
 
@@ -30,6 +33,7 @@ body {
 .dropdown-container.active > .link, .link:hover {
     color: black;
 }
+
 .dropdown-container {
     position: relative;
     display: flex;
@@ -64,7 +68,7 @@ body {
     display: grid;
     /* top & bottom */
     /* left & right */
-    -ms-grid-columns: repeat(1, max-content);
+    /* -ms-grid-columns: repeat(1, max-content); */
     grid-template-columns: repeat(1, max-content);
     gap: 2rem;
     /* max-width: 200px; */

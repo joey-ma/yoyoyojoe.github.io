@@ -1,0 +1,5 @@
+{
+    "rules": {
+        "-ms-grid-columns": 0
+    }
+}
