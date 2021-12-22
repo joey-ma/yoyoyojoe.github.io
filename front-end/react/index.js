@@ -1,0 +1,1 @@
+window.alert('testing: react components to be added');
