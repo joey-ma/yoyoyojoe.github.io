@@ -1,0 +1,86 @@
+body {
+    /* margin: 0 moves menu bar to stick to top of window */
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header {
+    background-color: #f3f3f3;
+    display: flex;
+    align-items: baseline;
+    padding: .5rem;
+    gap: 1rem;
+}
+
+.main-menu {
+    margin: 10px 10px;
+}
+
+.link {
+    background: none;
+    border: none;
+    text-decoration: none;
+    color: #777;
+    font-size: inherit;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* focus: keyboard or mouse event */
+.dropdown-container.active > .link, .link:hover {
+    color: black;
+}
+.dropdown-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-menu {
+    position: absolute; 
+    /* inside of our dropdown container */
+    left: 0;
+    top: calc(100% + .25rem);
+    background-color: white;
+    padding: .75rem;
+    border-radius: .25rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+    /* offset-x | offset-y | blur-radius | spread-radius | color: -> rgba for a transparent color */
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px); 
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+}
+
+/* inside of our dropdown-container, for when link is focused and the dropdown-menu (sibling) that comes after the link */
+.dropdown-container.active > .link + .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0px); 
+    pointer-events: auto;
+}
+
+.info-grid {
+    display: -ms-grid;
+    display: grid;
+    /* top & bottom */
+    /* left & right */
+    -ms-grid-columns: repeat(1, max-content);
+    grid-template-columns: repeat(1, max-content);
+    gap: 2rem;
+    /* max-width: 200px; */
+}
+
+.dropdown-heading {
+    margin-bottom: 5px;
+}
+
+.dropdown-links {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+}
+
+.content {
+    margin: 1rem;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
