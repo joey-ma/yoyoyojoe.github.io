@@ -63,8 +63,8 @@ body {
     display: -ms-grid;
     display: grid;
     /* top & bottom */
-    /* -ms-grid-columns: repeat(2, max-content); */
     /* left & right */
+    -ms-grid-columns: repeat(2, max-content);
     grid-template-columns: repeat(2, max-content);
     gap: 2rem;
     /* max-width: 200px; */
