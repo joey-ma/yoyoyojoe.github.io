@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
-#head, .body {
+.head .body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   box-sizing: border-box;
 }
 
@@ -14,12 +18,13 @@ body {
   height: 50px;
   width: 50px;
   background-color: #796d43;
-  background-image: url('./assets/snakes/ash-facing_south.png');
+  /* background-image: url('./assets/snakes/ash-facing_south.png'); */
   position: absolute;
   z-index: 2;
   border-radius: 10px;
   border: 1px solid black;
   border-right: 5px solid #a05740;
+  box-sizing: border-box;
 }
 
 #board {
