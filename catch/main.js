@@ -1,6 +1,6 @@
 let intro = new Audio();
 intro.volume = 0.1;
-intro.src = "/assets/sfx/intro.mp3";
+intro.src = "/assets/sfx/bgm/intro.mp3";
 intro.setAttribute('id', 'intro')
 
 document.addEventListener('DOMContentLoaded', () => {

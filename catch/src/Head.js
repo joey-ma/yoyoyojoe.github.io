@@ -24,7 +24,8 @@ class Head {
 
     // repeating sfx
     this.bgm = new Audio();
-    this.bgm.src = "/assets/sfx/bgm/109-pewter city's theme.mp3";
+    this.bgm.src = "/assets/sfx/bgm/106-the_road_to_viridian_city-from_palette.mp3";
+    // https://yoyoyojoe.github.io/catch//assets/sfx/bgm/109-pewter%20city's%20theme.mp3
     this.bgm.loop = true;
     this.bgm.volume = 0.2;
 
