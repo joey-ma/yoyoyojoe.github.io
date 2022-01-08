@@ -12,8 +12,7 @@ body {
   align-items: center;
   justify-content: center;
   background-color: #79caf9;
-  background: url("https://yoyoyojoe.github.io/catch//assets/pokemon-sunny-background.jpg");
-  background-repeat: repeat no-repeat;
+  background-image: url("https://yoyoyojoe.github.io/catch//assets/pokemon-sunny-background.jpg");
   background-position: bottom;
   background-attachment: fixed;
   /* background-position-x: center;
@@ -24,6 +23,7 @@ body {
   -webkit-background-size: cover;
   min-width: 540px;
   min-height: 568px;
+  background-repeat: repeat no-repeat;
 }
 
 /* .head .body {
@@ -39,13 +39,14 @@ body {
   border-radius: 15px;
   position: relative;
   /* background-color: white; */
-  background: url("https://yoyoyojoe.github.io/catch//assets//assets/grass-field.jpg");
+  background-image: url("https://yoyoyojoe.github.io/catch//assets//assets/grass-field.jpg");
   background-position-x: right;
   background-position-y: center;
   background-size: auto;
   -o-background-size: cover;
   -moz-background-size: cover;
   -webkit-background-size: cover;
+  background-repeat: repeat no-repeat;
 }
 
 /* snake head but really ash: (id) */
