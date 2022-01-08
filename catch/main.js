@@ -1,3 +1,8 @@
+let intro = new Audio();
+intro.volume = 0.1;
+intro.src = "/assets/sfx/intro.mp3";
+intro.setAttribute('id', 'intro')
+
 document.addEventListener('DOMContentLoaded', () => {
   const body = document.querySelector('body');
   const board = document.querySelector('#board');
@@ -5,14 +10,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const head = new Head(board);
   const apple = new Apple(board);
 
-  let intro = new Audio();
-  intro.volume = 0.20;
-  intro.src = "./src/assets/pacman_beginning.wav";
+  if (intro) intro.play();
+  console.log('play', intro);
+  // const music = document.querySelector('#intro');
 
   // variables for pause feature, using closure
   let paused = false;
   let priorSPEED;
-  // todo: throttling can help with edge cases of fast keystrokes 
+
+  // todo: throttling may help with edge cases of fast keystrokes 
   // (i.e. while going left, fast combo key presses of up, right triggers game over / hitting snake tail) 
   // 'keydown' is the case-sensitive string of event type to listen for
   body.addEventListener('keydown', (e) => {
@@ -23,30 +29,22 @@ document.addEventListener('DOMContentLoaded', () => {
       head.currentDirection = 'left';
       // head.node.style.border = "1px solid black";
       // head.node.style.borderLeft = "5px solid #a05740";
-      if (head.wakka) head.wakka.play();
-      if (intro) intro.play();
-      intro = null;
+      // if (head.bgm) head.bgm.play();
     } else if (head.currentDirection !== 'left' && e.code === 'ArrowRight') {
       head.currentDirection = 'right';
       // head.node.style.border = "1px solid black";
       // head.node.style.borderRight = "5px solid #a05740";
-      if (head.wakka) head.wakka.play();
-      if (intro) intro.play();
-      intro = null;
+      // if (head.bgm) head.bgm.play();
     } else if (head.currentDirection !== 'up' && e.code === 'ArrowDown') {
       head.currentDirection = 'down';
       // head.node.style.border = "1px solid black";
       // head.node.style.borderBottom = "5px solid #a05740";
-      if (head.wakka) head.wakka.play();
-      if (intro) intro.play();
-      intro = null;
+      // if (head.bgm) head.bgm.play();
     } else if (head.currentDirection !== 'down' && e.code === 'ArrowUp') {
       head.currentDirection = 'up';
       // head.node.style.border = "1px solid black";
       // head.node.style.borderTop = "5px solid #a05740";
-      if (head.wakka) head.wakka.play();
-      if (intro) intro.play();
-      intro = null;
+      // if (head.bgm) head.bgm.play();
     }
 
     // possibly change to switch statement for better performance?
@@ -120,6 +118,46 @@ document.querySelector("#again").addEventListener('click', () => {
   window.location.reload();
 });
 
+intro.addEventListener('ended', (e) => {
+  console.log(e);
+  if (e) head.bgm.play();
+})
 //better game over screen
 
 //score board?
+
+/*
+
+Event {
+  isTrusted: true, 
+  type: 'ended', 
+  target: audio#intro, 
+  currentTarget: audio#intro, 
+  eventPhase: 2, 
+  …
+}
+  isTrusted: true
+  bubbles: false
+  cancelBubble: 
+  falsecancelable: truec
+  omposed: false
+  currentTarget: null
+  defaultPrevented: false
+  eventPhase: 0
+  path: [audio#intro]
+  returnValue: true
+  srcElement: null
+  target: null
+  timeStamp: 95692.09999999963
+  type: "ended"
+  [[Prototype]]: Event
+
+main.js:123 Uncaught TypeError: Cannot read properties of undefined (reading 'play')
+    at Audio.<anonymous> (main.js:123) 
+    (anonymous) @ main.js:123
+
+Head.js:128 Uncaught ReferenceError: time is not defined
+    at Head.gameOver (Head.js:128)
+    at Head.move (Head.js:98)
+
+*/

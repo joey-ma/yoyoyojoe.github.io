@@ -3,16 +3,6 @@ class Apple {
     this.node = document.createElement('img');
     this.node.setAttribute('id', 'apple');
 
-    // const pika = [
-    //   './assets/sfx/pikachu.mp3',
-    //   './assets/sfx/pika-1.mp3',
-    //   './assets/sfx/pika-2.mp3',
-    //   './assets/sfx/pika-3.mp3',
-    //   './assets/sfx/pika-pika.mp3.mp3',
-    //   './assets/sfx/pika-pika-pika-chu.mp3',
-    //   './assets/sfx/pika-pika-pika-pika.mp3',
-    // ];
-    // this.node.setAttribute('src', food[Math.floor(Math.random() * food.length)]);
 
     this.node.setAttribute('src', 'assets/pokeball.png');
 

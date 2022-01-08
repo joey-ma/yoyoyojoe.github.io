@@ -22,20 +22,29 @@ class Head {
 
     this.snakeBody = []; // <-- holds the body
 
+    // repeating sfx
+    this.bgm = new Audio();
+    this.bgm.src = "/assets/sfx/bgm/109-pewter city's theme.mp3";
+    this.bgm.loop = true;
+    this.bgm.volume = 0.2;
 
-    this.wakka = new Audio();
-    this.wakka.src = "./src/assets/pacman_chomp.mp3";
-    this.wakka.loop = true;
-    this.wakka.volume = 0.15;
-
-
+    // todo: how to ramdomize and return a new audio clip each time?
     this.eat = new Audio();
+    const pika = [
+      '/assets/sfx/pikachu.mp3',
+      '/assets/sfx/pika-1.mp3',
+      '/assets/sfx/pika-2.mp3',
+      '/assets/sfx/pika-3.mp3',
+      '/assets/sfx/pika-pika.mp3.mp3',
+      '/assets/sfx/pika-pika-pika-chu.mp3',
+      '/assets/sfx/pika-pika-pika-pika.mp3',
+    ];
+    this.eat.src = pika[Math.floor(Math.random() * pika.length)];
     this.eat.volume = 0.2;
-    this.eat.src = "./src/assets/pacman_eatfruit.wav";
 
     this.death = new Audio();
-    this.death.volume = 0.20;
-    this.death.src = "./src/assets/pacman_death.wav";
+    this.death.volume = 0.2;
+    this.death.src = "/assets/sfx/bgm/145-ending.mp3";
 
     setTimeout(this.move.bind(this), this.SPEED);
   }
@@ -113,8 +122,9 @@ class Head {
     document.querySelector("#score").innerText = `Score: ${this.score}`;
     // document.querySelector('#head').style.backgroundColor = 'red';
     this.death.play();
-    if (this.wakka) this.wakka.pause();
-    this.wakka = null;
+    if (this.intro) this.intro.pause();
+    if (this.bgm) this.bgm.pause();
+    this.bgm = null;
     clearTimeout(time);
     // bonk.play();
   }
