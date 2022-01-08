@@ -21,8 +21,6 @@ body {
   -o-background-size: cover;
   -moz-background-size: cover;
   -webkit-background-size: cover;
-  min-width: 540px;
-  min-height: 568px;
   background-repeat: repeat no-repeat;
 }
 
@@ -40,8 +38,8 @@ body {
   position: relative;
   /* background-color: white; */
   background-image: url("https://yoyoyojoe.github.io/catch//assets//assets/grass-field.jpg");
-  background-position-x: right;
-  background-position-y: center;
+  background-position: center;
+  background-attachment: fixed;
   background-size: auto;
   -o-background-size: cover;
   -moz-background-size: cover;
