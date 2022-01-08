@@ -13,6 +13,7 @@ body {
   justify-content: center;
   background-color: #79caf9;
   background-image: url("https://yoyoyojoe.github.io/catch//assets/pokemon-sunny-background.jpg");
+  z-index: -1;
   background-position: bottom;
   background-attachment: fixed;
   /* background-position-x: center;
@@ -38,6 +39,7 @@ body {
   position: relative;
   /* background-color: white; */
   background-image: url("https://yoyoyojoe.github.io/catch//assets//assets/grass-field.jpg");
+  z-index: 0;
   background-position: center;
   background-attachment: fixed;
   background-size: auto;
