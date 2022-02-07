@@ -1,12 +1,12 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS</title>
-    <link rel="stylesheet" href="../../about/styles.css">
-    <script src="../../about/index.js" defer></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS</title>
+  <link rel="stylesheet" href="../../about/styles.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="index.js" defer></script>
 </head>
 <body>
     <div class="header">
@@ -64,6 +64,8 @@
     </div>
     <div class="content">
         <h1>CSS</h1>
+        <h2 class="head-text wow animation_delay06 fadeIn"> <label class="typewrite" data-period="2000" data-type='[ "Technology is our heart", "Dedicated service is our soul"]'></label></h2>
+            
         <h3>What is CSS?</h3>
         <p>
             CSS or Cascading Style Sheets adds styling such as fonts, colours or layouts to your website making the website more aesthetically pleasing. CSS uses a simplistic structure as well, making the learning curve for mastery relatively easy.
@@ -81,5 +83,15 @@
             While I wouldn't consider myself a specialist, I look forward to working with designers and other specialists to improve the UI/UX of my work.
         </p>
     </div>
+    <script>
+      var elements = document.getElementsByClassName('typewrite');
+      for (var i = 0; i < elements.length; i++) {
+        var toRotate = elements[i].getAttribute('data-type');
+        var period = elements[i].getAttribute('data-period');
+        if (toRotate) {
+          new TxtType(elements[i], JSON.parse(toRotate), period);
+        }
+      }
+    </script>
 </body>
 </html>
