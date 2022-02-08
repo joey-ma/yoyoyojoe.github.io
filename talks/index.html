@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build Tool Alternatives</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <h1>Build Tool Alternative</h1>
+  <p>2022-02-01</p>
+  <iframe src="/bta.pdf" id="iFrame1"></iframe>
+  <script type="application/javascript">
+  
+  function resizeIFrameToFitContent( iFrame ) {
+    iFrame.width = iFrame.contentWindow.document.body.scrollWidth * 2;
+    iFrame.height = iFrame.contentWindow.document.body.scrollHeight * 2;
+  }
+
+  window.addEventListener('DOMContentLoaded', function(e) {
+    // to resize one iFrame
+    var iFrame = document.getElementById( 'iFrame1' );
+    resizeIFrameToFitContent( iFrame );
+
+    // or, to resize all iframes:
+    var iframes = document.querySelectorAll("iframe");
+    for (let i = 0; i < iframes.length; i++) {
+      resizeIFrameToFitContent( iframes[i] );
+    }
+} );
+</script>
+</body>
+</html>
