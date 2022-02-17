@@ -1,15 +1,13 @@
-// bgm / sfx setup
-let intro = new Audio('./assets/bgm/106-the_road_to_viridian_city-from_palette.mp3');
-intro.volume = 0.05;
-
-if (intro) intro.play();
-console.log('if the bgm is really bothering you... here you go');
-console.log('intro.pause()')
-
-let bgm = new Audio('./assets/bgm/109-pewter_city_theme.mp3');
-bgm.volume = 0.05;
-
 document.addEventListener('DOMContentLoaded', () => {
+  // bgm / sfx setup
+  let intro = new Audio('./assets/bgm/106-the_road_to_viridian_city-from_palette.mp3');
+  intro.volume = 0.05;
+
+  if (intro) intro.play();
+  console.log('if the bgm is really bothering you... here you go: `intro.pause()');
+
+  let bgm = new Audio('./assets/bgm/109-pewter_city_theme.mp3');
+  bgm.volume = 0.05;
 
   const body = document.querySelector('body');
   const board = document.querySelector('#board');
