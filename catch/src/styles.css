@@ -37,16 +37,13 @@ body {
   border: 5px black solid;
   border-radius: 15px;
   position: relative;
-  /* background-color: white; */
-  background-image: url("https://yoyoyojoe.github.io/catch/assets/grass-field.jpg");
+  background: url("https://yoyoyojoe.github.io/catch/assets/grass-field.jpg");
+  background-repeat: no-repeat;
+  background-size: 700px 700px;
   z-index: 0;
-  background-position: center;
-  background-attachment: fixed;
-  background-size: auto;
   -o-background-size: cover;
   -moz-background-size: cover;
   -webkit-background-size: cover;
-  background-repeat: repeat no-repeat;
 }
 
 /* snake head but really ash: (id) */
@@ -55,12 +52,6 @@ body {
   width: 50px;
   position: absolute;
   z-index: 2;
-  /* box-sizing: border-box;
-  background: black;
-  background-color: #796d43;
-  border: 1px solid black;
-  border-right: 5px solid #a05740;
-  border-radius: 10px; */
 }
 
 /* snake body but really pikachu: (class) */
@@ -69,10 +60,6 @@ body {
   width: 50px;
   position: absolute;
   z-index: 1;
-  /* background: black; */
-  /* background-color: #b3a972; */
-  /* border: 1px solid black; */
-  /* border-radius: 10px; */
 }
 
 /* apple but really pokeball: (id) */
@@ -165,7 +152,6 @@ body {
 #again:hover {
   background-color: black;
   color: white;
-  padding: 5px 45px 5px 50px;
 }
 
 /* game over image: */
