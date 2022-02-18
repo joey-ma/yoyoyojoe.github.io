@@ -1,3 +1,6 @@
+let intro = new Audio('./assets/bgm/106-the_road_to_viridian_city-from_palette.mp3');
+let bgm = new Audio('./assets/bgm/109-pewter_city_theme.mp3');
+
 class Head {
   constructor(el) {
     this.node = document.createElement('img');
