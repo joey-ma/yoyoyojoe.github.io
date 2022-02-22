@@ -1,16 +1,14 @@
-let intro = new Audio('./assets/bgm/106-the_road_to_viridian_city-from_palette.mp3');
-let bgm = new Audio('./assets/bgm/109-pewter_city_theme.mp3');
-
 class Head {
   constructor(el) {
     this.node = document.createElement('img');
-    this.node.setAttribute('id', 'head');
-    this.node.setAttribute('src', 'assets/ash.png');
+    this.node.setAttribute('class', 'head');
+    this.node.setAttribute('src', 'assets/img/ash.png');
     el.appendChild(this.node);
 
-    this.score = 0; // initial score
+    this.score = document.getElementById(''); // initial score
     this.scoreboard = document.querySelector('#scoreboard');
 
+    this.input = '';
     this.currentDirection = '';
     this.SPEED = 250; // ms
 
@@ -20,11 +18,12 @@ class Head {
 
     this.snakeBody = []; // <-- holds the body
 
+    // sfx setup
     this.bonk = new Audio('./assets/sfx/bonk.mp3');
-    this.bonk.volume = 0.05;
+    this.bonk.volume = 0.15;
 
     this.death = new Audio();
-    this.death.volume = 0.2;
+    this.death.volume = 0.15;
     this.death.src = './assets/bgm/145-ending.mp3';
 
     this.pikaSounds = [
@@ -43,7 +42,9 @@ class Head {
 
   move() {
     const head = this.node;
+    this.currentDirection = this.input;
     const direction = this.currentDirection;
+    // console.log(apple);
 
     let leftPosition = Number(head.style.left.replace('px', '')); // snake head's x
     let topPosition = Number(head.style.top.replace('px', '')); // snake head's y
@@ -65,10 +66,12 @@ class Head {
     if (direction === 'left') {
       if (leftPosition <= 0) this.gameOver();
       head.style.left = `${(leftPosition -= 50)}px`;
-    } else if (direction === 'down') {
+    }
+    if (direction === 'down') {
       if (topPosition >= 650) this.gameOver();
       head.style.top = `${(topPosition += 50)}px`;
-    } else if (direction === 'up') {
+    }
+    if (direction === 'up') {
       if (topPosition <= 0) this.gameOver();
       head.style.top = `${(topPosition -= 50)}px`;
     }
@@ -77,18 +80,18 @@ class Head {
     if (leftPosition === appleLeft && topPosition === appleTop) {
       // apple is eaten / remove apple from board / place newApple / speed up ever so slightly
       apple.remove();
-      const newApple = new Apple(board);
+      new Apple(board);
       this.SPEED -= 5;
 
       // increment score
-      this.score += 500;
+      this.score += 50;
 
       // ramdomize a new audio clip each time when capturing a pikachu
       const atRandom = Math.floor(Math.random() * this.pikaSounds.length);
       this.eat = this[atRandom];
-      this.eat.volume = 0.1;
+      this.eat.volume = 0.2;
       this.eat.play();
-      scoreboard.innerText = `Score: ${this.score}`; // updates score
+      this.scoreboard.innerText = `Score: ${this.score}`; // updates score
 
     } else {
       // remove the added body if snake did not eat
@@ -127,16 +130,16 @@ class Head {
 
     // conditional end game message
     if (this.tripped) {
-      document.querySelector('#score').innerText = `Score: ${this.score}\nOh no! You tripped over a pokeball and died!`;
+      document.querySelector('#score').innerText = `Score: ${this.score}\nOh no! You tripped over a pokeball!`;
     } else {
-      document.querySelector('#score').innerText = `Score: ${this.score}`;
+      document.querySelector('#score').innerText = `Score: ${this.score}\nOh no! You've run into the wall hard!`;
     }
 
+    var musicPlayer = document.querySelector('#controllersContainer > audio');
+    if (musicPlayer) musicPlayer.pause();
 
     this.death.play();
-    if (!!intro) intro.pause();
-    if (!!bgm) bgm.pause();
+
     clearTimeout(time);
   }
-
 }

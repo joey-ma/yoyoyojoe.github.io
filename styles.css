@@ -169,9 +169,3 @@ button {
   /* align-items: center; */
   color: #202020;
 }
-
-pre {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}

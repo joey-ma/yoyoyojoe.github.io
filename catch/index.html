@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,15 +9,18 @@
   <script src='src/Body.js' defer></script>
   <script src='src/Apple.js' defer></script>
   <link rel="stylesheet" href="src/styles.css">
-  <link rel="shortcut icon" type="image/jpg" href="assets/pokeball-icon.png"/>
+  <link rel="shortcut icon" type="image/jpg" href="assets/img/pokeball-icon.png"/>
 </head>
 <body>
+    <div id="scoreboard">Score: 0</div>
+  <div id="controllersContainer">
+    <audio src="./assets/bgm/106-the_road_to_viridian_city-from_palette.mp3" controls></audio>
+  </div>
   <div id="board"></div>
-  <div id="scoreboard">Score: 0</div>
   <!-- scoreboard hides behind board -->
   <div id="darken"></div>
   <div id="gameover">
-    <img id="GG" src="assets/gameover.png">
+    <img id="GG" src="assets/img/gameover.png">
     <h2 id="score">Score: 0</h2>
     <button id="again">Play Again?</button>
   </div>
