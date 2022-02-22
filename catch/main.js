@@ -1,7 +1,7 @@
-const paused = {
-  speed: 250,
-  status: false
-};
+// const paused = {
+//   speed: 250,
+//   status: false
+// };
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -11,8 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
     'Pressing E will set game level to Easy;\n' +
     'pressing N will set game level to Normal;\n' +
     'pressing Hard will set game level to Hard;\n' +
-    'pressing Enter will restart the game.' +
-    '';
+    'pressing Enter will restart the game;' +
+    'and finally, pressing M will mute the audio!';
+
   console.log(welcomeMessage);
 
   // bgm setup
@@ -86,11 +87,25 @@ document.addEventListener('DOMContentLoaded', () => {
         head.SPEED = 75;
         console.log('Game level set to Hard.');
         break;
+      // music play / pause feature not working well
+      // musicPlayer.play(); // works fine, but not working with pause()
+      // musicPlayer.pause(); // not working
+      // console.log('Music is not paused:', musicPlayer.pause); // logs function definition
+      // custom muting function
+      case 'KeyM':
+        if (musicPlayer.volume === 0) {
+          musicPlayer.volume = 0.15;
+          console.log('Music volume turned to 0.15 here.');
+        } else {
+          musicPlayer.volume = 0;
+          console.log('Music volume turned to 0 here.');
+        }
+        break;
       // reloads page when hitting 'Enter' key
       case 'Enter':
         window.location.reload();
         break;
-      // todo stretch feature: pause functionality ... wip
+      // todo stretch feature: pause functionality ...
       // case 'Space':
       //   console.log(head.SPEED);
       //   if (!paused.status) {
@@ -109,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(`${e.code} is not recognized`);
     }
 
-    // same effect as switch statement above: which one is better?
+    // same effect as switch statement above: 
     // if (e.code === 'ArrowLeft' && head.currentDirection !== 'right') {
     //   head.input = 'left';
     // }
@@ -126,6 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const easyButton = document.createElement('button');
+  easyButton.setAttribute('class', 'challengeLevel');
   easyButton.innerText = 'Easy';
   easyButton.addEventListener('click', () => {
     console.log('Game level set to Easy.');
@@ -133,6 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const normalButton = document.createElement('button');
+  normalButton.setAttribute('class', 'challengeLevel');
   normalButton.innerText = 'Normal';
   normalButton.addEventListener('click', () => {
     console.log('Game level set to Normal.');
@@ -140,6 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const hardButton = document.createElement('button');
+  normalButton.setAttribute('class', 'challengeLevel');
   hardButton.innerText = 'Hard';
   hardButton.addEventListener('click', () => {
     console.log('Game level set to Hard.');
@@ -163,10 +181,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // todo stretch features?
   // - add a pause functionality when hitting space bar
   // - throttling seems not needed in current set up, but would be needed if this.input is removed
-  // - instead of reducing chance of apple spawning where snake is, maybe rework logic?
+  // - instead of reducing chance of apple spawning where snake is, maybe rework logic? //* done!
   // - currently music plays a number of songs, maybe more advanced algo would be meaningful for larger game
+  // - add ability to turn off the music as it can get annoying :P //* done!
   // - look into error message(s):
-  // Uncaught ReferenceError: time is not defined
+  // Uncaught ReferenceError: time is not defined // ? but seems needed
   // at Head.gameOver(Head.js: 144: 18)
   // at Head.move(Head.js: 75: 34)
 

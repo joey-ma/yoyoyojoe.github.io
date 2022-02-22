@@ -1,3 +1,5 @@
+const snakeBody = []; // <-- holds the body
+
 class Head {
   constructor(el) {
     this.node = document.createElement('img');
@@ -15,8 +17,6 @@ class Head {
     // place ash near the center of the board
     this.node.style.top = '300px';
     this.node.style.left = '300px';
-
-    this.snakeBody = []; // <-- holds the body
 
     // sfx setup
     this.bonk = new Audio('./assets/sfx/bonk.mp3');
@@ -44,35 +44,43 @@ class Head {
     const head = this.node;
     this.currentDirection = this.input;
     const direction = this.currentDirection;
-    // console.log(apple);
+
+    // add a body part continuously
+    const bodyPart = new Body(head.style.left, head.style.top);
+    // push body into array to keep track
+    snakeBody.push(bodyPart);
+    // note: there's always one invisible body part (the last one)
 
     let leftPosition = Number(head.style.left.replace('px', '')); // snake head's x
     let topPosition = Number(head.style.top.replace('px', '')); // snake head's y
     let appleLeft = Number(apple.style.left.replace('px', '')); // apple's x
     let appleTop = Number(apple.style.top.replace('px', '')); // apple's y
 
-    // keep adding a body part
-    const body = new Body(head.style.left, head.style.top);
-    // push body into array to keep track
-    this.snakeBody.push(body);
-
     // logic: 
     // 1. game over if snake hits border
     // 2. if not, move snake head
     if (direction === 'right') {
       if (leftPosition >= 650) this.gameOver();
+      // minusX = head.style.left;
+      // minusY = head.style.top;
       head.style.left = `${(leftPosition += 50)}px`;
     }
     if (direction === 'left') {
       if (leftPosition <= 0) this.gameOver();
+      // minusX = head.style.left;
+      // minusY = head.style.top;
       head.style.left = `${(leftPosition -= 50)}px`;
     }
     if (direction === 'down') {
       if (topPosition >= 650) this.gameOver();
+      // minusX = head.style.left;
+      // minusY = head.style.top;
       head.style.top = `${(topPosition += 50)}px`;
     }
     if (direction === 'up') {
       if (topPosition <= 0) this.gameOver();
+      // minusX = head.style.left;
+      // minusY = head.style.top;
       head.style.top = `${(topPosition -= 50)}px`;
     }
 
@@ -80,7 +88,13 @@ class Head {
     if (leftPosition === appleLeft && topPosition === appleTop) {
       // apple is eaten / remove apple from board / place newApple / speed up ever so slightly
       apple.remove();
-      new Apple(board);
+
+      const newApple = new Apple(board);
+      // const { left, top } = newApple.node.style;
+      // console.log(`(in Head.js) new apple: [x, y] = [${left}, ${top}]`);
+
+
+
       this.SPEED -= 5;
 
       // increment score
@@ -94,22 +108,23 @@ class Head {
       this.scoreboard.innerText = `Score: ${this.score}`; // updates score
 
     } else {
-      // remove the added body if snake did not eat
-      this.snakeBody.shift().node.remove();
+      // if the snake did not eat apple (as the game continues)
+      // remove the added body
+      snakeBody.shift().node.remove();
     }
 
     // game over: when snake crashes into itself
-    for (let i = 0; i < this.snakeBody.length; i++) {
+    for (let i = 0; i < snakeBody.length; i++) {
       // identify type of death
       this.tripped =
-        leftPosition === Number(this.snakeBody[i].node.style.left.replace('px', ''))
-        && topPosition === Number(this.snakeBody[i].node.style.top.replace('px', ''));
+        leftPosition === Number(snakeBody[i].node.style.left.replace('px', ''))
+        && topPosition === Number(snakeBody[i].node.style.top.replace('px', ''));
 
       if (this.tripped) {
         this.gameOver();
       }
-      if (appleLeft === Number(this.snakeBody[i].node.style.left.replace('px', ''))
-        && appleTop === Number(this.snakeBody[i].node.style.top.replace('px', ''))) {
+      if (appleLeft === Number(snakeBody[i].node.style.left.replace('px', ''))
+        && appleTop === Number(snakeBody[i].node.style.top.replace('px', ''))) {
         // reduce chance of apple spawning where snake is
         apple.remove();
         new Apple(board);
@@ -121,6 +136,10 @@ class Head {
   }
 
   gameOver() {
+    // take off the last body part added 
+    // (the body part generated at the last location of the head)
+    snakeBody.pop().node.remove();
+
     this.bonk.play();
 
     setTimeout(() => {
