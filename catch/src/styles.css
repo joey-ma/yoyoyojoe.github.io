@@ -106,12 +106,12 @@ button:hover {
 
 /* animation for when pokeball appears */
 @keyframes wiggle {
-  0% { transform: skewX(9deg); opacity: 0} 
+  0% { transform: skewX(9deg); opacity: 0 } 
   10% { transform: skewX(-8deg); } 
   20% { transform: skewX(7deg); } 
   30% { transform: skewX(-6deg); } 
   40% { transform: skewX(5deg); } 
-  50% { transform: skewX(-4deg); opacity: 1} 
+  50% { transform: skewX(-4deg); opacity: 1 } 
   60% { transform: skewX(3deg); } 
   70% { transform: skewX(-2deg); } 
   80% { transform: skewX(1deg); } 
