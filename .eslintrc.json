@@ -4,37 +4,25 @@
     "es2021": true
   },
   "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "airbnb"
   ],
-  // "parser": "@babel/eslint-parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": 13,
+    "ecmaVersion": "latest",
     "sourceType": "module"
   },
   "plugins": [
     "html",
+    "json-format",
     "react"
   ],
+  "settings": {
+    "json/json-with-comments-files": []
+  },
   "rules": {
-    "indent": [
-      "error",
-      2
-    ],
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
-    "quotes": [
-      "error",
-      "single"
-    ],
-    "semi": [
-      "error",
-      "always"
-    ]
+    "indent": ["error", 2]
   }
 }
