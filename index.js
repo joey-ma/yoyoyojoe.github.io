@@ -40,6 +40,22 @@ document.addEventListener('pointerup', (e) => {
   }
 });
 
+document.querySelector('.login').addEventListener('touchend', () => {
+  if (fakeBtn) {
+    fetch(`http://api.ipstack.com/check?access_key=${$}`)
+      .then((response) => response.json())
+      .then((data) => {
+        // console.log('your ip address is: ', data.ip);
+        console.log(
+          data.ip,
+          'Your visit has been logged.',
+        );
+        const access = document.querySelector('.special-access');
+        access.style.display = 'none';
+      });
+  }
+});
+
 document.querySelector('#catch').addEventListener('click', () => {
   const catchWindow = window.open(
     'https://yoyoyojoe.github.io/catch',
