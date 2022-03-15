@@ -7,6 +7,6 @@ class Body {
     this.node.style.left = x;
     this.node.style.top = y;
 
-    board.appendChild(this.node);
+    gameboard.appendChild(this.node);
   }
 }

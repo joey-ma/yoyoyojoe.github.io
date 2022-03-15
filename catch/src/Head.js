@@ -14,7 +14,7 @@ class Head {
     this.currentDirection = '';
     this.SPEED = 250; // ms
 
-    // place ash near the center of the board
+    // place ash near the center of the gameboard
     this.node.style.top = '300px';
     this.node.style.left = '300px';
 
@@ -86,10 +86,10 @@ class Head {
 
     // when snake eats apple
     if (leftPosition === appleLeft && topPosition === appleTop) {
-      // apple is eaten / remove apple from board / place newApple / speed up ever so slightly
+      // apple is eaten / remove apple from gameboard / place newApple / speed up ever so slightly
       apple.remove();
 
-      const newApple = new Apple(board);
+      const newApple = new Apple(gameboard);
       // const { left, top } = newApple.node.style;
       // console.log(`(in Head.js) new apple: [x, y] = [${left}, ${top}]`);
 
@@ -127,7 +127,7 @@ class Head {
         && appleTop === Number(snakeBody[i].node.style.top.replace('px', ''))) {
         // reduce chance of apple spawning where snake is
         apple.remove();
-        new Apple(board);
+        new Apple(gameboard);
       }
     }
 

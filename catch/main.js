@@ -52,10 +52,10 @@ document.addEventListener('DOMContentLoaded', () => {
   musicPlayer = getMusicPlayer();
 
   const body = document.querySelector('body');
-  const board = document.querySelector('#board');
+  const gameboard = document.querySelector('#gameboard');
 
-  const head = new Head(board);
-  const apple = new Apple(board);
+  const head = new Head(gameboard);
+  const apple = new Apple(gameboard);
 
   // 'keydown' is the case-sensitive string of event type to listen for
   body.addEventListener('keydown', (e) => {

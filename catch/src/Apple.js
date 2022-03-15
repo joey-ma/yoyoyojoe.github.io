@@ -11,7 +11,7 @@ class Apple {
   }
 
   newPlacement() {
-    // since board is 700px x 700px && apple size is 50px x 50px
+    // since gameboard is 700px x 700px && apple size is 50px x 50px
     // randomize the starting place of apple / pokeball
     const x = `${Math.floor(Math.random() * 14) * 50}px`; // needs the px
     const y = `${Math.floor(Math.random() * 14) * 50}px`;
