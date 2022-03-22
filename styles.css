@@ -87,7 +87,6 @@ button {
   position: absolute; 
   /* inside of our dropdown container */
   top: calc(100% + .25rem);
-  right: -25%;
   background-color: white;
   padding: 0rem .75rem .75rem;
   border-radius: .25rem;
