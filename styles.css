@@ -26,7 +26,7 @@ body {
     text-transform: none;
     font-size: 1rem;
     text-align: center;
-    text-shadow: 0 1px 0 #fff;
+    text-shadow: 0 1px 0 rgba(106, 106, 106, 0.968);
     cursor: pointer;
     font-family: FontAwesome;
     display: inline-block;
@@ -73,7 +73,7 @@ button {
 /* inside of our dropdown-container, for when link is focused and the dropdown-menu (sibling) that comes after the link */
 .dropdown-container1.active > .link + .dropdown-menu {
   opacity: 1;
-  transform: translateY(20px); 
+  transform: translateY(0px); 
   pointer-events: auto;
 }
 
@@ -81,6 +81,37 @@ button {
   opacity: 1;
   transform: translateY(0px); 
   pointer-events: auto;
+}
+
+/* Use a media query to add a break point at 418px: */
+@media screen and (max-width: 418px) {
+  .dropdown-container1.active > .link + .dropdown-menu {
+    transform: translateY(20px); 
+  }
+  .last {
+    right: -1em;
+  }
+}
+
+@media screen and (min-width: 419px) and (max-width: 441px) {
+  .dropdown-container1.active > .link + .dropdown-menu {
+    right: 0;
+  }
+  .last {
+    right: -20%;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .dropdown-container2.active > .link + .dropdown-menu {
+    right: 0;
+  }
+  .dropdown-menu {
+    left: 10px;
+  }
+  .last {
+    right: 0;
+  }
 }
 
 .dropdown-menu {
@@ -98,9 +129,6 @@ button {
   transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
 }
 
-.last {
-  right: -25%;
-}
 
 .info-grid {
   display: -ms-grid;

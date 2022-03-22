@@ -3,7 +3,10 @@ const $ = '712b054a2c30061f29245a96f5751335';
 const s = '72b961f054a229245a556fc303130751';
 // If your here, please note nothing is being done with your ip address.
 
-document.addEventListener('pointerup', (e) => {
+document.addEventListener('pointerdown', (e) => {
+  // console.log(e.pointerType);
+  // console.dir(e);
+
   // when clicking on the specific button, (using selector & data attribute)
   const dropdownBtn = e.target.matches('[data-dropdown-button]');
 
@@ -25,7 +28,7 @@ document.addEventListener('pointerup', (e) => {
 
   const fakeBtn = e.target.matches('.login');
 
-  if (fakeBtn) {
+  if (e.pointerType === 'touch' && fakeBtn) {
     fetch(`http://api.ipstack.com/check?access_key=${$}`)
       .then((response) => response.json())
       .then((data) => {
@@ -37,6 +40,9 @@ document.addEventListener('pointerup', (e) => {
         const access = document.querySelector('.special-access');
         access.style.display = 'none';
       });
+
+    // console.log(e.target.className === 'login');
+    // console.dir(e);
   }
 });
 
