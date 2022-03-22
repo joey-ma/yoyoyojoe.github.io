@@ -23,6 +23,7 @@
     "json/json-with-comments-files": []
   },
   "rules": {
-    "indent": ["error", 2]
+    "indent": ["error", 2],
+    "no-console": "off"
   }
 }

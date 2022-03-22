@@ -1,6 +1,4 @@
-const S = '712513b96fc30061f054a229245a5735';
 const $ = '712b054a2c30061f29245a96f5751335';
-const s = '72b961f054a229245a556fc303130751';
 // If your here, please note nothing is being done with your ip address.
 
 document.addEventListener('pointerdown', (e) => {
@@ -28,41 +26,57 @@ document.addEventListener('pointerdown', (e) => {
 
   const fakeBtn = e.target.matches('.login');
 
-  if (e.pointerType === 'touch' && fakeBtn) {
+  if (fakeBtn) {
     fetch(`http://api.ipstack.com/check?access_key=${$}`)
       .then((response) => response.json())
       .then((data) => {
         // console.log('your ip address is: ', data.ip);
         console.log(
-          data.ip,
-          'Your visit has been logged.',
+          `Visitor at ${data.ip}, your visit has been logged. `
+          + `According to this IP address, your current location is at or near ${data.city}, ${data.region_name} in ${data.country_name} ${data.location.country_flag_emoji}, and your country's language is ${data.location.languages[0].native}. `
+          + 'Do not worry, this is only an exercise for fun. - from the developer.',
         );
-        const access = document.querySelector('.special-access');
-        access.style.display = 'none';
       });
+    const access = document.querySelector('.special-access');
+    access.style.display = 'none';
 
     // console.log(e.target.className === 'login');
     // console.dir(e);
   }
 });
 
-// document.querySelector('.login').addEventListener('touchend', () => {
-//   if (fakeBtn) {
-//     fetch(`http://api.ipstack.com/check?access_key=${$}`)
-//       .then((response) => response.json())
-//       .then((data) => {
-//         // console.log('your ip address is: ', data.ip);
-//         console.log(
-//           data.ip,
-//           'Your visit has been logged.',
-//         );
-//         const access = document.querySelector('.special-access');
-//         access.style.display = 'none';
-//       });
-//   }
-// });
+/* the reason Fake Button doesn't work on mobile devices: I'm on the free plan!
+
+> index.js:32
+Mixed Content: The page at 'https://yoyoyojoe.github.io/' was loaded over HTTPS, but requested an insecure resource 'http://api.ipstack.com/check?access_key=712b054a2c30061f29245a96f5751335'. This request has been blocked; the content must be served over HTTPS.
+> (anonymous) @ index.js:32
+
+> yoyoyojoe.github.io/:1
+Uncaught (in promise) TypeError: Failed to fetch
+Promise.then (async)
+> (anonymous) @ index.js:34
+
+> https://ipstack.com/documentation
+
+Connecting via HTTPS
+
+All premium subscription plans come with support for 256-bit SSL encryption.
+To connect to the API via HTTPS, simply use the https protocol instead of standard http.
+
+> https://ipstack.com/product
+
+FREE
+
+$0
+No hidden costs
+
+SHOW OPTIONS
+100 requests / mo
+Limited Support
+Location Module */
 
 document.querySelector('#catch').addEventListener('click', () => {
+  // eslint-disable-next-line no-unused-vars
   const catchWindow = window.open(
     'https://yoyoyojoe.github.io/catch',
     'Catch - A Tribute to Snake Game',
