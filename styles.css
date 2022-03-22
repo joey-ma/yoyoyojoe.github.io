@@ -58,19 +58,26 @@ button {
   padding: 0;
 }
 
-.dropdown-container {
+.dropdown-container1, .dropdown-container2 {
   position: relative;
   display: flex;
   align-items: center;
 }
 
 /* focus: keyboard or mouse event */
-.dropdown-container.active > .link, .link:hover {
+.dropdown-container1.active > .link, .link:hover, 
+.dropdown-container2.active > .link, .link:hover {
   color: black;
 }
 
 /* inside of our dropdown-container, for when link is focused and the dropdown-menu (sibling) that comes after the link */
-.dropdown-container.active > .link + .dropdown-menu {
+.dropdown-container1.active > .link + .dropdown-menu {
+  opacity: 1;
+  transform: translateY(20px); 
+  pointer-events: auto;
+}
+
+.dropdown-container2.active > .link + .dropdown-menu {
   opacity: 1;
   transform: translateY(0px); 
   pointer-events: auto;
@@ -80,6 +87,7 @@ button {
   position: absolute; 
   /* inside of our dropdown container */
   top: calc(100% + .25rem);
+  right: -25%;
   background-color: white;
   padding: 0rem .75rem .75rem;
   border-radius: .25rem;
@@ -141,6 +149,7 @@ button {
 .special-access {
   right: 2em;
   bottom: 2em;
+  cursor: pointer;
   pointer-events: auto;
 }
 
