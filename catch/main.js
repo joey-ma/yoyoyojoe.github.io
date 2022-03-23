@@ -189,6 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   window.addEventListener('touchstart', (e) => {
+    e.preventDefault();
     touch.start.x = e.changedTouches[0].clientX;
     touch.start.y = e.changedTouches[0].clientY;
   });
@@ -224,54 +225,14 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // todo stretch features?
-// - add a pause functionality when hitting space bar
-// - throttling seems not needed in current set up, but would be needed if this.input is removed
+// - added iPad compatibility so game supports touch input swiping up, down, left, right // * done!
 // - instead of reducing chance of apple spawning where snake is, maybe rework logic? // * done!
+// - add ability to turn off the music as it can get annoying :P // * done!
+// - turn off the music autoplay :P // * done!
+// - throttling seems not needed in current set up, but would be needed if this.input is removed
 // - currently music plays a small number of songs, a more advanced algo would be a plus
-// - add ability to turn off the music as it can get annoying :P // * done!
-// - add ability to turn off the music as it can get annoying :P // * done!
+// - add a pause functionality when hitting space bar
 // - look into error message(s):
 // Uncaught ReferenceError: time is not defined // ? seems like it is needed though
 // at Head.gameOver(Head.js: 144: 18)
 // at Head.move(Head.js: 75: 34)
-
-// const touchmoves = [];
-// function touchEventHandler(e) {
-//   let swipeLeft; let swipeRight; let swipeUp; let SwipeDown;
-//   console.log('1. new event');
-//   console.log(touchmoves);
-//   switch (e.type) {
-//     case 'touchstart':
-//       const touchstartClientX = e.changedTouches[0].clientX;
-//       const touchstartClientY = e.changedTouches[0].clientY;
-//       console.log(`2. touchstart, [x, y]: [${touchstartScreenX} ${touchstartScreenY}]`);
-//       const midpointScreenX = window.screen.width / 2;
-//       const midpointScreenY = window.screen.height / 2;
-//       const left = touchstartScreenX < midpointScreenX;
-//       const top = touchstartScreenY < midpointScreenY;
-//       console.log(`3. left ${left}, top ${top}`);
-//       console.log(`4. x ${touchstartScreenX}, y ${touchstartScreenY}`);
-
-//       break;
-//     case 'touchmove':
-//       console.log('moving');
-//       touchmoves.push([e.changedTouches[0].clientX, e.changedTouches[0].clientY]);
-//       const touchstartX = touchmoves[0][0];
-//       const touchstartY = touchmoves[0][1];
-//       const touchendX = touchmoves[touchmoves.length - 1][0];
-//       const touchendY = touchmoves[touchmoves.length - 1][1];
-//       console.log(`touhch start [x, y]: [${touchstartX}, ${touchstartY}]`);
-//       console.log(`DIFFERENCE of X: ${touchstartX} - ${touchendX} = ${touchstartX - touchendX}`);
-
-//       break;
-//     case 'touchend':
-//       const touchendClientX = e.changedTouches[0].clientX;
-//       const touchendClientY = e.changedTouches[0].clientY;
-
-//       console.log('end');
-//       break;
-//     default:
-//       // console.log(`${e.code} is not recognized`);
-//       break;
-//   }
-// }
