@@ -35,7 +35,9 @@ class Head {
       './assets/sfx/pika-pika-pika-chu.mp3',
       './assets/sfx/pika-pika-pika-pika.mp3',
     ];
-    this.pikaSounds.forEach((el, i) => this[i] = new Audio(el));
+    this.pikaSounds.forEach((sfx, i) => {
+      this[i] = new Audio(sfx);
+    });
 
     setTimeout(this.move.bind(this), this.SPEED);
   }
@@ -53,10 +55,10 @@ class Head {
 
     let leftPosition = Number(head.style.left.replace('px', '')); // snake head's x
     let topPosition = Number(head.style.top.replace('px', '')); // snake head's y
-    let appleLeft = Number(apple.style.left.replace('px', '')); // apple's x
-    let appleTop = Number(apple.style.top.replace('px', '')); // apple's y
+    const appleLeft = Number(apple.style.left.replace('px', '')); // apple's x
+    const appleTop = Number(apple.style.top.replace('px', '')); // apple's y
 
-    // logic: 
+    // logic:
     // 1. game over if snake hits border
     // 2. if not, move snake head
     if (direction === 'right') {
@@ -93,8 +95,6 @@ class Head {
       // const { left, top } = newApple.node.style;
       // console.log(`(in Head.js) new apple: [x, y] = [${left}, ${top}]`);
 
-
-
       this.SPEED -= 5;
 
       // increment score
@@ -106,7 +106,6 @@ class Head {
       this.eat.volume = 0.2;
       this.eat.play();
       this.scoreboard.innerText = `Score: ${this.score}`; // updates score
-
     } else {
       // if the snake did not eat apple (as the game continues)
       // remove the added body
@@ -116,8 +115,7 @@ class Head {
     // game over: when snake crashes into itself
     for (let i = 0; i < snakeBody.length; i++) {
       // identify type of death
-      this.tripped =
-        leftPosition === Number(snakeBody[i].node.style.left.replace('px', ''))
+      this.tripped = leftPosition === Number(snakeBody[i].node.style.left.replace('px', ''))
         && topPosition === Number(snakeBody[i].node.style.top.replace('px', ''));
 
       if (this.tripped) {
@@ -136,7 +134,7 @@ class Head {
   }
 
   gameOver() {
-    // take off the last body part added 
+    // take off the last body part added
     // (the body part generated at the last location of the head)
     snakeBody.pop().node.remove();
 
@@ -154,7 +152,7 @@ class Head {
       document.querySelector('#score').innerText = `Score: ${this.score}\nOh no! You've run into the wall hard!`;
     }
 
-    var musicPlayer = document.querySelector('#controllersContainer > audio');
+    const musicPlayer = document.querySelector('#controllersContainer > audio');
     if (musicPlayer) musicPlayer.pause();
 
     this.death.play();

@@ -16,40 +16,40 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log(welcomeMessage);
 
   // bgm setup
-  let musicPlayer;
+  // let musicPlayer;
 
-  async function getMusicPlayer() {
-    musicPlayer = await document.querySelector('#controllersContainer > audio');
-    musicPlayer.volume = 0.15;
-    musicPlayer.play();
+  // async function getMusicPlayer() {
+  const musicPlayer = document.querySelector('#controllersContainer > audio');
+  musicPlayer.volume = 0.15;
+  // musicPlayer.play();
 
-    const bgmFiles = [
-      './assets/bgm/109-pewter_city_theme.mp3',
-      './assets/bgm/133-celadon_city.mp3',
-      './assets/bgm/107-battle_vs_wild_pokemon.mp3',
-    ];
+  const bgmFiles = [
+    './assets/bgm/109-pewter_city_theme.mp3',
+    './assets/bgm/133-celadon_city.mp3',
+    './assets/bgm/107-battle_vs_wild_pokemon.mp3',
+  ];
 
-    let i = 0;
+  let i = 0;
 
-    // listen for the music ended event, to play the next audio file
-    musicPlayer.addEventListener('ended', () => {
-      if (i < bgmFiles.length) {
-        musicPlayer.src = bgmFiles[i];
-        i += 1;
-        // if intro music ends, play next song
-        musicPlayer.play();
-        // musicPlayer.loop = true;
-      } else {
-        i = 0;
-        musicPlayer.src = bgmFiles[i];
-        i += 1;
-        // if intro music ends, play next song
-        musicPlayer.play();
-      }
-    }, false);
-  }
+  // listen for the music ended event, to play the next audio file
+  musicPlayer.addEventListener('ended', () => {
+    if (i < bgmFiles.length) {
+      musicPlayer.src = bgmFiles[i];
+      i += 1;
+      // if intro music ends, play next song
+      musicPlayer.play();
+      // musicPlayer.loop = true;
+    } else {
+      i = 0;
+      musicPlayer.src = bgmFiles[i];
+      i += 1;
+      // if intro music ends, play next song
+      musicPlayer.play();
+    }
+  }, false);
+  // }
 
-  musicPlayer = getMusicPlayer();
+  // musicPlayer = getMusicPlayer();
 
   const body = document.querySelector('body');
   const gameboard = document.querySelector('#gameboard');
@@ -71,11 +71,11 @@ document.addEventListener('DOMContentLoaded', () => {
       case 'ArrowRight':
         if (head.currentDirection !== 'left') head.input = 'right';
         break;
-      case 'ArrowDown':
-        if (head.currentDirection !== 'up') head.input = 'down';
-        break;
       case 'ArrowUp':
         if (head.currentDirection !== 'down') head.input = 'up';
+        break;
+      case 'ArrowDown':
+        if (head.currentDirection !== 'up') head.input = 'down';
         break;
       // using keyboard for speed management: e = easy, n = normal, h = hard
       case 'KeyE':
@@ -192,22 +192,24 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     touch.start.x = e.changedTouches[0].clientX;
     touch.start.y = e.changedTouches[0].clientY;
+    console.log(`x, y starting points: ${touch.start.x}, ${touch.start.y}`);
   });
-  gameboard.addEventListener('touchend', (e) => {
+
+  gameboard.addEventListener('touchmove', (e) => {
+    // gameboard.addEventListener('touchend', (e) => {
     e.preventDefault();
     touch.end.x = e.changedTouches[0].clientX;
     touch.end.y = e.changedTouches[0].clientY;
-    console.log(`x, y starting points: ${touch.start.x}, ${touch.start.y}`);
     console.log(`x, y ending points: ${touch.end.x}, ${touch.end.y}`);
     const xDifference = touch.end.x - touch.start.x;
-    // > 30 means swipe right || < -30 means swipe left
+    // < -30 means swipe left || > 30 means swipe right
     const yDifference = touch.end.y - touch.start.y;
-    //  > 30 means swipe down || < -30 means swipe up
+    // < -30 means swipe up || > 30 means swipe down
     const swipeLeft = xDifference < -30;
     const swipeRight = xDifference > 30;
-    const swipeUp = yDifference > 30;
-    const swipeDown = yDifference < -30;
-    console.log(`x, y differences: ${xDifference}, ${yDifference}`);
+    const swipeUp = yDifference < -30;
+    const swipeDown = yDifference > 30;
+    console.log(`x, y differences: ${xDifference}, ${yDifference}, ${swipeUp}`);
 
     if (swipeLeft && Math.abs(xDifference) > Math.abs(yDifference) && head.currentDirection !== 'right') {
       head.input = 'left';
@@ -216,10 +218,10 @@ document.addEventListener('DOMContentLoaded', () => {
       head.input = 'right';
     }
     if (swipeUp && Math.abs(xDifference) < Math.abs(yDifference) && head.currentDirection !== 'up') {
-      head.input = 'down';
+      head.input = 'up';
     }
     if (swipeDown && Math.abs(xDifference) < Math.abs(yDifference) && head.currentDirection !== 'down') {
-      head.input = 'up';
+      head.input = 'down';
     }
   });
   // end of DOMContentLoaded event listener
