@@ -188,12 +188,13 @@ document.addEventListener('DOMContentLoaded', () => {
     end: { x: null, y: null },
   };
 
-  window.addEventListener('touchstart', (e) => {
+  gameboard.addEventListener('touchstart', (e) => {
     e.preventDefault();
     touch.start.x = e.changedTouches[0].clientX;
     touch.start.y = e.changedTouches[0].clientY;
   });
-  window.addEventListener('touchend', (e) => {
+  gameboard.addEventListener('touchend', (e) => {
+    e.preventDefault();
     touch.end.x = e.changedTouches[0].clientX;
     touch.end.y = e.changedTouches[0].clientY;
     console.log(`x, y starting points: ${touch.start.x}, ${touch.start.y}`);
