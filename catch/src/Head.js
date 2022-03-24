@@ -7,7 +7,8 @@ class Head {
     this.node.setAttribute('src', 'assets/img/ash.png');
     el.appendChild(this.node);
 
-    this.score = document.getElementById(''); // initial score
+    console.dir(document.getElementById('score'));
+    this.score = Number(document.getElementById('score').innerText); // initial score
     this.scoreboard = document.querySelector('#scoreboard');
 
     this.input = '';
@@ -151,9 +152,9 @@ class Head {
 
     // conditional end game message
     if (this.tripped) {
-      document.querySelector('#score').innerText = `Score: ${this.score} \nOh no! You tripped over a pokeball!`;
+      document.querySelector('#score').innerText = `${this.score} \nOh no! You tripped over a pokeball!`;
     } else {
-      document.querySelector('#score').innerText = `Score: ${this.score} \nOh no! You've run into the wall hard!`;
+      document.querySelector('#score').innerText = `${this.score} \nOh no! You've run into the wall hard!`;
     }
 
     const musicPlayer = document.querySelector('#controllersContainer > audio');

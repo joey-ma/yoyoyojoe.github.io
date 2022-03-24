@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const head = new Head(gameboard);
   const apple = new Apple(gameboard);
 
+  // * added key press functionality for desktop / laptop users
   // 'keydown' is the case-sensitive string of event type to listen for
   body.addEventListener('keydown', (e) => {
     // the KeyboardEvent is the js built-in object with several properties
@@ -179,12 +180,25 @@ document.addEventListener('DOMContentLoaded', () => {
     head.SPEED = 75;
   });
 
+  const sfxButton = document.createElement('button');
+  sfxButton.setAttribute('class', 'challengeLevel');
+  sfxButton.innerText = 'SFX On';
+  sfxButton.addEventListener('click', () => {
+    console.log('Game sfx loaded.');
+    head.bonk.load();
+    head.death.load();
+    head.eat.load();
+  });
+
   const span = document.createElement('span');
   span.id = 'levelButtons';
   span.appendChild(easyButton);
   span.appendChild(normalButton);
   span.appendChild(hardButton);
+
   document.querySelector('#controllersContainer').appendChild(span);
+  document.querySelector('#controllersContainer').appendChild(sfxButton);
+
 
   // if player wishes to play again, reload the page
   document.querySelector('#again').addEventListener('click', () => {
