@@ -37,9 +37,21 @@
   <script>
     console.log('innerWidth', window.innerWidth, 'innerHeight', window.innerHeight);
     console.log('innerWidth', window.innerWidth < 720, 'innerHeight', window.innerHeight < 900);
-    
+    console.log(window);
     if (window.innerWidth < 720 || window.innerHeight < 900) {
-      window.alert('Please enjoy this game on a device / browser window larger than 720 x 900 pixels. Thanks!');
+      window.alert('Please enjoy this game on a device / browser window larger than 720 x 900 pixels.\nAlso, please note sound effects are not supported on iOS devices. Thanks!');
+    }
+    // iPad Mini
+    if (window.innerWidth === 768 && window.innerHeight === 1024) {
+      window.alert('Sorry, sound effects are not supported on iOS devices. Thanks!');
+    }
+    // iPad
+    if (window.innerWidth === 820 && window.innerHeight === 1180) {
+      window.alert('Sorry, sound effects are not supported on iOS devices. Thanks!');
+    }
+    // iPad Pro
+    if (window.innerWidth === 1024 && window.innerHeight === 1366) {
+      window.alert('Sorry, sound effects are not supported on iOS devices. Thanks!');
     }
   </script>
   <script src="main.js"></script>

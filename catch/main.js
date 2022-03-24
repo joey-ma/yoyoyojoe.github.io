@@ -86,10 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
         head.SPEED = 75;
         console.log('Game level set to Hard.');
         break;
-      // music play / pause feature not working well
-      // musicPlayer.play(); // works fine, but not working with pause()
-      // musicPlayer.pause(); // not working
-      // console.log('Music is not paused:', musicPlayer.pause); // logs function definition
       // custom muting function
       case 'KeyM':
         if (musicPlayer.volume === 0) {
@@ -100,6 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log('Music volume turned to 0 here.');
         }
         break;
+      // music play / pause feature not working well
       case 'KeyP':
         if (musicPlayer.paused) musicPlayer.play();
         else musicPlayer.pause();
@@ -238,10 +235,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (swipeRight && Math.abs(xDifference) > Math.abs(yDifference) && head.currentDirection !== 'left') {
       head.input = 'right';
     }
-    if (swipeUp && Math.abs(xDifference) < Math.abs(yDifference) && head.currentDirection !== 'up') {
+    if (swipeUp && Math.abs(xDifference) < Math.abs(yDifference) && head.currentDirection !== 'down') {
       head.input = 'up';
     }
-    if (swipeDown && Math.abs(xDifference) < Math.abs(yDifference) && head.currentDirection !== 'down') {
+    if (swipeDown && Math.abs(xDifference) < Math.abs(yDifference) && head.currentDirection !== 'up') {
       head.input = 'down';
     }
   });
@@ -253,7 +250,14 @@ document.addEventListener('DOMContentLoaded', () => {
 // - add iPad support for touch input swiping up, down, left, right // * done!
 // - add iPad support for continuous touch input swiping up, down, left, right // * done!
 // ? might be good to add instruction for touch input somewhere
-// ? might need adjustments after real world test
+// ? confirmed: cannot play audio without user initiated action.
+// If you do not set the controls attribute, you must either set the autoplay attribute,
+// create a controller using JavaScript, or play the movie programmatically from JavaScript.
+// Otherwise the user has no way to play the movie.
+// Warning: To prevent unsolicited downloads over cellular networks at the user’s expense,
+// embedded media cannot be played automatically in Safari on iOS—the user always initiates playback.
+// A controller is automatically supplied on iPhone or iPod touch once playback in initiated,
+// but for iPad you must either set the controls attribute or provide a controller using JavaScript.
 // - instead of reducing chance of apple spawning where snake is, maybe rework logic? // * done!
 // - turn off the music autoplay // * done!
 // - add mute/unmute function with keyM to mute the music // * done!
