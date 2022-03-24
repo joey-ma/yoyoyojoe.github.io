@@ -1,9 +1,3 @@
-// * for wip pausing game functionality
-// const paused = {
-//   speed: 250,
-//   status: false
-// };
-
 document.addEventListener('DOMContentLoaded', () => {
   const welcomeMessage = 'Welcome!\n'
     + 'Some keyboard shortcuts while you enjoy this game: \n'
@@ -15,13 +9,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log(welcomeMessage);
 
+  // * for wip pausing game functionality
+  // const gamePaused = {
+  //   speed: 250,
+  //   status: false,
+  // };
+
   // bgm setup
   // let musicPlayer;
 
-  // async function getMusicPlayer() {
   const musicPlayer = document.querySelector('#controllersContainer > audio');
   musicPlayer.volume = 0.15;
-  // musicPlayer.play();
 
   const bgmFiles = [
     './assets/bgm/109-pewter_city_theme.mp3',
@@ -47,9 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
       musicPlayer.play();
     }
   }, false);
-  // }
-
-  // musicPlayer = getMusicPlayer();
 
   const body = document.querySelector('body');
   const gameboard = document.querySelector('#gameboard');
@@ -104,38 +99,51 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log('Music volume turned to 0 here.');
         }
         break;
+      case 'KeyP':
+        if (musicPlayer.paused) musicPlayer.play();
+        else musicPlayer.pause();
+        break;
       // reloads page when hitting 'Enter' key
       case 'Enter':
         window.location.reload();
         break;
       // todo stretch feature: pause functionality ...
       // case 'Space':
-      //   console.log(head.SPEED);
-      //   if (!paused.status) {
-      //     paused.speed = Number(head.SPEED);
-      //     paused.status = true;
+      //   console.log(
+      //     'gamePaused: ',
+      //     gamePaused.status,
+      //     'head.SPEED (current)',
+      //     head.SPEED,
+      //     'prior speed:',
+      //     gamePaused.speed,
+      //     'current direction:',
+      //     head.currentDirection,
+      //   );
+      //   if (!gamePaused.status) {
+      //     gamePaused.speed = Number(head.SPEED);
+      //     gamePaused.status = true;
       //     head.SPEED = 1000000;
       //     console.log(
-      //       'paused: ',
-      //       paused.status,
+      //       'gamePaused: ',
+      //       gamePaused.status,
       //       'head.SPEED (current)',
       //       head.SPEED,
       //       'prior speed:',
-      //       paused.speed,
+      //       gamePaused.speed,
       //       'current direction:',
       //       head.currentDirection,
       //     );
       //   } else {
-      //     paused.status = false;
-      //     head.SPEED = paused.speed;
-      //     paused.speed = 1000000;
+      //     gamePaused.status = false;
+      //     head.SPEED = Number(gamePaused.speed);
+      //     gamePaused.speed = 1000000;
       //     console.log(
       //       'paused: ',
-      //       paused.status,
+      //       gamePaused.status,
       //       'head.SPEED (current)',
       //       head.SPEED,
       //       'prior speed:',
-      //       paused.speed,
+      //       gamePaused.speed,
       //       'current direction:',
       //       head.currentDirection,
       //     );
@@ -192,24 +200,24 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     touch.start.x = e.changedTouches[0].clientX;
     touch.start.y = e.changedTouches[0].clientY;
-    console.log(`x, y starting points: ${touch.start.x}, ${touch.start.y}`);
+    // console.log(`x, y starting points: ${touch.start.x}, ${touch.start.y}`);
   });
 
   gameboard.addEventListener('touchmove', (e) => {
+    // works similar to 'touchend', but allows control of continuous touch movement
     // gameboard.addEventListener('touchend', (e) => {
-    e.preventDefault();
     touch.end.x = e.changedTouches[0].clientX;
     touch.end.y = e.changedTouches[0].clientY;
-    console.log(`x, y ending points: ${touch.end.x}, ${touch.end.y}`);
+    // console.log(`x, y ending points: ${touch.end.x}, ${touch.end.y}`);
     const xDifference = touch.end.x - touch.start.x;
-    // < -30 means swipe left || > 30 means swipe right
+    // < -20 means swipe left || > 20 means swipe right
     const yDifference = touch.end.y - touch.start.y;
-    // < -30 means swipe up || > 30 means swipe down
-    const swipeLeft = xDifference < -30;
-    const swipeRight = xDifference > 30;
-    const swipeUp = yDifference < -30;
-    const swipeDown = yDifference > 30;
-    console.log(`x, y differences: ${xDifference}, ${yDifference}, ${swipeUp}`);
+    // < -20 means swipe up || > 20 means swipe down
+    const swipeLeft = xDifference < -20;
+    const swipeRight = xDifference > 20;
+    const swipeUp = yDifference < -20;
+    const swipeDown = yDifference > 20;
+    // console.log(`x, y differences: ${xDifference}, ${yDifference}`);
 
     if (swipeLeft && Math.abs(xDifference) > Math.abs(yDifference) && head.currentDirection !== 'right') {
       head.input = 'left';
@@ -224,14 +232,19 @@ document.addEventListener('DOMContentLoaded', () => {
       head.input = 'down';
     }
   });
+
   // end of DOMContentLoaded event listener
 });
 
 // todo stretch features?
-// - added iPad compatibility so game supports touch input swiping up, down, left, right // * done!
+// - add iPad support for touch input swiping up, down, left, right // * done!
+// - add iPad support for continuous touch input swiping up, down, left, right // * done!
+// ? might be good to add instruction for touch input somewhere
+// ? might need adjustments after real world test
 // - instead of reducing chance of apple spawning where snake is, maybe rework logic? // * done!
-// - add ability to turn off the music as it can get annoying :P // * done!
-// - turn off the music autoplay :P // * done!
+// - turn off the music autoplay // * done!
+// - add mute/unmute function with keyM to mute the music // * done!
+// - add play/pause function with keyP to play/pause the music // * done!
 // - throttling seems not needed in current set up, but would be needed if this.input is removed
 // - currently music plays a small number of songs, a more advanced algo would be a plus
 // - add a pause functionality when hitting space bar

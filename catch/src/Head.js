@@ -19,25 +19,27 @@ class Head {
     this.node.style.left = '300px';
 
     // sfx setup
-    this.bonk = new Audio('./assets/sfx/bonk.mp3');
+    this.bonk = document.getElementById('bonk');
     this.bonk.volume = 0.15;
 
-    this.death = new Audio();
+    this.death = document.getElementById('death');
     this.death.volume = 0.15;
-    this.death.src = './assets/bgm/145-ending.mp3';
 
-    this.pikaSounds = [
-      './assets/sfx/pikachu.mp3',
-      './assets/sfx/pika-1.mp3',
-      './assets/sfx/pika-2.mp3',
-      './assets/sfx/pika-3.mp3',
-      './assets/sfx/pika-pika.mp3',
-      './assets/sfx/pika-pika-pika-chu.mp3',
-      './assets/sfx/pika-pika-pika-pika.mp3',
-    ];
-    this.pikaSounds.forEach((sfx, i) => {
-      this[i] = new Audio(sfx);
-    });
+    // Note: worked on usual browsers but not on iPad
+    // this.pikaSounds = [
+    //   './assets/sfx/pikachu.mp3',
+    //   './assets/sfx/pika-1.mp3',
+    //   './assets/sfx/pika-2.mp3',
+    //   './assets/sfx/pika-3.mp3',
+    //   './assets/sfx/pika-pika.mp3',
+    //   './assets/sfx/pika-pika-pika-chu.mp3',
+    //   './assets/sfx/pika-pika-pika-pika.mp3',
+    // ];
+    // this.pikaSounds.forEach((sfx, i) => {
+    //   this[i] = new Audio(sfx);
+    // });
+
+    this.eat = document.getElementById('sfx1');
 
     setTimeout(this.move.bind(this), this.SPEED);
   }
@@ -100,12 +102,14 @@ class Head {
       // increment score
       this.score += 50;
 
-      // ramdomize a new audio clip each time when capturing a pikachu
-      const atRandom = Math.floor(Math.random() * this.pikaSounds.length);
-      this.eat = this[atRandom];
+      // randomize a new audio clip each time when capturing a pikachu
+      const atRandom = Math.ceil(Math.random() * 7);
+      console.log(atRandom);
+      this.eat = document.getElementById(`sfx${atRandom}`);
+      // console.log(this.eat);
       this.eat.volume = 0.2;
       this.eat.play();
-      this.scoreboard.innerText = `Score: ${this.score}`; // updates score
+      this.scoreboard.innerText = `Score: ${this.score} `; // updates score
     } else {
       // if the snake did not eat apple (as the game continues)
       // remove the added body
@@ -113,7 +117,7 @@ class Head {
     }
 
     // game over: when snake crashes into itself
-    for (let i = 0; i < snakeBody.length; i++) {
+    for (let i = 0; i < snakeBody.length; i += 1) {
       // identify type of death
       this.tripped = leftPosition === Number(snakeBody[i].node.style.left.replace('px', ''))
         && topPosition === Number(snakeBody[i].node.style.top.replace('px', ''));
@@ -147,9 +151,9 @@ class Head {
 
     // conditional end game message
     if (this.tripped) {
-      document.querySelector('#score').innerText = `Score: ${this.score}\nOh no! You tripped over a pokeball!`;
+      document.querySelector('#score').innerText = `Score: ${this.score} \nOh no! You tripped over a pokeball!`;
     } else {
-      document.querySelector('#score').innerText = `Score: ${this.score}\nOh no! You've run into the wall hard!`;
+      document.querySelector('#score').innerText = `Score: ${this.score} \nOh no! You've run into the wall hard!`;
     }
 
     const musicPlayer = document.querySelector('#controllersContainer > audio');
