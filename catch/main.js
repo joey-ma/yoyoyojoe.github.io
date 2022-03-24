@@ -180,15 +180,15 @@ document.addEventListener('DOMContentLoaded', () => {
     head.SPEED = 75;
   });
 
-  const sfxButton = document.createElement('button');
-  sfxButton.setAttribute('class', 'challengeLevel');
-  sfxButton.innerText = 'SFX On';
-  sfxButton.addEventListener('click', () => {
-    console.log('Game sfx loaded.');
-    head.bonk.load();
-    head.death.load();
-    head.eat.load();
-  });
+  // const sfxButton = document.createElement('button');
+  // sfxButton.setAttribute('class', 'challengeLevel');
+  // sfxButton.innerText = 'SFX On';
+  // sfxButton.addEventListener('click', () => {
+  //   console.log('Game sfx loaded.');
+  //   head.bonk.load();
+  //   head.death.load();
+  //   head.eat.load();
+  // });
 
   const span = document.createElement('span');
   span.id = 'levelButtons';
@@ -197,8 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
   span.appendChild(hardButton);
 
   document.querySelector('#controllersContainer').appendChild(span);
-  document.querySelector('#controllersContainer').appendChild(sfxButton);
-
+  // document.querySelector('#controllersContainer').appendChild(sfxButton);
 
   // if player wishes to play again, reload the page
   document.querySelector('#again').addEventListener('click', () => {

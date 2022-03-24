@@ -21,10 +21,14 @@ class Head {
 
     // sfx setup
     this.bonk = document.getElementById('bonk');
-    this.bonk.volume = 0.15;
+    this.bonk.volume = 0;
+    this.bonk.autoplay = true;
+    this.bonk.pause();
 
     this.death = document.getElementById('death');
-    this.death.volume = 0.15;
+    this.death.volume = 0;
+    this.death.autoplay = true;
+    this.death.pause();
 
     // Note: worked on usual browsers but not on iPad
     // this.pikaSounds = [
@@ -41,6 +45,8 @@ class Head {
     // });
 
     this.eat = document.getElementById('sfx1');
+    this.eat.volume = 0;
+    this.eat.autoplay = true;
 
     setTimeout(this.move.bind(this), this.SPEED);
   }
@@ -104,9 +110,20 @@ class Head {
       this.score += 50;
 
       // randomize a new audio clip each time when capturing a pikachu
-      const atRandom = Math.ceil(Math.random() * 7);
+      const atRandom = Math.floor(Math.random() * 7);
       console.log(atRandom);
-      this.eat = document.getElementById(`sfx${atRandom}`);
+      const pikaSounds = [
+        './assets/sfx/pikachu.mp3',
+        './assets/sfx/pika-1.mp3',
+        './assets/sfx/pika-2.mp3',
+        './assets/sfx/pika-3.mp3',
+        './assets/sfx/pika-pika.mp3',
+        './assets/sfx/pika-pika-pika-chu.mp3',
+        './assets/sfx/pika-pika-pika-pika.mp3',
+      ];
+
+      this.eat.src = pikaSounds[atRandom];
+      // this.eat = document.getElementById(`sfx${atRandom}`);
       // console.log(this.eat);
       this.eat.volume = 0.2;
       this.eat.play();
@@ -143,6 +160,7 @@ class Head {
     // (the body part generated at the last location of the head)
     snakeBody.pop().node.remove();
 
+    this.bonk.volume = 0.15;
     this.bonk.play();
 
     setTimeout(() => {
@@ -160,6 +178,7 @@ class Head {
     const musicPlayer = document.querySelector('#controllersContainer > audio');
     if (musicPlayer) musicPlayer.pause();
 
+    this.death.volume = 0.15;
     this.death.play();
 
     clearTimeout(time);
