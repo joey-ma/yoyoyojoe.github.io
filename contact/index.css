@@ -1,0 +1,24 @@
+body {
+  margin: 50px;
+  /* margin-left: 50px;
+  margin-right: 50px; */
+}
+.md-form {
+  margin-top: 20px;
+}
+.links {
+  margin-top: 50px
+}
+.links > a {
+  padding: 2rem;
+  color: #000;
+}
+.links > a:hover {
+  opacity: 0.5;
+}
+.status {
+  color: crimson;
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+}
