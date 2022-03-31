@@ -1,4 +1,4 @@
-<? php
+<?php
   $name = $_POST['name'];
   $email = $_POST['email'];
   $message = $_POST['message'];
@@ -26,7 +26,7 @@
     exit();
   }
   $content = "From: $name \nEmail: $email \nMessage: $message";
-  $recipient = "youremail@here.com";
+  $recipient = "jabs_chipper.0z@icloud.com";
   $mailheader = "From: $email \r\n";
   mail($recipient, $subject, $content, $mailheader) or die("Error!");
   print json_encode(array('message' => 'Email successfully sent!', 'code' => 1));

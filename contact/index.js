@@ -1,12 +1,23 @@
 function sendEmail(name, email, subject, message) {
+  document.querySelector('.status').innerHTML = 'Working...';
+
   const xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
-    if (this.readyState === 4 && this.status === 200) {
+    console.log(this.readyState);
+    if (this.readyState === 1) {
+      document.querySelector('.status').innerHTML = 'Not quite sent yet...';
+    }
+    if (this.readyState === 2) {
+      document.querySelector('.status').innerHTML = 'Sending...';
+    }
+    if (this.readyState === 4) {
+      console.dir(document.querySelectorAll('input'));
+      document.querySelectorAll('input').forEach((el) => el.value = '');
+      document.getElementById('message').value = '';
       document.querySelector('.status').innerHTML = 'Message sent!';
-      document.querySelectorAll('input').value = '';
     }
   };
-  xhttp.open('POST', './mail.php', true);
+  xhttp.open('POST', 'mail.php', true);
   xhttp.send();
 }
 
@@ -38,5 +49,4 @@ function validateForm() {
     return false;
   }
   sendEmail(name, email, subject, message);
-  document.querySelector('.status').innerHTML = 'Sending...';
 }
