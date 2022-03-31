@@ -6,15 +6,18 @@ function sendEmail(name, email, subject, message) {
     console.log(this.readyState);
     if (this.readyState === 1) {
       document.querySelector('.status').innerHTML = 'Not quite sent yet...';
+      console.log('Not quite sent yet...');
     }
     if (this.readyState === 2) {
       document.querySelector('.status').innerHTML = 'Sending...';
+      console.log('Sending...');
     }
     if (this.readyState === 4) {
       console.dir(document.querySelectorAll('input'));
       document.querySelectorAll('input').forEach((el) => el.value = '');
       document.getElementById('message').value = '';
       document.querySelector('.status').innerHTML = 'Message sent!';
+      console.log('Message Sent');
     }
   };
   xhttp.open('POST', 'mail.php', true);
@@ -48,5 +51,6 @@ function validateForm() {
     document.querySelector('.status').innerHTML = 'Message cannot be empty';
     return false;
   }
+
   sendEmail(name, email, subject, message);
 }

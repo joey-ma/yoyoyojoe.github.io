@@ -1,4 +1,13 @@
 <?php
+
+  function console_log($output, $with_script_tags = true) {
+    $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) . 
+  ');';
+    if ($with_script_tags) {
+      $js_code = '<script>' . $js_code . '</script>';
+    }
+    echo $js_code;
+}
   $name = $_POST['name'];
   $email = $_POST['email'];
   $message = $_POST['message'];
@@ -30,5 +39,6 @@
   $mailheader = "From: $email \r\n";
   mail($recipient, $subject, $content, $mailheader) or die("Error!");
   print json_encode(array('message' => 'Email successfully sent!', 'code' => 1));
+  console_log($content);
   exit();
 ?>
