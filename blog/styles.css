@@ -1,0 +1,222 @@
+html {
+  min-width: 350px;
+  min-height: 580px;
+}
+
+body {
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  /* margin: 0 --> moves menu bar to stick to top of window */
+}
+
+/* header */
+.header {
+  background-color: #f3f3f3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 2rem 0px 2rem; 
+}
+
+.uk-icon-caret-down::before {
+  -webkit-text-size-adjust: 100%;
+  list-style: none;
+  font: inherit;
+  color: #666;
+  text-transform: none;
+  font-size: 1rem;
+  text-align: center;
+  text-shadow: 0 1px 0 #fff;
+  cursor: pointer;
+  font-family: FontAwesome;
+  display: inline-block;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: none;
+}
+
+button {
+  margin: 10px 1rem; 
+}
+
+.main-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  /* If the margin property has two values: top & bottom are 1rem, right & left are 0px */
+}
+
+.link {
+  background: none;
+  border: none;
+  text-decoration: none;
+  color: #777;
+  font-size: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+.dropdown-container1, .dropdown-container2 {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* focus: keyboard or mouse event */
+.dropdown-container1.active > .link, .link:hover, 
+.dropdown-container2.active > .link, .link:hover {
+  color: black;
+}
+
+/* inside of our dropdown-container, for when link is focused and the dropdown-menu (sibling) that comes after the link */
+.dropdown-container1.active > .link + .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0px); 
+  pointer-events: auto;
+}
+
+.dropdown-container2.active > .link + .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0px); 
+  pointer-events: auto;
+}
+
+/* Use a media query to add a break point at 418px: */
+@media screen and (max-width: 418px) {
+  .dropdown-container1.active > .link + .dropdown-menu {
+    transform: translateY(20px); 
+  }
+  .last {
+    right: -1em;
+  }
+}
+
+@media screen and (min-width: 419px) and (max-width: 441px) {
+  .dropdown-container1.active > .link + .dropdown-menu {
+    right: 0;
+  }
+  .last {
+    right: -20%;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .dropdown-container2.active > .link + .dropdown-menu {
+    right: 0;
+  }
+  .dropdown-menu {
+    left: 10px;
+  }
+  .last {
+    right: 0;
+  }
+}
+
+/* inside of our dropdown container */
+.dropdown-menu {
+  position: absolute; 
+  top: calc(100% + .25rem);
+  background-color: white;
+  padding: 0rem .75rem .75rem;
+  border-radius: .25rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+  /* offset-x | offset-y | blur-radius | spread-radius | color: -> rgba for a transparent color */
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px); 
+  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+}
+
+
+.info-grid {
+  display: -ms-grid;
+  display: grid;
+  /* top & bottom */
+  /* left & right */
+  -ms-grid-columns: repeat(1, max-content);
+  grid-template-columns: repeat(1, max-content);
+  gap: 1rem;
+  /* max-width: 200px; */
+}
+
+.dropdown-heading {
+  margin-top: .75rem;
+  margin-bottom: 5px;
+}
+
+.dropdown-links {
+  display: flex;
+  flex-direction: column;
+  /* gap: .25rem; */
+}
+
+/* main-content */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.about-container {
+  align-items:center;
+  padding: 2em;
+  font-weight: 300;
+}
+
+.second-container {
+  min-width: 375px;
+  min-height: 100px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.special-access {
+  right: 2em;
+  bottom: 2em;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.contact {
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  list-style: none;
+  -webkit-appearance: none;
+  margin: 0;
+  overflow: visible;
+  font: inherit;
+  /* color: #666; */
+  text-transform: none;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 0 12px;
+  background: #f7f7f7;
+  vertical-align: middle;
+  line-height: 28px;
+  min-height: 30px;
+  font-size: 1rem;
+  text-decoration: none;
+  text-align: center;
+  border: 1px solid rgba(0,0,0,.2);
+  border-bottom-color: rgba(0,0,0,.3);
+  background-origin: border-box;
+  background-image: linear-gradient(to bottom,#fff,#eee);
+  border-radius: 4px;
+  text-shadow: 0 1px 0 #fff;
+  cursor: pointer;
+  margin: 10px 1rem; 
+}
+
+.contact:hover {
+  background-color: #fafafa;
+  color: #666;
+  outline: 0;
+  text-decoration: none;
+  background-image: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,.1);
+}
