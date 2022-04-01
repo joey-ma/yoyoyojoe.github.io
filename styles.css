@@ -9,6 +9,7 @@ body {
   /* margin: 0 --> moves menu bar to stick to top of window */
 }
 
+/* header */
 .header {
   background-color: #f3f3f3;
   display: flex;
@@ -114,9 +115,9 @@ button {
   }
 }
 
+/* inside of our dropdown container */
 .dropdown-menu {
   position: absolute; 
-  /* inside of our dropdown container */
   top: calc(100% + .25rem);
   background-color: white;
   padding: 0rem .75rem .75rem;
@@ -152,6 +153,7 @@ button {
   /* gap: .25rem; */
 }
 
+/* main-content */
 .main-content {
   display: flex;
   flex-direction: column;
@@ -173,6 +175,7 @@ button {
   justify-content: flex-end;
   align-items: flex-end;
 }
+
 .special-access {
   right: 2em;
   bottom: 2em;
@@ -180,7 +183,7 @@ button {
   pointer-events: auto;
 }
 
-.login {
+.contact {
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   list-style: none;
@@ -210,7 +213,7 @@ button {
   margin: 10px 1rem; 
 }
 
-.login:hover {
+.contact:hover {
   background-color: #fafafa;
   color: #666;
   outline: 0;
