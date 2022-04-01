@@ -52,4 +52,14 @@ document.addEventListener('pointerdown', (e) => {
     if (dropdown === currentDropdownContainer) return;
     dropdown.classList.remove('active');
   });
+
+  // * contact us button
+  const contactBtn = e.target.matches('.contact');
+
+  if (contactBtn) {
+    const access = document.querySelector('.special-access');
+    access.style.display = 'none';
+
+    window.location.href = '/contact';
+  }
 });
