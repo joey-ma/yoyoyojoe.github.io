@@ -1,8 +1,0 @@
-pre {
-  display: flex;
-  justify-content: center;
-  align-self: center;
-  align-items: center;
-  padding-top: 25px;
-  /* white-space: pre-line; // aligns everything to the left */
-}
