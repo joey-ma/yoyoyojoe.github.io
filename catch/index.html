@@ -35,11 +35,16 @@
     <button id="again">Play Again?</button>
   </div>
   <script>
-    console.log('innerWidth', window.innerWidth, 'innerHeight', window.innerHeight);
-    console.log('innerWidth', window.innerWidth < 720, 'innerHeight', window.innerHeight < 900);
-    console.log(window);
-    if (window.innerWidth < 720 || window.innerHeight < 900) {
-      window.alert('Please enjoy this game on a device / browser window larger than 720 x 900 pixels.\nAlso, please note sound effects are not supported on iOS devices. Thanks!');
+    // console.log('ideal screenX position:', ((window.screen.availWidth - window.outerWidth) / 2));
+    // console.log('ideal screenY position:', ((window.screen.availHeight - window.innerHeight) / 2));
+    console.log(`availWidth: ${window.screen.availWidth}, availHeight: ${window.screen.availHeight}`);
+    console.log(`innerWidth: ${window.innerWidth}, innerHeight:${window.innerHeight}`);
+    console.log(`outerWidth: ${window.outerWidth}, outerHeight: ${window.outerHeight}`);
+    // console.log('screenX: ' + window.screenX + ', screenX: ' + window.screenY);
+    console.log(`innerWidth: ${window.innerWidth < 720}, innerHeight: ${window.innerHeight < 870}`);
+    // console.log(window);
+    if (window.innerWidth < 720 || window.innerHeight < 870) {
+      window.alert('Please enjoy this game on a device / browser window larger than 720 x 900 pixels. \nAlso, please note sound effects are not supported on iOS devices. Thanks!');
     }
     // iPad Mini
     if (window.innerWidth === 768 && window.innerHeight === 1024) {
