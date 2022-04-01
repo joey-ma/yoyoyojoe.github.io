@@ -1,10 +1,41 @@
-const $ = '712b054a2c30061f29245a96f5751335';
 // If your here, please note nothing is being done with your ip address.
 
-document.addEventListener('pointerdown', (e) => {
-  // console.log(e.pointerType);
-  // console.dir(e);
+let catchWindow = null;
+let previousURL;
 
+// * loading catch game when catch-button onclick
+function letsGoCatchEmAll(url) {
+  const innerWidth = 950;
+  const innerHeight = 930;
+  const windowFeatures = `popup,
+  screenX = ${((window.screen.availWidth - innerWidth) / 2)},
+  screenY = ${(window.screen.availHeight - innerHeight) / 2}, 
+  innerWidth=${innerWidth}, innerHeight=${innerHeight}`;
+  // screenX = ${((window.screen.width - window.outerWidth) / 2)},
+  // screenY = ${((window.screen.height * 0.1) / 2)},
+
+  if (catchWindow === null || catchWindow.closed) {
+    catchWindow = window.open(
+      url,
+      'CatchGameWindow',
+      windowFeatures,
+    );
+    console.log(catchWindow);
+  } else if (previousURL !== url) {
+    catchWindow = window.open(
+      url,
+      'CatchGameWindow',
+      windowFeatures,
+    );
+    catchWindow.focus();
+  } else {
+    catchWindow.focus();
+  }
+  previousURL = url;
+  return false;
+}
+
+document.addEventListener('pointerdown', (e) => {
   // when clicking on the specific button, (using selector & data attribute)
   const dropdownBtn = e.target.matches('[data-dropdown-button]');
 
@@ -24,33 +55,36 @@ document.addEventListener('pointerdown', (e) => {
     dropdown.classList.remove('active');
   });
 
-  const fakeBtn = e.target.matches('.login');
+  // * contact us button
+  const contactBtn = e.target.matches('.contact');
 
-  if (fakeBtn) {
-    fetch(`http://api.ipstack.com/check?access_key=${$}`)
-      .then((response) => response.json())
-      .then((data) => {
-        // currently blocked:
-        // [Warning] [blocked] The page at https://yoyoyojoe.github.io/ was not allowed to display insecure content from http://api.ipstack.com/check?access_key=712b054a2c30061f29245a96f5751335. (index.js, line 30)
-        // [Error] Not allowed to request resource (anonymous function)(index.js: 30)
-        // [Error] Fetch API cannot load http://api.ipstack.com/check?access_key=712b054a2c30061f29245a96f5751335 due to access control checks. (anonymous function)(index.js: 30)
-        // console.log('your ip address is: ', data.ip);
-        console.log(
-          `Visitor at ${data.ip}, your visit has been logged. `
-          + `According to this IP address, your current location is at or near ${data.city}, ${data.region_name} in ${data.country_name} ${data.location.country_flag_emoji}, and your country's language is ${data.location.languages[0].native}. `
-          + 'Do not worry, this is only an exercise for fun. - from the developer.',
-        );
-      })
-      .catch((error) => console.log(`the entire error: ${error}`));
+  if (contactBtn) {
+    // fetch(`http://api.ipstack.com/check?access_key=${ACCESS_KEY}`)
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    // * currently blocked if using HTTPS, only works for HTTP (local environment testing):
+    // [Warning] [blocked] The page at https://yoyoyojoe.github.io/ was not allowed to display insecure content from http://api.ipstack.com/check?access_key=712b054a2c30061f29245a96f5751335. (index.js, line 30)
+    // [Error] Not allowed to request resource (anonymous function)(index.js: 30)
+    // [Error] Fetch API cannot load http://api.ipstack.com/check?access_key=712b054a2c30061f29245a96f5751335 due to access control checks. (anonymous function)(index.js: 30)
+    // * currently only works for HTTP, not HTTPS (with encryption)
+    // console.log(
+    //   `Visitor at ${data.ip}, your visit has been logged. `
+    //   + 'According to this IP address, your current location is at or near'
+    //   + `${data.city}, ${data.region_name} in ${data.country_name}`
+    //   + `${data.location.country_flag_emoji}, and your country's language is`
+    //   + `${data.location.languages[0].native}.`
+    //   + 'Do not worry, this is only an exercise for fun. - from the developer.',
+    // );
+    // })
+    // .catch((error) => console.log(`the entire error: ${error}`));
     const access = document.querySelector('.special-access');
     access.style.display = 'none';
 
-    // console.log(e.target.className === 'login');
-    // console.dir(e);
+    window.location.href = '/contact';
   }
 });
 
-/* the reason Fake Button doesn't work: I'm on the free plan!
+/* ipstack: Locate and identify website visitors by IP address
 
 > index.js:32
 Mixed Content: The page at 'https://yoyoyojoe.github.io/' was loaded over HTTPS, but requested an insecure resource 'http://api.ipstack.com/check?access_key=712b054a2c30061f29245a96f5751335'. This request has been blocked; the content must be served over HTTPS.
@@ -79,16 +113,3 @@ SHOW OPTIONS
 100 requests / mo
 Limited Support
 Location Module */
-
-document.querySelector('#catch').addEventListener('click', () => {
-  // eslint-disable-next-line no-unused-vars
-  const catchWindow = window.open(
-    'https://yoyoyojoe.github.io/catch',
-    'Catch - A Tribute to Snake Game',
-    `popup=yes, 
-    screenX=${(window.screen.availWidth - window.outerWidth) / 2},
-    screenY=${(window.screen.availHeight * 0.1) / 2}, 
-    innerWidth=950, innerHeight=950`,
-  );
-  // console.dir(catchWindow);
-});
