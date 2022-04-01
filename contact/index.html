@@ -63,65 +63,67 @@
       </div>
     </div>
   </header>
-  <section class="mb-4">
-    <!--Section Heading-->
-    <h2 class="h1-responsive font-weight-bold text-center my-4">Contact Joey</h2>
-    <!--Section Description-->
-    <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact me directly.</p>
-    <div class="row">
-      <!-- if multiple columns needed: Grid column 1 -->
-      <!-- <div class="col-md-9 mb-md-0 mb-5"> -->
-        <form id="contact-form" name="contact-form" action="https://formsubmit.co/eb60e051d9f58ce178c6aab59bfb78d2" method="POST">
-          <!--Grid row 1 -->
-          <div class="row">
-            <!--Grid column 1 -->
-            <div class="col-md-6">
-              <div class="md-form mb-0">
-                <label for="name" hidden>Your name is required</label>
-                <input type="text" id="name" name="name" class="form-control" placeholder="Your name (required)" required>
+  <main class="main-content">
+    <section class="contact-container m-0">
+      <!--Section Heading-->
+      <h1 class="h1-responsive font-weight-bold my-4">Contact Joey</h1>
+      <!--Section Description-->
+      <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact me directly.</p>
+      <div class="row">
+        <!-- if multiple columns needed: Grid column 1 -->
+        <!-- <div class="col-md-9 mb-md-0 mb-5"> -->
+          <form id="contact-form" name="contact-form" action="https://formsubmit.co/eb60e051d9f58ce178c6aab59bfb78d2" method="POST">
+            <!--Grid row 1 -->
+            <div class="row">
+              <!--Grid column 1 -->
+              <div class="col-md-6">
+                <div class="md-form mb-0">
+                  <label for="name" hidden>Your name is required</label>
+                  <input type="text" id="name" name="name" class="form-control" placeholder="Your name (required)" required>
+                </div>
+              </div>
+              <!--Grid column 2 -->
+              <div class="col-md-6">
+                <div class="md-form mb-0">
+                  <label for="email" hidden>Your email is required</label>
+                  <input type="email" id="email" name="email" class="form-control" placeholder="Your email (required)" required>
+                </div>
               </div>
             </div>
-            <!--Grid column 2 -->
-            <div class="col-md-6">
-              <div class="md-form mb-0">
-                <label for="email" hidden>Your email is required</label>
-                <input type="email" id="email" name="email" class="form-control" placeholder="Your email (required)" required>
+            <!--Grid row 2 -->
+            <div class="row">
+              <div class="col-md-12">
+                <div class="md-form mb-0">
+                  <label for="subject" hidden>Subject is required</label>
+                  <input type="text" id="subject" name="subject" class="form-control" placeholder="Subject (required)" required>
+                </div>
               </div>
             </div>
-          </div>
-          <!--Grid row 2 -->
-          <div class="row">
-            <div class="col-md-12">
-              <div class="md-form mb-0">
-                <label for="subject" hidden>Subject is required</label>
-                <input type="text" id="subject" name="subject" class="form-control" placeholder="Subject (required)" required>
+            <!--Grid row 3 -->
+            <div class="row">
+              <!--Grid column 1-->
+              <div class="col-md-12">
+                <div class="md-form">
+                  <label for="message" hidden>Your message is required</label>
+                  <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea" placeholder="Message (required)" required></textarea>
+                </div>
               </div>
             </div>
-          </div>
-          <!--Grid row 3 -->
-          <div class="row">
-            <!--Grid column 1-->
-            <div class="col-md-12">
-              <div class="md-form">
-                <label for="message" hidden>Your message is required</label>
-                <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea" placeholder="Message (required)" required></textarea>
-              </div>
+            <div class="text-center text-md-left">
+              <button id="send" type="submit" class="button" onclick="validateForm()">Send</button>
             </div>
-          </div>
-          <div class="text-center text-md-left">
-            <button id="send" type="submit" class="button" onclick="validateForm()">Send</button>
-          </div>
-        </form>
-        <div class="status"></div>
-      <!-- end of Grid column 1 </div> (if multiple columns were needed) -->
-    </div>
-    <div class="row">
-      <div class="d-flex justify-content-center links">
-        <a class="fa-solid fa-coffee fa-2xl" href="https://yoyoyojoe.github.io/contact" rel="noopener noreferrer"></a>
-        <a class="fa-brands fa-linkedin fa-2xl" href="https://www.linkedin.com/in/joeyma/" target="_blank" rel="noopener noreferrer"></a>
-        <a class="fa-brands fa-github fa-2xl" href="https://github.com/yoyoyojoe" target="_blank" rel="noopener noreferrer"></a>
+          </form>
+          <div class="status"></div>
+        <!-- end of Grid column 1 </div> (if multiple columns were needed) -->
       </div>
-    </div>
-  </section>
+      <div class="row">
+        <div class="d-flex justify-content-center links">
+          <a class="fa-solid fa-coffee fa-2xl" href="https://yoyoyojoe.github.io/contact" rel="noopener noreferrer"></a>
+          <a class="fa-brands fa-linkedin fa-2xl" href="https://www.linkedin.com/in/joeyma/" target="_blank" rel="noopener noreferrer"></a>
+          <a class="fa-brands fa-github fa-2xl" href="https://github.com/yoyoyojoe" target="_blank" rel="noopener noreferrer"></a>
+        </div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
