@@ -36,9 +36,9 @@ button:hover {
 #scoreboard {
    display: in-line;
    background-color: transparent;
-   margin-top: 10px;
+   /* margin-top: 10px; */
    margin-bottom: 10px;
-   padding: 10px;
+   /* padding: 10px; */
    /* position: absolute; */
    color: white;
    z-index: 2;
