@@ -1,5 +1,8 @@
 {
   "cSpell.words": [
-    "gameboard"
-  ]
+    "gameboard",
+    "labelledby",
+    "todoapp"
+  ],
+  "liveServer.settings.port": 5501
 }
