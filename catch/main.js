@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // create a controller using JavaScript, or play the movie programmatically from JavaScript.
 // Otherwise the user has no way to play the movie.
 // Warning: To prevent unsolicited downloads over cellular networks at the user’s expense,
-// embedded media cannot be played automatically in Safari on iOS—the user always initiates playback.
+// embedded media cannot be played automatically in Safari on iOS—-user always initiates playback.
 // A controller is automatically supplied on iPhone or iPod touch once playback in initiated,
 // but for iPad you must either set the controls attribute or provide a controller using JavaScript.
 // - instead of reducing chance of apple spawning where snake is, maybe rework logic? // * done!

@@ -1,5 +1,3 @@
-// If your here, please note nothing is being done with your ip address.
-
 let catchWindow = null;
 let previousURL;
 

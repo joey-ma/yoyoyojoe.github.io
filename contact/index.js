@@ -1,5 +1,5 @@
-let catchWindow = null; let
-  previousURL;
+let catchWindow = null;
+let previousURL;
 
 // * loading catch game when catch-button onclick
 function letsGoCatchEmAll(url) {
