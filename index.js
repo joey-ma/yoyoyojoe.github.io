@@ -87,6 +87,12 @@ document.addEventListener('pointerdown', (e) => {
   const contactBtn = e.target.matches('#contact');
 
   if (contactBtn) {
+    // window.location.href = '/contact';
+    window.location.assign('/contact');
+
+    const access = document.querySelector('.special-access');
+    access.style.display = 'none';
+
     // fetch(`http://api.ipstack.com/check?access_key=${ACCESS_KEY}`)
     //   .then((response) => response.json())
     //   .then((data) => {
@@ -105,10 +111,6 @@ document.addEventListener('pointerdown', (e) => {
     // );
     // })
     // .catch((error) => console.log(`the entire error: ${error}`));
-    const access = document.querySelector('.special-access');
-    access.style.display = 'none';
-
-    window.location.href = '/contact';
   }
 });
 
