@@ -1,0 +1,120 @@
+@font-face {
+    font-family: 'Eevee Mode';
+    src: url('EeveeMode-Regular.eot');
+    src: local('Eevee Mode Regular'), local('EeveeMode-Regular'),
+        url('EeveeMode-Regular.eot?#iefix') format('embedded-opentype'),
+        url('EeveeMode-Regular.woff2') format('woff2'),
+        url('EeveeMode-Regular.woff') format('woff'),
+        url('EeveeMode-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Eevee Mode';
+    src: url('EeveeMode-LightItalic.eot');
+    src: local('Eevee Mode Light Italic'), local('EeveeMode-LightItalic'),
+        url('EeveeMode-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('EeveeMode-LightItalic.woff2') format('woff2'),
+        url('EeveeMode-LightItalic.woff') format('woff'),
+        url('EeveeMode-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Eevee Mode';
+    src: url('EeveeMode-SemiBoldItalic.eot');
+    src: local('Eevee Mode SemiBold Italic'), local('EeveeMode-SemiBoldItalic'),
+        url('EeveeMode-SemiBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('EeveeMode-SemiBoldItalic.woff2') format('woff2'),
+        url('EeveeMode-SemiBoldItalic.woff') format('woff'),
+        url('EeveeMode-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Eevee Mode';
+    src: url('EeveeMode-ThinItalic.eot');
+    src: local('Eevee Mode Thin Italic'), local('EeveeMode-ThinItalic'),
+        url('EeveeMode-ThinItalic.eot?#iefix') format('embedded-opentype'),
+        url('EeveeMode-ThinItalic.woff2') format('woff2'),
+        url('EeveeMode-ThinItalic.woff') format('woff'),
+        url('EeveeMode-ThinItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Eevee Mode';
+    src: url('EeveeMode-Italic.eot');
+    src: local('Eevee Mode Italic'), local('EeveeMode-Italic'),
+        url('EeveeMode-Italic.eot?#iefix') format('embedded-opentype'),
+        url('EeveeMode-Italic.woff2') format('woff2'),
+        url('EeveeMode-Italic.woff') format('woff'),
+        url('EeveeMode-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Eevee Mode';
+    src: url('EeveeMode-BoldItalic.eot');
+    src: local('Eevee Mode Bold Italic'), local('EeveeMode-BoldItalic'),
+        url('EeveeMode-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('EeveeMode-BoldItalic.woff2') format('woff2'),
+        url('EeveeMode-BoldItalic.woff') format('woff'),
+        url('EeveeMode-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Eevee Mode';
+    src: url('EeveeMode-Bold.eot');
+    src: local('Eevee Mode Bold'), local('EeveeMode-Bold'),
+        url('EeveeMode-Bold.eot?#iefix') format('embedded-opentype'),
+        url('EeveeMode-Bold.woff2') format('woff2'),
+        url('EeveeMode-Bold.woff') format('woff'),
+        url('EeveeMode-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Eevee Mode';
+    src: url('EeveeMode-Light.eot');
+    src: local('Eevee Mode Light'), local('EeveeMode-Light'),
+        url('EeveeMode-Light.eot?#iefix') format('embedded-opentype'),
+        url('EeveeMode-Light.woff2') format('woff2'),
+        url('EeveeMode-Light.woff') format('woff'),
+        url('EeveeMode-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Eevee Mode';
+    src: url('EeveeMode-Thin.eot');
+    src: local('Eevee Mode Thin'), local('EeveeMode-Thin'),
+        url('EeveeMode-Thin.eot?#iefix') format('embedded-opentype'),
+        url('EeveeMode-Thin.woff2') format('woff2'),
+        url('EeveeMode-Thin.woff') format('woff'),
+        url('EeveeMode-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Eevee Mode';
+    src: url('EeveeMode-SemiBold.eot');
+    src: local('Eevee Mode SemiBold'), local('EeveeMode-SemiBold'),
+        url('EeveeMode-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('EeveeMode-SemiBold.woff2') format('woff2'),
+        url('EeveeMode-SemiBold.woff') format('woff'),
+        url('EeveeMode-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
