@@ -1,3 +1,16 @@
+@font-face {
+  font-family: "Eevee Mode";
+  src: url("https://yoyoyojoe.github.io/font/EeveeMode-Regular.eot");
+  src: url("https://yoyoyojoe.github.io/font/EeveeMode-Regular.woff") format("woff"),
+  url("https://yoyoyojoe.github.io/font/EeveeMode-Regular.otf") format("opentype"),
+}
+
+h1 {
+  font-family: 'Eevee Mode', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;;
+  font-weight: 600;
+  font-style: normal;
+}
+
 html {
   min-width: 350px;
   min-height: 580px;
