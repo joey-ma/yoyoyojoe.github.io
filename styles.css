@@ -2,13 +2,21 @@
   font-family: "Eevee Mode";
   src: url("https://yoyoyojoe.github.io/font/EeveeMode-Regular.eot");
   src: url("https://yoyoyojoe.github.io/font/EeveeMode-Regular.woff") format("woff"),
-  url("https://yoyoyojoe.github.io/font/EeveeMode-Regular.otf") format("opentype"),
+  url("https://yoyoyojoe.github.io/font/EeveeMode-Regular.woff2") format("woff2"),
+  url("https://yoyoyojoe.github.io/font/EeveeMode-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Eevee Mode SemiBold";
+  src: url("https://yoyoyojoe.github.io/font/EeveeMode-SemiBold.eot");
+  src: url("https://yoyoyojoe.github.io/font/EeveeMode-SemiBold.woff") format("woff"),
+  url("https://yoyoyojoe.github.io/font/EeveeMode-SemiBold.woff2") format("woff2"),
+  url("https://yoyoyojoe.github.io/font/EeveeMode-SemiBold.otf") format("opentype");
 }
 
 h1 {
-  font-family: 'Eevee Mode', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;;
-  font-weight: 600;
-  font-style: normal;
+  font-family: 'Eevee Mode SemiBold', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  margin-bottom: 1rem;
 }
 
 html {
