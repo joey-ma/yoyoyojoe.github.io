@@ -16,8 +16,8 @@ class Head {
     this.SPEED = 250; // ms
 
     // place ash near the center of the gameboard
-    this.node.style.top = '300px';
     this.node.style.left = '300px';
+    this.node.style.top = '300px';
 
     // sfx setup
     this.bonk = document.getElementById('bonk');
@@ -131,6 +131,7 @@ class Head {
     } else {
       // if the snake did not eat apple (as the game continues)
       // remove the added body
+      console.log(snakeBody);
       snakeBody.shift().node.remove();
     }
 
