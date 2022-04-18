@@ -1,3 +1,4 @@
 - Built from scratch
-- Written in MDX
+- Written in HTML, CSS, JavaScript
 - Hosted with Github Pages
+- Monitored with Checkly
