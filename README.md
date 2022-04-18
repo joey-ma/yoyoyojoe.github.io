@@ -1,4 +1,3 @@
 - Built from scratch
-- Written in HTML, CSS, JavaScript
 - Hosted with Github Pages
 - Monitored with Checkly
