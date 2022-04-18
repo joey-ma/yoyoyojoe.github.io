@@ -1,4 +1,3 @@
-- Forked from Nextra and built using Next.js
+- Built from scratch
 - Written in MDX
-- Deployed on Vercel
-- Monitored with Checkly
+- Hosted with Github Pages
