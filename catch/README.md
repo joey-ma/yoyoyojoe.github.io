@@ -57,4 +57,4 @@ While we can certainly write tests for this, the more intuitive approach is to t
 
 - [ ] add a pause functionality when hitting space bar
 - [ ] improve algo as well as add a larger background music collection
-- [ ] add keyboard shortcuts to turn off the music (as it is currently constantly on autoplay)
+- [x] add keyboard shortcuts to turn on/off the music (currently autoplay is off)
