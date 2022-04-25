@@ -14,50 +14,67 @@
   url("https://yoyoyojoe.github.io/font/EeveeMode-SemiBold.otf") format("opentype");
 }
 
-h1 {
-  font-family: 'Eevee Mode SemiBold', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-  margin-bottom: 1rem;
-}
-
 html {
   min-width: 350px;
   min-height: 580px;
 }
 
+.dark-mode {
+  color: #eee;
+  background-color: #000;
+  transition: background-color 1s;
+}
+
+/* .dark-mode::after {
+  background-color: rgb(75, 73, 73);
+} */
+
 body {
   font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   margin: 0;
   /* margin: 0 --> moves menu bar to stick to top of window */
+  transition-property: background-color, color;
+  transition-duration: 1s;
+}
+
+h1 {
+  font-family: 'Eevee Mode SemiBold', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  margin-bottom: 1rem;
 }
 
 /* header */
-.header {
+header {
+  display: flex;
+  flex-direction: column;
+  color: #666;
   background-color: #f3f3f3;
+}
+
+.header {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0px 2rem 0px 2rem; 
+  transition: background-color 1s;
   /* padding left & right does not work not the same as margin */
 }
 
-.uk-icon-caret-down::before {
+/* .uk-icon-caret-down::before {
     -webkit-text-size-adjust: 100%;
     list-style: none;
     font: inherit;
-    color: #666;
     text-transform: none;
     font-size: 1rem;
     text-align: center;
     text-shadow: 0 1px 0 rgba(106, 106, 106, 0.968);
     cursor: pointer;
-    font-family: FontAwesome;
     display: inline-block;
     font-weight: 400;
     font-style: normal;
     line-height: 1;
     -webkit-font-smoothing: antialiased;
     text-decoration: none;
-}
+} */
 
 button {
   margin: 10px 1rem; 
@@ -68,6 +85,10 @@ button {
   display: flex;
   align-items: center;
   /* If the margin property has two values: top & bottom are 1rem, right & left are 0px */
+}
+
+.main-menu:hover {
+  color: #eee;
 }
 
 .link {
@@ -173,6 +194,32 @@ button {
   /* gap: .25rem; */
 }
 
+.dark-mode-toggles {
+  position: absolute;
+  top: 44px;
+  justify-content: end;
+  align-self: center;
+  min-width: 375px;
+  margin: 2em;
+  padding-right: 1em;
+  z-index: 1;
+}
+
+.dark-mode-toggle {
+  cursor: pointer;
+  transition: content 1s;
+}
+
+.dark-mode-toggle:hover {
+  border-radius: 5px;
+  background-color: #999;
+}
+
+/* .dark-mode-toggle:active {
+  content: url(./assets/icons8-sun.svg);
+  width: 32px;
+} */
+
 /* main-content */
 .main-content {
   display: flex;
@@ -266,4 +313,13 @@ section {
   margin-top: 25px;
   display: flex;
   justify-content: center;
+}
+
+/* footer */ 
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 2rem 0px 2rem; 
 }

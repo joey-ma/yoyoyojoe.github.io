@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="./styles.css"> -->
+  <link rel="stylesheet" href="https://yoyoyojoe.github.io/styles.css">
+  <script type="module" src="https://yoyoyojoe.github.io/index.js" defer></script>
+  <title>Django Polls</title>
+</head>
+<body>
+  <header class="header">
+    <button class="main-menu link" onclick="location.href='/'">
+      Home
+    </button>
+    <button class="main-menu link" onclick="location.href='/blog'">
+      Blog
+    </button>
+    <div class="dropdown-container1" data-dropdown-container>  
+      <button class="main-menu link" data-dropdown-button>
+        Projects
+      </button>
+      <div class="dropdown-menu info-grid" id="projects">
+        <div>
+          <div class="dropdown-heading">JavaScript</div>
+          <div class="dropdown-links">
+            <a class="link" id="catch" href="https://yoyoyojoe.github.io/catch" target="CatchGameWindow" onclick="letsGoCatchEmAll(this.href)" title="This link will create a new window or will re-use an already opened one">
+              <!-- js added button functionality -->
+              Gotta Catch Em All!
+            </a>
+            <a class="link" id="to-do" href="/to-do/" target="_blank" rel="noopener noreferrer">
+              To-Do (React App)
+            </a>
+            <div class="dropdown-heading">Python</div>
+            <div class="dropdown-links">
+              <a href="/not-here" class="link">
+                <em>Coming soon...</em>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dropdown-container2" data-dropdown-container>  
+      <button class="main-menu link" data-dropdown-button >
+        Open Source Product
+      </button>
+      <div class="dropdown-menu info-grid last" id="OSP">
+        <div>
+          <div class="dropdown-heading">Recoilize</div>
+          <div class="dropdown-links">
+            <span>
+              <a href="https://www.recoilize.io/" class="link" target="_blank" rel="noopener noreferrer">
+                Recoilize
+              </a> 
+              (for <a href="https://recoiljs.org" class="link" target="_blank" rel="noopener noreferrer">Recoil</a>)
+            </span>
+            <!-- <a href="/not-here" class="link" target="_blank" rel="noopener noreferrer">Playground</a> -->
+            <a href="https://github.com/open-source-labs/Recoilize" class="link" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/company/recoilize/" class="link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="main-content">
+    <h1>Tango? Django!</h1>
+    <form action="{% url 'polls:vote' question.id %}" method="post">
+      {% csrf_token %}
+      <fieldset>
+          <legend><h1>{{ question.question_text }}</h1></legend>
+          {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+          {% for choice in question.choice_set.all %}
+              <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+              <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+          {% endfor %}
+      </fieldset>
+      <p></p>
+      <input type="submit" value="Vote">
+    </form>
+  </main>
+  <footer>
+    <center>
+      <p style="color:gray">© 2022 Joey Ma. No rights reserved.</p>
+    </center>
+  </footer>
+</body>
+</html>

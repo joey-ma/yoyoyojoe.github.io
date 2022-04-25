@@ -10,58 +10,64 @@
     <script type="module" src="./index.js" defer></script>
 </head>
 <body>
-  <header class="header">
-    <button class="main-menu link" onclick="location.href='/'">
-      Home
-    </button>
-    <button class="main-menu link" onclick="location.href='/blog'">
-      Blog
-    </button>
-    <div class="dropdown-container1" data-dropdown-container>  
-      <button class="main-menu link" data-dropdown-button>
-        Projects
+  <header>
+    <div class="header">
+      <button class="main-menu link" onclick="location.href='/'">
+        Home
       </button>
-      <div class="dropdown-menu info-grid" id="projects">
-        <div>
-          <div class="dropdown-heading">JavaScript</div>
-          <div class="dropdown-links">
-            <a class="link" id="catch" href="https://yoyoyojoe.github.io/catch" target="CatchGameWindow" onclick="letsGoCatchEmAll(this.href)" title="This link will create a new window or will re-use an already opened one">
-              <!-- js added button functionality -->
-              Gotta Catch Em All!
-            </a>
-            <a class="link" id="to-do" href="/to-do/" target="_blank" rel="noopener noreferrer">
-              To-Do (React App)
-            </a>
-            <div class="dropdown-heading">Python</div>
+      <button class="main-menu link" onclick="location.href='/blog'">
+        Blog
+      </button>
+      <div class="dropdown-container1" data-dropdown-container>  
+        <button class="main-menu link" data-dropdown-button>
+          Projects
+        </button>
+        <div class="dropdown-menu info-grid" id="projects">
+          <div>
+            <div class="dropdown-heading">JavaScript</div>
             <div class="dropdown-links">
-              <a href="/not-here" class="link">
-                <em>Coming soon...</em>
+              <a class="link" id="catch" href="https://yoyoyojoe.github.io/catch" target="CatchGameWindow" title="This link will create a new window or will re-use an already opened one">
+                <!-- js added button functionality -->
+                Gotta Catch Em All!
               </a>
+              <a class="link" id="to-do" href="/to-do/" target="_blank" rel="noopener noreferrer">
+                To-Do (React App)
+              </a>
+              <div class="dropdown-heading">Python</div>
+              <div class="dropdown-links">
+                <a href="/not-here" class="link">
+                  <em>Coming soon...</em>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dropdown-container2" data-dropdown-container>  
+        <button class="main-menu link" data-dropdown-button >
+          Open Source Product
+        </button>
+        <div class="dropdown-menu info-grid last" id="OSP">
+          <div>
+            <div class="dropdown-heading">Recoilize</div>
+            <div class="dropdown-links">
+              <span>
+                <a href="https://www.recoilize.io/" class="link" target="_blank" rel="noopener noreferrer">
+                  Recoilize
+                </a> 
+                (for <a href="https://recoiljs.org" class="link" target="_blank" rel="noopener noreferrer">Recoil</a>)
+              </span>
+              <!-- <a href="/not-here" class="link" target="_blank" rel="noopener noreferrer">Playground</a> -->
+              <a href="https://github.com/open-source-labs/Recoilize" class="link" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="https://www.linkedin.com/company/recoilize/" class="link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="dropdown-container2" data-dropdown-container>  
-      <button class="main-menu link" data-dropdown-button >
-        Open Source Product
-      </button>
-      <div class="dropdown-menu info-grid last" id="OSP">
-        <div>
-          <div class="dropdown-heading">Recoilize</div>
-          <div class="dropdown-links">
-            <span>
-              <a href="https://www.recoilize.io/" class="link" target="_blank" rel="noopener noreferrer">
-                Recoilize
-              </a> 
-              (for <a href="https://recoiljs.org" class="link" target="_blank" rel="noopener noreferrer">Recoil</a>)
-            </span>
-            <!-- <a href="/not-here" class="link" target="_blank" rel="noopener noreferrer">Playground</a> -->
-            <a href="https://github.com/open-source-labs/Recoilize" class="link" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://www.linkedin.com/company/recoilize/" class="link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          </div>
-        </div>
-      </div>
+    <!-- dark mode buttons -->
+    <div class="dark-mode-toggles d-flex flex-row-reverse p-2">
+      <div class="dark-mode-toggle"><img id="darkModeToggle" src="./assets/night-dark.png"alt="switch to dark mode" width="32"></div>
     </div>
   </header>
   <main class="main-content">
@@ -102,5 +108,70 @@
     </div>
   </main>
   <div class="root"></div>
+  <footer>
+    <span><a target="_blank" href="https://icons8.com/icon/21106/sun">Sun</a> & <a target="_blank" href="https://icons8.com/icon/UjheKBUqoUDu/moon">moon</a> icons by <a target="_blank" href="https://icons8.com">Icons8</a></span>
+    <span></span>
+  </footer>
+  <script>
+    // function getCookie(name) {
+    //   const match = document.cookie.match(new RegExp(`(^| )${name}=([^;]+)`));
+    //   // if there's any match or value at all
+    //   if (match) {
+    //     console.log('Cookie with key', name, 'is found, and its value is', match[2]);
+    //     return match[2]; // returns a string
+    //   }
+    //   // if the darkMode cookie does not exist || there is no match
+    //   console.log('--cookie name not found, setting cookie "darkMode=false"---');
+    //   document.cookie = 'darkMode=false';
+    //   return false;
+    // }
+
+    // function goDark() {
+    //   // check document.cookie darkMode = true or false
+    //   const isDark = getCookie('darkMode') === 'true';
+    //   console.log('going dark, getting cookie darkMode', isDark);
+    //   if (isDark) {
+    //     console.log('cookie darkMode value was true', isDark);
+    //     document.cookie = 'darkMode=false';
+    //     darkModeToggle.src = './assets/night-dark.png';
+    //     console.log('setting cookie darkMode to be false', getCookie('darkMode'));
+    //   } else {
+    //     console.log('cookie darkMode value was false', isDark);
+    //     document.cookie = 'darkMode=true';
+    //     darkModeToggle.src = './assets/icons8-sun.svg';
+    //     console.log('setting cookie darkMode to be true', getCookie('darkMode'));
+    //   }
+    
+    //   console.log(document.body);
+    //   const header = document.body.firstElementChild.firstElementChild;
+    //   const content = document.body;
+    //   header.classList.toggle('dark-mode');
+    //   content.classList.toggle('dark-mode');
+    //   console.log('-----------------gone dark-------------------');
+    // }
+
+    // // on page load, check the darkMode key value pair
+    // const darkModeOnLoad = getCookie('darkMode') === 'true';
+    // const darkModeToggle = document.getElementById('darkModeToggle');
+
+    // console.log('dark mode on load:', darkModeOnLoad);
+    // // getCookie returns a string
+    // if (darkModeOnLoad) {
+    //   console.log('dark mode on load should be true:', darkModeOnLoad);
+    //   console.log(darkModeToggle);
+    //   darkModeToggle.src = './assets/icons8-sun.svg';
+    //   // darkModeToggle.src = './assets/night-dark.png';
+    //   console.log('dark mode on load should be true', darkModeOnLoad);
+    //   goDark();
+    //   console.log('sun', darkModeToggle);
+    // } else {
+    //   // load dark mode && change toggle img src to sun
+    //   console.log('dark mode on load should be false:', darkModeOnLoad);
+    //   darkModeToggle.src = './assets/night-dark.png';
+    //   // darkModeToggle.src = './assets/icons8-sun.svg';
+    //   console.log('moon', darkModeToggle);
+    // }
+    // // console.log('document cookie', document.cookie);
+      </script>
 </body>
 </html>
