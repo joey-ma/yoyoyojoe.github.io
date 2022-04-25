@@ -21,13 +21,11 @@ html {
 
 .dark-mode {
   color: #eee;
+  /* color: g; */
   background-color: #000;
   transition: background-color 1s;
 }
 
-/* .dark-mode::after {
-  background-color: rgb(75, 73, 73);
-} */
 
 body {
   font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -81,6 +79,7 @@ button {
 }
 
 .main-menu {
+  color:#eee;
   position: relative;
   display: flex;
   align-items: center;
@@ -91,6 +90,10 @@ button {
   color: #eee;
 }
 
+.main-menu:hover .dark-mode {
+  color: white;
+}
+
 .link {
   background: none;
   border: none;
@@ -99,6 +102,10 @@ button {
   font-size: inherit;
   cursor: pointer;
   padding: 0;
+}
+
+.link + .dark-mode {
+  color: #eee;
 }
 
 .dropdown-container1, .dropdown-container2 {
@@ -214,11 +221,6 @@ button {
   border-radius: 5px;
   background-color: #999;
 }
-
-/* .dark-mode-toggle:active {
-  content: url(./assets/icons8-sun.svg);
-  width: 32px;
-} */
 
 /* main-content */
 .main-content {

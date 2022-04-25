@@ -13,7 +13,7 @@ function getCookie(name) {
 }
 
 function goDark() {
-  console.log(darkModeToggle);
+  // console.log(darkModeToggle);
   // check document.cookie darkMode = true or false
   const isDark = getCookie('darkMode') === 'true';
   console.log('going dark, getting cookie darkMode', isDark);
@@ -24,6 +24,13 @@ function goDark() {
     console.log('setting cookie darkMode to be false', getCookie('darkMode'));
     const menuText = document.querySelectorAll('header > div > button');
     menuText.forEach((el) => el.style.setProperty('color', '#666'));
+
+    const linkStyle = document.querySelectorAll('.link');
+    linkStyle.forEach((el) => {
+      el.style.setProperty('color', '#666');
+    });
+    const headerStyle = document.querySelector('.header');
+    headerStyle.style.setProperty('background-color', '#f3f3f3');
     console.log('-----------------gone bright-------------------');
   } else {
     console.log('cookie darkMode value was false', isDark);
@@ -32,17 +39,23 @@ function goDark() {
     console.log('setting cookie darkMode to be true', getCookie('darkMode'));
     const menuText = document.querySelectorAll('header > div > button');
     menuText.forEach((el) => el.style.setProperty('color', '#f3f3f3'));
+
+    const linkStyle = document.querySelectorAll('.link');
+    linkStyle.forEach((el) => {
+      el.style.setProperty('color', '#E1E1E1');
+    });
+    const headerStyle = document.querySelector('.header');
+    headerStyle.style.setProperty('background-color', '#202020');
     console.log('-----------------gone dark-------------------');
   }
 
-  console.log(document.body);
-  const header = document.body.firstElementChild.firstElementChild;
+  // console.log(document.body);
+  const header = document.querySelector('header');
+  console.log('----------------------', header);
+  // const header = document.body.firstElementChild.firstElementChild;
   const content = document.body;
-  // header.classList.toggle('dark-mode');
+  header.classList.toggle('dark-mode');
   content.classList.toggle('dark-mode');
-
-  const headerStyle = document.querySelectorAll('.header');
-  headerStyle.style.setProperty('color', '#f3f3f3');
 }
 
 function letsGoCatchEmAll(url) {
@@ -116,7 +129,7 @@ function load() {
   // getCookie returns a string
   if (darkModeOnLoad) {
     console.log('dark mode on load should be true:', darkModeOnLoad);
-    console.log(darkModeToggle);
+    // console.log(darkModeToggle);
     darkModeToggle.src = './assets/icons8-sun.svg';
     // darkModeToggle.src = './assets/night-dark.png';
     const header = document.body.firstElementChild.firstElementChild;
@@ -126,7 +139,7 @@ function load() {
     console.log('dark mode on load should be true', darkModeOnLoad);
     // goDark();
     // document.cookie = 'darkMode=false';
-    console.log('sun', darkModeToggle);
+    // console.log('sun', darkModeToggle);
   } else {
     // load dark mode && change toggle img src to sun
     console.log('dark mode on load should be false:', darkModeOnLoad);
