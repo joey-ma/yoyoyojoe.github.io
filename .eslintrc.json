@@ -1,0 +1,29 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "html",
+    "json-format",
+    "react"
+  ],
+  "settings": {
+    "json/json-with-comments-files": []
+  },
+  "rules": {
+    "indent": ["error", 2],
+    "no-console": "off"
+  }
+}
