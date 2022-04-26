@@ -26,7 +26,7 @@
           <div>
             <div class="dropdown-heading">JavaScript</div>
             <div class="dropdown-links">
-              <a class="link" id="catch" href="https://yoyoyojoe.github.io/catch" target="CatchGameWindow" onclick="letsGoCatchEmAll(this.href)" title="This link will create a new window or will re-use an already opened one">
+              <a class="link" id="catch" href="https://yoyoyojoe.github.io/catch" target="CatchGameWindow" title="This link will create a new window or will re-use an already opened one">
                 <!-- js added button functionality -->
                 Gotta Catch Em All!
               </a>
@@ -66,9 +66,8 @@
       </div>
     </div>
     <!-- dark mode buttons -->
-    <div class="dark-mode-toggles d-flex flex-row-reverse p-2">
-      <div class="dark-mode-toggle"><img src="../assets/night-dark.png"alt="switch to dark mode" width="32" onclick="goDark()"></div>
-      <div class="light-mode-toggle"><img src="../assets/icons8-sun.svg"alt="switch to light mode" width="32" onclick="goDark()"></div>
+    <div class="dark-mode-container d-flex flex-row-reverse p-2">
+      <div class="dark-mode-toggle"><img id="darkModeToggle" src="./assets/icons8-sun.svg"alt="switch to dark mode" width="32"></div>
     </div>
   </header>
   <main class="main-content">
@@ -84,7 +83,10 @@
       </div>
     </div>
   </main>
-  <div class="root"></div>
+  <footer>
+    <span style="color:gray">© 2022 Joey Ma. No rights reserved.</span>
+    <span><a target="_blank" href="https://icons8.com/icon/21106/sun">Sun</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></span>
+  </footer>
   <script>
   </script>
 </body>
