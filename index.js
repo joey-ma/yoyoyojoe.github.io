@@ -1,58 +1,89 @@
+let previousURL;
+const catchWindow = null;
+const darkModeToggle = document.getElementById('darkModeToggle');
+
 // * functions!
 function getCookie(name) {
   const match = document.cookie.match(new RegExp(`(^| )${name}=([^;]+)`));
   // if there's any match or value at all
   if (match) {
-    console.log('Cookie with key', name, 'is found, and its value is', match[2]);
-    return match[2]; // returns a string
+    // console.log('Cookie:', name, 'found;', 'value:', match[2]);
+    // match[2] would be a string
+    if (match[2] === 'true') return true;
+    if (match[2] === 'false') return false;
   }
-  // if the darkMode cookie does not exist || there is no match
-  console.log('--cookie name not found, setting cookie "darkMode=false"---');
-  document.cookie = 'darkMode=false';
-  return false;
+  return undefined;
 }
 
-function goDark() {
-  // console.log(darkModeToggle);
-  // check document.cookie darkMode = true or false
-  const isDark = getCookie('darkMode') === 'true';
-  console.log('going dark, getting cookie darkMode', isDark);
-  if (isDark) {
-    console.log('cookie darkMode value was true', isDark);
-    darkModeToggle.src = './assets/night-dark.png';
-    document.cookie = 'darkMode=false';
-    console.log('setting cookie darkMode to be false', getCookie('darkMode'));
-    const menuText = document.querySelectorAll('header > div > button');
-    menuText.forEach((el) => el.style.setProperty('color', '#666'));
+function changeView() {
+  // check current view in cookie
+  const isDark = getCookie('darkModePreference');
+  // console.log('isDark:', getCookie('darkModePreference'));
 
-    const linkStyle = document.querySelectorAll('.link');
-    linkStyle.forEach((el) => {
-      el.style.setProperty('color', '#666');
-    });
-    const headerStyle = document.querySelector('.header');
-    headerStyle.style.setProperty('background-color', '#f3f3f3');
-    console.log('-----------------gone bright-------------------');
-  } else {
-    console.log('cookie darkMode value was false', isDark);
+  if (isDark) { // if current view is dark, then change to bright
+    // console.log(darkModeToggle);
+    // console.log('going from dark', isDark, 'to bright');
     darkModeToggle.src = './assets/icons8-sun.svg';
-    document.cookie = 'darkMode=true';
-    console.log('setting cookie darkMode to be true', getCookie('darkMode'));
-    const menuText = document.querySelectorAll('header > div > button');
-    menuText.forEach((el) => el.style.setProperty('color', '#f3f3f3'));
 
-    const linkStyle = document.querySelectorAll('.link');
-    linkStyle.forEach((el) => {
-      el.style.setProperty('color', '#E1E1E1');
+    const header = document.querySelector('.header');
+    header.style.setProperty('background-color', '#f3f3f3');
+
+    const links = document.querySelectorAll('.link');
+    links.forEach((link) => {
+      link.style.setProperty('color', '#666');
     });
-    const headerStyle = document.querySelector('.header');
-    headerStyle.style.setProperty('background-color', '#202020');
-    console.log('-----------------gone dark-------------------');
+
+    const contactButton = document.querySelector('#contact') || document.querySelector('#send');
+    console.log('Here', contactButton.className === 'button');
+    if (contactButton.className === 'button') {
+      contactButton.className = 'dark-button';
+    } else {
+      contactButton.className = 'button';
+    }
+
+    const contactDiv = document.querySelector('#hello');
+    contactDiv.style.setProperty('background-color', 'white');
+
+    // console.log('----------gone bright----------');
+
+    // console.log('setting cookie darkModePreference to be false');
+    document.cookie = 'darkModePreference=false';
+    // console.log('darkModePreference now:', getCookie('darkModePreference'));
+  } else {
+    // console.log(darkModeToggle);
+    // console.log('isDark?', isDark);
+    // console.log('going from bright', !isDark, 'to dark');
+    darkModeToggle.src = './assets/night-dark.png';
+
+    const header = document.querySelector('.header');
+    header.style.setProperty('background-color', '#202020');
+
+    const links = document.querySelectorAll('.link');
+    links.forEach((link) => {
+      link.style.setProperty('color', '#E1E1E1');
+    });
+
+    const contactButton = document.querySelector('#contact') || document.querySelector('#send');
+    // console.log('Here', contactButton.className === 'button');
+    if (contactButton.className === 'button') {
+      contactButton.className = 'dark-button';
+    } else {
+      contactButton.className = 'button';
+    }
+
+    if (document.querySelector('#hello')) {
+      const contactDiv = document.querySelector('#hello');
+      contactDiv.style.setProperty('background-color', 'rgb(175, 175, 175)');
+    }
+
+    // console.log('-----------------gone dark-------------------');
+
+    // console.log('setting cookie darkModePreference to be true');
+    document.cookie = 'darkModePreference=true';
+    // console.log('darkModePreference now:', getCookie('darkModePreference'));
   }
 
-  // console.log(document.body);
-  const header = document.querySelector('header');
-  console.log('----------------------', header);
-  // const header = document.body.firstElementChild.firstElementChild;
+  const header = document.querySelector('.header');
   const content = document.body;
   header.classList.toggle('dark-mode');
   content.classList.toggle('dark-mode');
@@ -74,7 +105,7 @@ function letsGoCatchEmAll(url) {
       'CatchGameWindow',
       windowFeatures,
     );
-    console.log(catchWindow);
+    // console.log(catchWindow);
   } else if (previousURL !== url) {
     catchWindow = window.open(
       url,
@@ -119,41 +150,55 @@ function validateForm() {
   return false;
 }
 
-function load() {
-  console.log('loading');
+// * on load
+document.addEventListener('DOMContentLoaded', (e) => {
   // on page load, check the darkMode key value pair
-  const darkModeOnLoad = getCookie('darkMode') === 'true';
-  const darkModeToggle = document.getElementById('darkModeToggle');
+  const darkModeOnLoad = getCookie('darkModePreference');
 
-  console.log('dark mode on load:', darkModeOnLoad);
-  // getCookie returns a string
+  // console.log('loading dark mode preference:', darkModeOnLoad);
+
+  if (darkModeOnLoad === undefined) {
+    // if the darkModePreference cookie does not exist || there is no match
+    // console.log('--cookie name not found, setting cookie "darkModePreference=false"---');
+    document.cookie = 'darkModePreference=false';
+  }
+
   if (darkModeOnLoad) {
-    console.log('dark mode on load should be true:', darkModeOnLoad);
-    // console.log(darkModeToggle);
-    darkModeToggle.src = './assets/icons8-sun.svg';
-    // darkModeToggle.src = './assets/night-dark.png';
-    const header = document.body.firstElementChild.firstElementChild;
+    // console.log('dark mode on load should be true:', darkModeOnLoad);
+
+    darkModeToggle.src = './assets/night-dark.png';
+
+    const header = document.querySelector('.header');
+    header.style.setProperty('background-color', '#202020');
+
+    const links = document.querySelectorAll('.link');
+    links.forEach((link) => {
+      link.style.setProperty('color', '#E1E1E1');
+    });
+
+    const contactButton = document.querySelector('#contact') || document.querySelector('#send');
+
+    if (contactButton.className === 'button') {
+      contactButton.className = 'dark-button';
+    } else {
+      contactButton.className = 'button';
+    }
+
     const content = document.body;
     header.classList.toggle('dark-mode');
     content.classList.toggle('dark-mode');
-    console.log('dark mode on load should be true', darkModeOnLoad);
-    // goDark();
-    // document.cookie = 'darkMode=false';
-    // console.log('sun', darkModeToggle);
-  } else {
-    // load dark mode && change toggle img src to sun
-    console.log('dark mode on load should be false:', darkModeOnLoad);
-    darkModeToggle.src = './assets/night-dark.png';
-    // darkModeToggle.src = './assets/icons8-sun.svg';
-    console.log('moon', darkModeToggle);
-  }
-  // console.log('document cookie', document.cookie);
-}
 
-// * load
-load();
-let catchWindow = null;
-let previousURL;
+    // console.log(window.location.pathname);
+    if (window.location.pathname === '/contact/') {
+      const contactDiv = document.querySelector('#hello');
+      // console.log('Here', contactDiv.classList);
+      contactDiv.style.setProperty('background-color', 'rgb(175, 175, 175)');
+      // contactDiv.classList.add('#hello-dark-mode');
+    }
+  } else {
+    console.log('dark mode on load should be false:', getCookie('darkModePreference'));
+  }
+});
 
 // * event.target matching
 document.addEventListener('pointerdown', (e) => {
@@ -210,7 +255,7 @@ document.addEventListener('pointerdown', (e) => {
   if (catchButton) letsGoCatchEmAll(contactBtn.href);
 
   const darkModeButton = e.target.matches('#darkModeToggle');
-  if (darkModeButton) goDark();
+  if (darkModeButton) changeView();
 });
 
 /* ipstack: Locate and identify website visitors by IP address
