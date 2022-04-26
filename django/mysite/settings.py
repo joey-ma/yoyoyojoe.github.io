@@ -22,6 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
+
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'django-insecure-xp%ti@-#_y3gez+rl-h5!(u5wjm3f%#q7d*1fs96t8k)huu(10'
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'xp%ti@-#_y3gez+rl-h5!(u5wjm3f%#q7d*1fs96t8k)huu(10')
@@ -32,6 +33,11 @@ DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 ALLOWED_HOSTS = ['yoyoyojoe.github.io/']
 
+# Other deployment checklist items
+
+CSRF_COOKIE_SECURE = True
+
+SESSION_COOKIE_SECURE = True
 
 # Application definition
 
