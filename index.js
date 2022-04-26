@@ -34,15 +34,16 @@ function changeView() {
     });
 
     const contactButton = document.querySelector('#contact') || document.querySelector('#send');
-    console.log('Here', contactButton.className === 'button');
-    if (contactButton.className === 'button') {
-      contactButton.className = 'dark-button';
-    } else {
-      contactButton.className = 'button';
+    if (contactButton) {
+      if (contactButton.className === 'button') {
+        contactButton.className = 'dark-button';
+      } else {
+        contactButton.className = 'button';
+      }
     }
 
     const contactDiv = document.querySelector('#hello');
-    contactDiv.style.setProperty('background-color', 'white');
+    if (contactDiv) contactDiv.style.setProperty('background-color', 'white');
 
     // console.log('----------gone bright----------');
 
@@ -196,7 +197,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
       // contactDiv.classList.add('#hello-dark-mode');
     }
   } else {
-    console.log('dark mode on load should be false:', getCookie('darkModePreference'));
+    // console.log('dark mode on load should be false:', getCookie('darkModePreference'));
   }
 });
 
