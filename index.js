@@ -68,7 +68,7 @@ function changeView() {
   if (isDark) { // if current view is dark, then change to bright
     // console.log(darkModeToggle);
     // console.log('going from dark', isDark, 'to bright');
-    darkModeToggle.src = './assets/icons8-sun.svg';
+    darkModeToggle.src = 'https://yoyoyojoe.github.io/assets/icons8-sun.svg';
 
     const header = document.querySelector('.header');
     header.style.setProperty('background-color', '#f3f3f3');
@@ -99,7 +99,7 @@ function changeView() {
     // console.log(darkModeToggle);
     // console.log('isDark?', isDark);
     // console.log('going from bright', !isDark, 'to dark');
-    darkModeToggle.src = './assets/night-dark.png';
+    darkModeToggle.src = 'https://yoyoyojoe.github.io/assets/night-dark.png';
 
     const header = document.querySelector('.header');
     header.style.setProperty('background-color', '#202020');
@@ -212,7 +212,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
   if (darkModeOnLoad) {
     // console.log('dark mode on load should be true:', darkModeOnLoad);
 
-    darkModeToggle.src = './assets/night-dark.png';
+    darkModeToggle.src = 'https://yoyoyojoe.github.io/assets/night-dark.png';
 
     const header = document.querySelector('.header');
     header.style.setProperty('background-color', '#202020');
