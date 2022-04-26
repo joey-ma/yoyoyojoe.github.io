@@ -1,19 +1,64 @@
 let previousURL;
 const catchWindow = null;
+// let lsDarkModePref = localStorage.getItem('darkMode');
 const darkModeToggle = document.getElementById('darkModeToggle');
 
+// const enableDarkMode = () => {
+//   document.body.classList.add('dark-mode');
+//   localStorage.setItem('darkModePreference', 'enabled');
+// };
+
+// const disableDarkMode = () => {
+//   document.body.classList.remove('dark-mode');
+//   localStorage.setItem('darkModePreference', null);
+// };
+
+// on load
+// if (lsDarkModePref === 'enabled') enableDarkMode();
+
+// on click
+// darkModeToggle.addEventListener('click', () => {
+//   lsDarkModePref = localStorage.getItem('darkMode');
+//   if (lsDarkModePref !== 'enabled') enableDarkMode();
+//   else disableDarkMode();
+// });
+
 // * functions!
-function getCookie(name) {
-  const match = document.cookie.match(new RegExp(`(^| )${name}=([^;]+)`));
-  // if there's any match or value at all
-  if (match) {
-    // console.log('Cookie:', name, 'found;', 'value:', match[2]);
-    // match[2] would be a string
-    if (match[2] === 'true') return true;
-    if (match[2] === 'false') return false;
+// function getLocalStorage(key) {
+// only on the client side, stored locally, no cookie warning, not used for the server side
+
+// }
+
+// version 2
+function getCookie(key) {
+  const cookieName = `${key}=`;
+  const decodedCookie = decodeURIComponent(document.cookie);
+  const allCookies = decodedCookie.split(';');
+  for (let i = 0; i < allCookies.length; i += 1) {
+    let currentCookie = allCookies[i];
+    while (currentCookie.charAt(0) === ' ') {
+      currentCookie = currentCookie.substring(1);
+    }
+    if (currentCookie.indexOf(key) === 0) {
+      if (currentCookie.substring(cookieName.length, currentCookie.length) === 'true') return true;
+      if (currentCookie.substring(cookieName.length, currentCookie.length) === 'false') return false;
+    }
   }
   return undefined;
 }
+
+// version 1
+// function getCookie(key) {
+//   const match = document.cookie.match(new RegExp(`(^| )${name}=([^;]+)`));
+//   // if there's any match or value at all
+//   if (match) {
+//     // console.log('Cookie:', name, 'found;', 'value:', match[2]);
+//     // match[2] would be a string
+//     if (match[2] === 'true') return true;
+//     if (match[2] === 'false') return false;
+//   }
+//   return undefined;
+// }
 
 function changeView() {
   // check current view in cookie
@@ -48,7 +93,7 @@ function changeView() {
     // console.log('----------gone bright----------');
 
     // console.log('setting cookie darkModePreference to be false');
-    document.cookie = 'darkModePreference=false';
+    document.cookie = 'darkModePreference=false;path=/';
     // console.log('darkModePreference now:', getCookie('darkModePreference'));
   } else {
     // console.log(darkModeToggle);
@@ -80,7 +125,7 @@ function changeView() {
     // console.log('-----------------gone dark-------------------');
 
     // console.log('setting cookie darkModePreference to be true');
-    document.cookie = 'darkModePreference=true';
+    document.cookie = 'darkModePreference=true;path=/';
     // console.log('darkModePreference now:', getCookie('darkModePreference'));
   }
 
@@ -161,7 +206,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
   if (darkModeOnLoad === undefined) {
     // if the darkModePreference cookie does not exist || there is no match
     // console.log('--cookie name not found, setting cookie "darkModePreference=false"---');
-    document.cookie = 'darkModePreference=false';
+    document.cookie = 'darkModePreference=false;path=/';
   }
 
   if (darkModeOnLoad) {
