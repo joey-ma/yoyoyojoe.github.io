@@ -80,7 +80,7 @@
         {% if latest_question_list %}
         <ul>
           {% for question in latest_question_list %}
-          <li><a href="{% url 'detail' question.id %}">{{ question.question_text }}</a></li>
+          <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
           {% endfor %}
         </ul>
         {% else %}
@@ -90,9 +90,8 @@
     </div>
   </main>
   <footer>
-    <center>
-      <p style="color:gray">© 2022 Joey Ma. No rights reserved.</p>
-    </center>
+    <span style="color:gray">© 2022 Joey Ma. No rights reserved.</span>
+    <span><a target="_blank" href="https://icons8.com/icon/21106/sun">Sun</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></span>
   </footer>
 </body>
 </html>

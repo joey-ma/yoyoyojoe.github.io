@@ -77,7 +77,7 @@
   <main class="main-content">
     <div class="about-container">
       <h1>Tango? Django!</h1>
-      <form action="{% url 'vote' question.id %}" method="post">
+      <form action="{% url 'polls:vote' question.id %}" method="post">
         {% csrf_token %}
         <fieldset class="fieldset">
             <legend><h1>{{ question.question_text }}</h1></legend>
@@ -93,9 +93,8 @@
     </div>
   </main>
   <footer>
-    <center>
-      <p style="color:gray">© 2022 Joey Ma. No rights reserved.</p>
-    </center>
+    <span style="color:gray">© 2022 Joey Ma. No rights reserved.</span>
+    <span><a target="_blank" href="https://icons8.com/icon/21106/sun">Sun</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></span>
   </footer>
 </body>
 </html>
