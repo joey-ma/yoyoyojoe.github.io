@@ -16,8 +16,7 @@ import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-# print('this is the BASE_DIR:')
-# print(BASE_DIR)
+# this is BASE_DIR: '/Users/joeyma/Documents/GitHub/yoyoyojoe.github.io/django'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -28,16 +27,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'xp%ti@-#_y3gez+rl-h5!(u5wjm3f%#q7d*1fs96t8k)huu(10')
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
 # DEBUG = True
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['yoyoyojoe.github.io/']
+ALLOWED_HOSTS = ['127.0.0.1', 'yoyoyojoe.github.io/', 'django-polls-mysite.herokuapp.com']
 
 # Other deployment checklist items
 
 CSRF_COOKIE_SECURE = True
 
 SESSION_COOKIE_SECURE = True
+
 
 # Application definition
 
@@ -87,8 +88,14 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'd7bnia63qhmjkp',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'USER': 'horplvvfkmhkmo',
+        'PASSWORD': 'efef42204b4482b236c6094166c71ed46b6a24ed9bd5ec5cbcf93e60d40dfd1e',
+        'HOST': 'ec2-3-218-171-44.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
@@ -127,7 +134,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
+
+# PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__)) 
+# this is PROJECT_ROOT: '/Users/joeyma/Documents/GitHub/yoyoyojoe.github.io/django/mysite'
+
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
