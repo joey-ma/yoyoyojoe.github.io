@@ -1,5 +1,5 @@
 let previousURL;
-const catchWindow = null;
+let catchWindow = null;
 // let lsDarkModePref = localStorage.getItem('darkMode');
 const darkModeToggle = document.getElementById('darkModeToggle');
 
@@ -197,7 +197,7 @@ function validateForm() {
 }
 
 // * on load
-document.addEventListener('DOMContentLoaded', (e) => {
+document.addEventListener('DOMContentLoaded', () => {
   // on page load, check the darkMode key value pair
   const darkModeOnLoad = getCookie('darkModePreference');
 
