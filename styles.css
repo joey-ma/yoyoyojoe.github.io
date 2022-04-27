@@ -43,14 +43,9 @@ h1 {
 }
 
 /* header */
-header {
-  display: flex;
-  flex-direction: column;
-  color: #666;
-  background-color: #f3f3f3;
-}
-
 .header {
+  background-color: #f3f3f3;
+  color: #666;
   display: flex;
   justify-content: center;
   align-items: center;
