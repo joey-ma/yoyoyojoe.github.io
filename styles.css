@@ -19,6 +19,10 @@ html {
   min-height: 580px;
 }
 
+button { 
+  margin: 10px 1rem; 
+}
+
 .dark-mode {
   color: #eee;
   background: #323941;
