@@ -103,7 +103,7 @@ button {
   padding: 0;
 }
 
-.link + .dark-mode {
+.link.dark-mode {
   color: #eee;
 }
 
@@ -201,13 +201,14 @@ button {
 }
 
 .dark-mode-container {
+  align-self: center;
+  display: flex;
+  justify-content: end;
+  margin: 2em;
+  min-width: 375px;
+  padding: .5rem!important;
   position: absolute;
   top: 44px;
-  justify-content: end;
-  align-self: center;
-  min-width: 375px;
-  margin: 2em;
-  padding-right: 1em;
   z-index: 1;
 }
 
