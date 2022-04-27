@@ -1,83 +1,92 @@
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <link rel="stylesheet" href="./styles.css"> -->
-  <link rel="stylesheet" href="https://yoyoyojoe.github.io/styles.css">
-  <script type="module" src="https://yoyoyojoe.github.io/index.js" defer></script>
-  <title>Django Polls</title>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Django Polls</title>
+    <link rel="stylesheet" href="https://yoyoyojoe.github.io/styles.css">
+    <link rel="stylesheet" href="{% static 'polls/style.css' %}">
+    <script type="module" src="https://yoyoyojoe.github.io/index.js" defer></script>
 </head>
 <body>
-  <header class="header">
-    <button class="main-menu link" onclick="location.href='/'">
-      Home
-    </button>
-    <button class="main-menu link" onclick="location.href='/blog'">
-      Blog
-    </button>
-    <div class="dropdown-container1" data-dropdown-container>  
-      <button class="main-menu link" data-dropdown-button>
-        Projects
+  <header>
+    <div class="header">
+      <button class="main-menu link" onclick="location.href='https://yoyoyojoe.github.io/'">
+        Home
       </button>
-      <div class="dropdown-menu info-grid" id="projects">
-        <div>
-          <div class="dropdown-heading">JavaScript</div>
-          <div class="dropdown-links">
-            <a class="link" id="catch" href="https://yoyoyojoe.github.io/catch" target="CatchGameWindow" onclick="letsGoCatchEmAll(this.href)" title="This link will create a new window or will re-use an already opened one">
-              <!-- js added button functionality -->
-              Gotta Catch Em All!
-            </a>
-            <a class="link" id="to-do" href="/to-do/" target="_blank" rel="noopener noreferrer">
-              To-Do (React App)
-            </a>
-            <div class="dropdown-heading">Python</div>
+      <button class="main-menu link" onclick="location.href='https://yoyoyojoe.github.io//blog'">
+        Blog
+      </button>
+      <div class="dropdown-container1" data-dropdown-container>  
+        <button class="main-menu link" data-dropdown-button>
+          Projects
+        </button>
+        <div class="dropdown-menu info-grid" id="projects">
+          <div>
+            <div class="dropdown-heading">JavaScript</div>
             <div class="dropdown-links">
-              <a href="/not-here" class="link">
-                <em>Coming soon...</em>
+              <a class="link" id="catch" href="https://yoyoyojoe.github.io/catch" target="CatchGameWindow" title="This link will create a new window or will re-use an already opened one">
+                <!-- js added button functionality -->
+                Gotta Catch Em All!
               </a>
+              <a class="link" id="to-do" href="/to-do/" target="_blank" rel="noopener noreferrer">
+                To-Do (React App)
+              </a>
+              <div class="dropdown-heading">Python</div>
+              <div class="dropdown-links">
+                <a href="https://django-polls-mysite.herokuapp.com/" class="link">
+                  Django Polls
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dropdown-container2" data-dropdown-container>  
+        <button class="main-menu link" data-dropdown-button >
+          Open Source Product
+        </button>
+        <div class="dropdown-menu info-grid last" id="OSP">
+          <div>
+            <div class="dropdown-heading">Recoilize</div>
+            <div class="dropdown-links">
+              <span>
+                <a href="https://www.recoilize.io/" class="link" target="_blank" rel="noopener noreferrer">
+                  Recoilize
+                </a> 
+                (for <a href="https://recoiljs.org" class="link" target="_blank" rel="noopener noreferrer">Recoil</a>)
+              </span>
+              <!-- <a href="/not-here" class="link" target="_blank" rel="noopener noreferrer">Playground</a> -->
+              <a href="https://github.com/open-source-labs/Recoilize" class="link" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="https://www.linkedin.com/company/recoilize/" class="link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="dropdown-container2" data-dropdown-container>  
-      <button class="main-menu link" data-dropdown-button >
-        Open Source Product
-      </button>
-      <div class="dropdown-menu info-grid last" id="OSP">
-        <div>
-          <div class="dropdown-heading">Recoilize</div>
-          <div class="dropdown-links">
-            <span>
-              <a href="https://www.recoilize.io/" class="link" target="_blank" rel="noopener noreferrer">
-                Recoilize
-              </a> 
-              (for <a href="https://recoiljs.org" class="link" target="_blank" rel="noopener noreferrer">Recoil</a>)
-            </span>
-            <!-- <a href="/not-here" class="link" target="_blank" rel="noopener noreferrer">Playground</a> -->
-            <a href="https://github.com/open-source-labs/Recoilize" class="link" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://www.linkedin.com/company/recoilize/" class="link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          </div>
-        </div>
-      </div>
+    <!-- dark mode buttons -->
+    <div class="dark-mode-container d-flex flex-row-reverse p-2">
+      <div class="dark-mode-toggle"><img id="darkModeToggle" src="https://yoyoyojoe.github.io/assets/icons8-sun.svg"alt="switch to dark mode" width="32"></div>
     </div>
   </header>
   <main class="main-content">
-    <h1>Welcome to My Django App!</h1>
-    <div class="questions">
-      {% if latest_question_list %}
-      <ul>
-        {% for question in latest_question_list %}
-        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
-        {% endfor %}
-      </ul>
-      {% else %}
-      <p>No polls are available.</p>
-      {% endif %}
+    <div class="about-container">
+      <h1>Welcome</h1>
+      <h1>to My Django App!</h1>
+      <div class="questions">
+        {% if latest_question_list %}
+        <ul>
+          {% for question in latest_question_list %}
+          <li><a href="{% url 'detail' question.id %}">{{ question.question_text }}</a></li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <p>No polls are available.</p>
+        {% endif %}
+      </div>
     </div>
   </main>
   <footer>
