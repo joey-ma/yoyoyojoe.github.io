@@ -138,8 +138,12 @@ USE_TZ = True
 # PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__)) 
 # this is PROJECT_ROOT: '/Users/joeyma/Documents/GitHub/yoyoyojoe.github.io/django/mysite'
 
-STATIC_URL = 'static/'
+STATIC_URL = 'https://django-polls-mysite.herokuapp.com/static'
+# STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = '/var/django-polls-mysite.herokuapp.com/static'
+# this is BASE_DIR: '/Users/joeyma/Documents/GitHub/yoyoyojoe.github.io/django'
+# print(STATIC_ROOT) # -> /Users/joeyma/Documents/GitHub/yoyoyojoe.github.io/django/static
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
