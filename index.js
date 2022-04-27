@@ -111,10 +111,12 @@ function changeView() {
 
     const contactButton = document.querySelector('#contact') || document.querySelector('#send');
     // console.log('Here', contactButton.className === 'button');
-    if (contactButton.className === 'button') {
-      contactButton.className = 'dark-button';
-    } else {
-      contactButton.className = 'button';
+    if (contactButton) {
+      if (contactButton.className === 'button') {
+        contactButton.className = 'dark-button';
+      } else {
+        contactButton.className = 'button';
+      }
     }
 
     if (document.querySelector('#hello')) {
