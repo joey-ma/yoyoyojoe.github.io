@@ -347,9 +347,20 @@ section {
 
 /* footer */ 
 footer {
+  color: gray;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 0px 2rem 0px 2rem; 
+}
+
+footer > span > a {
+  background: none;
+  border: none;
+  color: gray;
+  cursor: pointer;
+  font-size: inherit;
+  padding: 0;
+  text-decoration: none;
 }
