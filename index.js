@@ -34,6 +34,7 @@ function getCookie(key) {
   const cookieName = `${key}=`;
   const decodedCookie = decodeURIComponent(document.cookie);
   const allCookies = decodedCookie.split(';');
+  console.log(allCookies);
   for (let i = 0; i < allCookies.length; i += 1) {
     let currentCookie = allCookies[i];
     while (currentCookie.charAt(0) === ' ') {
@@ -207,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (darkModeOnLoad === undefined) {
     // if the darkModePreference cookie does not exist || there is no match
-    // console.log('--cookie name not found, setting cookie "darkModePreference=false"---');
+    console.log('--cookie name not found, setting cookie "darkModePreference=false"---');
     document.cookie = 'darkModePreference=false;path=/';
   }
 
@@ -226,10 +227,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const contactButton = document.querySelector('#contact') || document.querySelector('#send');
 
-    if (contactButton.className === 'button') {
-      contactButton.className = 'dark-button';
-    } else {
-      contactButton.className = 'button';
+    if (contactButton) {
+      if (contactButton.className === 'button') {
+        contactButton.className = 'dark-button';
+      } else {
+        contactButton.className = 'button';
+      }
     }
 
     const content = document.body;
