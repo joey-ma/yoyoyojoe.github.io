@@ -277,7 +277,7 @@ document.addEventListener('pointerdown', (e) => {
 
   if (contactBtn) {
     // window.location.href = '/contact';
-    window.location.assign('/contact');
+    window.location.assign('https://yoyoyojoe.github.io/contact/');
 
     const access = document.querySelector('.special-access');
     access.style.display = 'none';
@@ -303,7 +303,7 @@ document.addEventListener('pointerdown', (e) => {
   }
 
   const catchButton = e.target.matches('#catch');
-  if (catchButton) letsGoCatchEmAll(contactBtn.href);
+  if (catchButton) letsGoCatchEmAll(catchButton.href);
 
   const darkModeButton = e.target.matches('#darkModeToggle');
   if (darkModeButton) changeView();
