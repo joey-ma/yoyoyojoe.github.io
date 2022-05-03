@@ -29,24 +29,26 @@ const darkModeToggle = document.getElementById('darkModeToggle');
 
 // }
 
-// version 2
-function getCookie(key) {
-  const cookieName = `${key}=`;
-  const decodedCookie = decodeURIComponent(document.cookie);
-  const allCookies = decodedCookie.split(';');
-  console.log(allCookies);
-  for (let i = 0; i < allCookies.length; i += 1) {
-    let currentCookie = allCookies[i];
-    while (currentCookie.charAt(0) === ' ') {
-      currentCookie = currentCookie.substring(1);
-    }
-    if (currentCookie.indexOf(key) === 0) {
-      if (currentCookie.substring(cookieName.length, currentCookie.length) === 'true') return true;
-      if (currentCookie.substring(cookieName.length, currentCookie.length) === 'false') return false;
-    }
-  }
-  return undefined;
-}
+// todo (DONE) version 3: use localStorage
+
+// ? version 2
+// function getCookie(key) {
+//   const cookieName = `${key}=`;
+//   const decodedCookie = decodeURIComponent(document.cookie);
+//   const allCookies = decodedCookie.split(';');
+//   console.log(allCookies);
+//   for (let i = 0; i < allCookies.length; i += 1) {
+//     let currentCookie = allCookies[i];
+//     while (currentCookie.charAt(0) === ' ') {
+//       currentCookie = currentCookie.substring(1);
+//     }
+//     if (currentCookie.indexOf(key) === 0) {
+//       if (currentCookie.substring(cookieName.length, currentCookie.length) === 'true') return true;
+//       if (currentCookie.substring(cookieName.length, currentCookie.length) === 'false') return false;
+//     }
+//   }
+//   return undefined;
+// }
 
 // version 1
 // function getCookie(key) {
@@ -62,9 +64,18 @@ function getCookie(key) {
 // }
 
 function changeView() {
-  // check current view in cookie
-  const isDark = getCookie('darkModePreference');
-  // console.log('isDark:', getCookie('darkModePreference'));
+  // ? check current view in cookie
+  // ? const isDark = getCookie('darkModePreference');
+  // ? console.log('isDark:', getCookie('darkModePreference'));
+
+  let isDark = localStorage.getItem('dark mode preference');
+  if (isDark) {
+    if (isDark === 'true') isDark = true;
+    if (isDark === 'false') isDark = false;
+  } else {
+    console.log('dark mode preference not set: should not be here');
+    localStorage.setItem('dark mode preference', 'true');
+  }
 
   if (isDark) { // if current view is dark, then change to bright
     // console.log(darkModeToggle);
@@ -76,7 +87,8 @@ function changeView() {
 
     const links = document.querySelectorAll('.link');
     links.forEach((link) => {
-      link.style.setProperty('color', '#666');
+      // link.style.setProperty('color', '#666');
+      link.classList.toggle('dark-mode');
     });
 
     const contactButton = document.querySelector('#contact') || document.querySelector('#send');
@@ -93,9 +105,10 @@ function changeView() {
 
     // console.log('----------gone bright----------');
 
-    // console.log('setting cookie darkModePreference to be false');
-    document.cookie = 'darkModePreference=false;path=/';
-    // console.log('darkModePreference now:', getCookie('darkModePreference'));
+    // ? console.log('setting cookie darkModePreference to be false');
+    // ? document.cookie = 'darkModePreference=false;path=/';
+    // ? console.log('darkModePreference now:', getCookie('darkModePreference'));
+    localStorage.setItem('dark mode preference', 'false');
   } else {
     // console.log(darkModeToggle);
     // console.log('isDark?', isDark);
@@ -107,7 +120,9 @@ function changeView() {
 
     const links = document.querySelectorAll('.link');
     links.forEach((link) => {
-      link.style.setProperty('color', '#E1E1E1');
+      // link.style.setProperty('color', '#666');
+      // link.style.setProperty('color', '#E1E1E1');
+      link.classList.toggle('dark-mode');
     });
 
     const contactButton = document.querySelector('#contact') || document.querySelector('#send');
@@ -127,9 +142,11 @@ function changeView() {
 
     // console.log('-----------------gone dark-------------------');
 
-    // console.log('setting cookie darkModePreference to be true');
-    document.cookie = 'darkModePreference=true;path=/';
-    // console.log('darkModePreference now:', getCookie('darkModePreference'));
+    // ? console.log('setting cookie darkModePreference to be true');
+    // ? document.cookie = 'darkModePreference=true;path=/';
+    // ? console.log('darkModePreference now:', getCookie('darkModePreference'));
+
+    localStorage.setItem('dark mode preference', 'true');
   }
 
   const header = document.querySelector('.header');
@@ -202,18 +219,27 @@ function validateForm() {
 // * on load
 document.addEventListener('DOMContentLoaded', () => {
   // on page load, check the darkMode key value pair
-  const darkModeOnLoad = getCookie('darkModePreference');
+  // ? const darkModeOnLoad = getCookie('darkModePreference');
+  let darkModeOnLoad = localStorage.getItem('dark mode preference');
 
+  if (darkModeOnLoad) { // if not null
+    // ? console.log('dark mode on load should be true:', darkModeOnLoad);
+    if (darkModeOnLoad === 'true') darkModeOnLoad = true;
+    if (darkModeOnLoad === 'false') darkModeOnLoad = false;
+  } else {
+    localStorage.setItem('dark mode preference', 'false');
+    if (darkModeOnLoad === 'false') darkModeOnLoad = false;
+  }
   // console.log('loading dark mode preference:', darkModeOnLoad);
 
-  if (darkModeOnLoad === undefined) {
-    // if the darkModePreference cookie does not exist || there is no match
-    console.log('--cookie name not found, setting cookie "darkModePreference=false"---');
-    document.cookie = 'darkModePreference=false;path=/';
-  }
+  // ? if (darkModeOnLoad === undefined) {
+  // ?   // if the darkModePreference cookie does not exist || there is no match
+  // ?   console.log('--cookie name not found, setting cookie "darkModePreference=false"---');
+  // ?   document.cookie = 'darkModePreference=false;path=/';
+  // ? }
 
   if (darkModeOnLoad) {
-    // console.log('dark mode on load should be true:', darkModeOnLoad);
+    // ? console.log('dark mode on load should be true:', darkModeOnLoad);
 
     darkModeToggle.src = 'https://yoyoyojoe.github.io/assets/night-dark.png';
 
@@ -222,7 +248,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const links = document.querySelectorAll('.link');
     links.forEach((link) => {
-      link.style.setProperty('color', '#E1E1E1');
+      // link.style.setProperty('color', '#E1E1E1');
+      link.classList.toggle('dark-mode');
     });
 
     const contactButton = document.querySelector('#contact') || document.querySelector('#send');
@@ -247,11 +274,12 @@ document.addEventListener('DOMContentLoaded', () => {
       // contactDiv.classList.add('#hello-dark-mode');
     }
   } else {
-    // console.log('dark mode on load should be false:', getCookie('darkModePreference'));
+    // ? console.log('dark mode on load should be false:', getCookie('darkModePreference'));
+    // darkModeOnLoad is false, load regular page
   }
 });
 
-// * event.target matching
+// * menu dropdown javascript: event.target matching
 document.addEventListener('pointerdown', (e) => {
   // when clicking on the specific button, (using selector & data attribute)
   const dropdownBtn = e.target.matches('[data-dropdown-button]');
