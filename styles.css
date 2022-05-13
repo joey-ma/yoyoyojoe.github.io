@@ -132,8 +132,8 @@ a.link.dark-mode:hover {
   color: black;
 }
 
-.dropdown-container1.active > .link, .link.dark-mode:hover, 
-.dropdown-container2.active > .link, .link.dark-mode:hover {
+.dropdown-container1.active > .link.dark-mode, .link.dark-mode:hover, 
+.dropdown-container2.active > .link.dark-mode, .link.dark-mode:hover {
   color: white;
 }
 
