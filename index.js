@@ -33,18 +33,17 @@ const darkModeToggle = document.getElementById('darkModeToggle');
 
 // ? version 2
 // function getCookie(key) {
-//   const cookieName = `${key}=`;
+//   const keyName = `${key}=`;
 //   const decodedCookie = decodeURIComponent(document.cookie);
 //   const allCookies = decodedCookie.split(';');
 //   console.log(allCookies);
-//   for (let i = 0; i < allCookies.length; i += 1) {
-//     let currentCookie = allCookies[i];
+//   for (const currentCookie of allCookies) {
 //     while (currentCookie.charAt(0) === ' ') {
 //       currentCookie = currentCookie.substring(1);
 //     }
 //     if (currentCookie.indexOf(key) === 0) {
-//       if (currentCookie.substring(cookieName.length, currentCookie.length) === 'true') return true;
-//       if (currentCookie.substring(cookieName.length, currentCookie.length) === 'false') return false;
+//       if (currentCookie.substring(keyName.length, currentCookie.length) === 'true') return true;
+//       if (currentCookie.substring(keyName.length, currentCookie.length) === 'false') return false;
 //     }
 //   }
 //   return undefined;
@@ -85,6 +84,9 @@ function changeView() {
     const header = document.querySelector('.header');
     header.style.setProperty('background-color', '#f3f3f3');
 
+    const dropdownMenuInfoGrid = document.querySelectorAll('.dropdown-menu.info-grid');
+    dropdownMenuInfoGrid.forEach((dropdownMenu) => dropdownMenu.classList.toggle('dark-mode'));
+
     const links = document.querySelectorAll('.link');
     links.forEach((link) => {
       // link.style.setProperty('color', '#666');
@@ -117,6 +119,9 @@ function changeView() {
 
     const header = document.querySelector('.header');
     header.style.setProperty('background-color', '#202020');
+
+    const dropdownMenuInfoGrid = document.querySelectorAll('.dropdown-menu.info-grid');
+    dropdownMenuInfoGrid.forEach((dropdownMenu) => dropdownMenu.classList.toggle('dark-mode'));
 
     const links = document.querySelectorAll('.link');
     links.forEach((link) => {
@@ -217,7 +222,47 @@ function validateForm() {
 }
 
 // * on load
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('message', (event) => {
+  if (event.origin !== 'https://django-polls-mysite.herokuapp.com/') return;
+  console.log(event);
+  console.log(event.origin);
+  // ... to be worked on ?
+}, false);
+
+window.onload = (e) => {
+  console.log(e);
+  // Get the window displayed in the iframe.
+  // var receiver = document.getElementById('receiver').contentWindow;
+
+  // // Get a reference to the 'Send Message' button.
+  // var btn = document.getElementById('send');
+
+  // // A function to handle sending messages.
+  // function sendMessage(e) {
+  //   // Prevent any default browser behaviour.
+  //   e.preventDefault();
+
+  //   // Send a message with the text 'Hello Treehouse!' to the new window.
+  //   receiver.postMessage('cookie data!', 'http://wrong-domain.com');
+  // }
+
+  // // Add an event listener that will execute the sendMessage() function
+  // // when the send button is clicked.
+  // btn.addEventListener('click', sendMessage);
+};
+
+document.addEventListener('DOMContentLoaded', (e) => {
+  // for Django Polls app
+  console.log(e.target.location.href);
+  if (e.target.location.href === 'https://django-polls-mysite.herokuapp.com/') {
+    fetch('https://yoyoyojoe.github.io/')
+      .then((res) => res.json)
+      .then((data) => {
+        console.log(data);
+        localStorage.setItem('dark mode preference', data);
+      });
+  }
+
   // on page load, check the darkMode key value pair
   // ? const darkModeOnLoad = getCookie('darkModePreference');
   let darkModeOnLoad = localStorage.getItem('dark mode preference');
@@ -245,6 +290,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const header = document.querySelector('.header');
     header.style.setProperty('background-color', '#202020');
+    header.classList.toggle('dark-mode');
+
+    const dropdownMenuInfoGrid = document.querySelectorAll('.dropdown-menu.info-grid');
+    dropdownMenuInfoGrid.forEach((dropdownMenu) => dropdownMenu.classList.toggle('dark-mode'));
 
     const links = document.querySelectorAll('.link');
     links.forEach((link) => {
@@ -263,7 +312,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const content = document.body;
-    header.classList.toggle('dark-mode');
     content.classList.toggle('dark-mode');
 
     // console.log(window.location.pathname);
