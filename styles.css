@@ -86,6 +86,7 @@ header {
   padding: 0;
 }
 
+
 a.link:hover {
   color: #000;
 }
@@ -107,13 +108,14 @@ a.link.dark-mode:hover {
   /* If the margin property has two values: top & bottom are 1rem, right & left are 0px */
 }
 
-.main-menu:hover {
+/* .main-menu:hover {
   color: #eee;
-}
+} */
 
 .main-menu.link.dark-mode {
   color: #919191;
 }
+
 .main-menu.link.dark-mode:hover {
   color: white;
 }
@@ -128,6 +130,11 @@ a.link.dark-mode:hover {
 .dropdown-container1.active > .link, .link:hover, 
 .dropdown-container2.active > .link, .link:hover {
   color: black;
+}
+
+.dropdown-container1.active > .link, .link.dark-mode:hover, 
+.dropdown-container2.active > .link, .link.dark-mode:hover {
+  color: white;
 }
 
 /* inside of our dropdown-container, for when link is focused and the dropdown-menu (sibling) that comes after the link */
@@ -198,6 +205,10 @@ a.link.dark-mode:hover {
   grid-template-columns: repeat(1, max-content);
   gap: 1rem;
   /* max-width: 200px; */
+}
+
+.dropdown-menu.dark-mode {
+  background-color: #1e1e1e;
 }
 
 .dropdown-heading {
