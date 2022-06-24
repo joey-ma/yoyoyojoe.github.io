@@ -5,17 +5,83 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hello World</title>
+  <style>
+    ul {
+      display: flex;
+      /* justify-content: flex-start; */
+      justify-content: space-around;
+    }
+    h1 {
+      text-decoration:underline;
+    }
+    h3 {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-<header><img src="./logo-for-banner.png" alt="company logo"></header>
-<nav class="navbar">
+<header>
+  <img src="./logo-for-banner.png" alt="company logo">
+  <nav class="navbar">
   <ul>
-    <li class="navbar-li"></li>
-    <li class="navbar-li"></li>
-    <li class="navbar-li"></li>
-    <li class="navbar-li"></li>
-    <li class="navbar-li"></li>
+    <li class="navbar-li">hi</li>
+    <li class="navbar-li">bye</li>
+    <li class="navbar-li">yes</li>
+    <li class="navbar-li">no</li>
   </ul>
-</nav>  
+  </nav>  
+</header>
+  <main style="background-color:antiquewhite">
+    <h1>Languages</h1>
+    <h2>HTML</h2>
+    <h2>XML</h2>    
+    <p>
+      <strong>
+        Reference: <a href="https://blog.hubspot.com/website/what-is-xml-file">https://blog.hubspot.com/website/what-is-xml-file</a>
+      </strong>
+    </p>
+      <h3>XML Hierarchy</h3>
+      <p>Each instance of an XML tag is called an element. In an XML file, elements are arranged in a hierarchy, which means that elements can contain other elements.</p>
+      <p>The topmost element is called the "root" element, and contains all other elements, which are called "child" elements.</p>
+      <p>In the example above, "studentsList" is the root element. It contains two "student" elements. Each "student" element contains the elements "firstName," "lastName," "scores," etc. The beginning and end of each element are represented by a starting tag (e.g., "<firstName>") and a closing tag (e.g., "</firstName>") respectively.</p>
+      <p>
+        Also, you’ll often see XML code formatted such that each level of element is indented, as is true in our example. This makes the file easier for humans to read, and does not affect how computers process the code.
+      </p>
+
+      <h3>XML History</h3>
+      <p>
+        XML, short for "<strong>eXtensible Markup Language</strong>," was published by the World Wide Web Consortium (W3C) in 1998 to meet the challenges of large-scale electronic publishing. Since then, it has become one of the most widely used formats for sharing structured information among people, computers, and networks.
+      </p>
+      <p>
+        Since XML can be read and interpreted by people as well as computer software, it is known as human- and machine-readable. 
+      </p>
+
+      <p>
+        The primary purpose of XML, however, is to store data in a way that can be easily read by and shared between software applications. Since its format is standardized, XML can be shared across systems or platforms, both locally and over the internet, and the recipient will still be able to parse the data.
+      </p>
+      <p>
+        It's important to understand that XML doesn’t do anything with the data other than store it, like a database. Another piece of software must be created or used to send, receive, store, or display the data. 
+      </p>
+    <h2>HTML vs XML</h2>
+    <p>Both XML and HTML contain text and tags that instruct the software on how to use it. However, while </p>
+    <ul>
+      <li>XML tags specify the <em>type of data</em></li>
+      <br>
+      <img src="https://blog.hubspot.com/hs-fs/hubfs/xml%20file%20example%20storing%20names%20and%20test%20scores%20of%20students-1.png?width=1300&name=xml%20file%20example%20storing%20names%20and%20test%20scores%20of%20students-1.png" alt="xml example" width="650px">
+      <br>
+      <br>
+      <li>HTML tags specify <em>how data is displayed</em></li>
+      <br>
+      <img src="https://henryegloff.com/media/How-to-Develop-a-Basic-Webpage-Using-HTML-and-CSS-Tutorial-2.jpg" alt="xml example" width="650px">
+      <br>
+      <br>
+    </ul>
+    <p>In short, XML is used to represent and share structured information, whereas HTML is used to display content on web pages</p>
+    <p>Besides their purpose, there’s one other key difference between XML and HTML tags.</p>
+    <p>When programming in HTML, a developer must use tags from the HTML tag library, or a standardized set of tags. While you can do a lot with these tags, there is a limited number available. That means there are only so many ways you can structure content on a web page.</p>
+    <p>XML does not have this limitation, as there is no preset library of XML tags. Instead, developers can create an unlimited number of custom tags to fit their data needs. This extensive customization is the "X" in XML.</p>
+    <p></p>
+    <p>An XML file is a file used to store data in the form of hierarchical elements. Data stored in XML files can be read by computer programs with the help of custom tags, which indicate the type of element.</p>
+  </main>
 </body>
 </html>

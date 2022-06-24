@@ -1,7 +1,8 @@
 let previousURL;
 let catchWindow = null;
-// let lsDarkModePref = localStorage.getItem('darkMode');
 const darkModeToggle = document.getElementById('darkModeToggle');
+
+// let lsDarkModePref = localStorage.getItem('darkMode');
 
 // const enableDarkMode = () => {
 //   document.body.classList.add('dark-mode');
@@ -29,27 +30,29 @@ const darkModeToggle = document.getElementById('darkModeToggle');
 
 // }
 
-// todo (DONE) version 3: use localStorage
+// ? version 3: use localStorage
 
-// ? version 2
-// function getCookie(key) {
-//   const keyName = `${key}=`;
-//   const decodedCookie = decodeURIComponent(document.cookie);
-//   const allCookies = decodedCookie.split(';');
-//   console.log(allCookies);
-//   for (const currentCookie of allCookies) {
-//     while (currentCookie.charAt(0) === ' ') {
-//       currentCookie = currentCookie.substring(1);
-//     }
-//     if (currentCookie.indexOf(key) === 0) {
-//       if (currentCookie.substring(keyName.length, currentCookie.length) === 'true') return true;
-//       if (currentCookie.substring(keyName.length, currentCookie.length) === 'false') return false;
-//     }
-//   }
-//   return undefined;
-// }
+// ? version 2: use cookie (custom getter for cookie values)
+/*
+function getCookie(key) {
+  const keyName = `${key}=`;
+  const decodedCookie = decodeURIComponent(document.cookie);
+  const allCookies = decodedCookie.split(';');
+  console.log(allCookies);
+  for (const currentCookie of allCookies) {
+    while (currentCookie.charAt(0) === ' ') {
+      currentCookie = currentCookie.substring(1);
+    }
+    if (currentCookie.indexOf(key) === 0) {
+      if (currentCookie.substring(keyName.length, currentCookie.length) === 'true') return true;
+      if (currentCookie.substring(keyName.length, currentCookie.length) === 'false') return false;
+    }
+  }
+  return undefined;
+}
+*/
 
-// version 1
+// ? version 1: use cookie (use regex)
 // function getCookie(key) {
 //   const match = document.cookie.match(new RegExp(`(^| )${name}=([^;]+)`));
 //   // if there's any match or value at all
@@ -74,6 +77,7 @@ function changeView() {
   } else {
     console.log('dark mode preference not set: should not be here');
     localStorage.setItem('dark mode preference', 'true');
+    if (isDark === 'false') isDark = false;
   }
 
   if (isDark) { // if current view is dark, then change to bright
@@ -191,6 +195,9 @@ function letsGoCatchEmAll(url) {
   return false;
 }
 
+// validate form function for filling out contact form
+
+/*
 function validateForm() {
   const name = document.getElementById('name').value;
   if (name === '') {
@@ -202,7 +209,7 @@ function validateForm() {
     document.querySelector('.status').innerHTML = 'Email cannot be empty';
     return false;
   }
-  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   if (!re.test(email)) {
     document.querySelector('.status').innerHTML = 'Email format invalid';
     return false;
@@ -220,13 +227,28 @@ function validateForm() {
   }
   return false;
 }
+*/
 
-// * on load
+// todo receiving a 'message' from django app url,
+// send a post request to django app
 window.addEventListener('message', (event) => {
+  const isDark = localStorage.getItem('dark mode preference');
+  console.log('event origin: ', event.origin);
   if (event.origin !== 'https://django-polls-mysite.herokuapp.com/') return;
-  console.log(event);
-  console.log(event.origin);
+  console.log('message, event: ', event);
   // ... to be worked on ?
+  const response = fetch('https://yoyoyojoe.github.io/', {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: `{ 'isDark': ${isDark} }`,
+  });
+  response.json().then((data) => {
+    console.log(data);
+    localStorage.setItem('dark mode preference', data);
+  });
 }, false);
 
 window.onload = (e) => {
@@ -239,10 +261,10 @@ window.onload = (e) => {
 
   // // A function to handle sending messages.
   // function sendMessage(e) {
-  //   // Prevent any default browser behaviour.
+  //   // Prevent any default browser behavior.
   //   e.preventDefault();
 
-  //   // Send a message with the text 'Hello Treehouse!' to the new window.
+  //   // Send a message with the text 'Hello Tree house!' to the new window.
   //   receiver.postMessage('cookie data!', 'http://wrong-domain.com');
   // }
 
@@ -253,12 +275,12 @@ window.onload = (e) => {
 
 document.addEventListener('DOMContentLoaded', (e) => {
   // for Django Polls app
-  console.log(e.target.location.href);
   if (e.target.location.href === 'https://django-polls-mysite.herokuapp.com/') {
     fetch('https://yoyoyojoe.github.io/')
       .then((res) => res.json)
       .then((data) => {
-        console.log(data);
+        console.log(`sending a fetch request to https://yoyoyojoe.github.io/ from ${e.target.location.href}`);
+        console.log(JSON.stringify(data));
         localStorage.setItem('dark mode preference', data);
       });
   }
@@ -267,13 +289,12 @@ document.addEventListener('DOMContentLoaded', (e) => {
   // ? const darkModeOnLoad = getCookie('darkModePreference');
   let darkModeOnLoad = localStorage.getItem('dark mode preference');
 
-  if (darkModeOnLoad) { // if not null
-    // ? console.log('dark mode on load should be true:', darkModeOnLoad);
+  if (darkModeOnLoad) { // if not null, reassign it a boolean value
+    // ? console.log('dark mode on load should have a value:', darkModeOnLoad);
     if (darkModeOnLoad === 'true') darkModeOnLoad = true;
     if (darkModeOnLoad === 'false') darkModeOnLoad = false;
-  } else {
+  } else { // set default dark mode preference to false
     localStorage.setItem('dark mode preference', 'false');
-    if (darkModeOnLoad === 'false') darkModeOnLoad = false;
   }
   // console.log('loading dark mode preference:', darkModeOnLoad);
 
@@ -283,9 +304,8 @@ document.addEventListener('DOMContentLoaded', (e) => {
   // ?   document.cookie = 'darkModePreference=false;path=/';
   // ? }
 
+  // if darkModeOnLoad is true, modify the darkModeToggle icon and theme colors accordingly
   if (darkModeOnLoad) {
-    // ? console.log('dark mode on load should be true:', darkModeOnLoad);
-
     darkModeToggle.src = 'https://yoyoyojoe.github.io/assets/night-dark.png';
 
     const header = document.querySelector('.header');
