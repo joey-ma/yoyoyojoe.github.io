@@ -40,7 +40,7 @@
               <div class="dropdown-heading">Python</div>
               <div class="dropdown-links">
                 <a class="link" href="https://django-polls-mysite.herokuapp.com/" target="_blank">
-                  Django Polls
+                  Django Polls (External Link)
                 </a>
               </div>
             </div>
@@ -84,6 +84,7 @@
       <br>
       <img src="https://www.memesmonkey.com/images/memesmonkey/4d/4d1cc778e56da532201acab7b82680dd.jpeg"
         alt="sharing is caring sponge bob image">
+      <div id="like_button_container"></div>
       <br>
       <br>
       <p>So here are some goodies for you!</p>
@@ -111,6 +112,13 @@
     <span><a class="link" target="_blank" href="https://icons8.com/icon/21106/sun">Sun</a> icon by <a class="link"
         target="_blank" href="https://icons8.com">Icons8</a></span>
   </footer>
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+  <!-- Load our React component. -->
+  <script src="like_button.js"></script>
 </body>
 
 </html>
