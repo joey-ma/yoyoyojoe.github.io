@@ -11,7 +11,7 @@
 </head>
 <body>
   <header>
-    <div class="header">
+    <div class="navbar">
       <button class="main-menu link" onclick="location.href='/'">
         Home
       </button>
@@ -65,24 +65,26 @@
         </div>
       </div>
     </div>
-    <!-- dark mode buttons -->
-    <div class="dark-mode-container d-flex flex-row-reverse p-2">
-      <div class="dark-mode-toggle"><img id="darkModeToggle" src="./assets/icons8-sun.svg"alt="switch to dark mode" width="32"></div>
-    </div>
   </header>
+  <!-- dark mode button -->
+  <div class="dark-mode-container d-flex flex-row-reverse p-2">
+    <div class="dark-mode-toggle">
+      <img id="darkModeToggle" src="./assets/icons8-sun.svg" alt="switch to dark mode" width="32">
+    </div>
+  </div>
   <main class="main-content">
     <div class="about-container">
       <h1>Joey Ma</h1>
       <p>Software engineer based in <span style="font-style: italic;">Los Angeles, California</span>.</p>
       <p>
         Love building cool apps and spending time with family.
-        <br>
-        <br>
-        An investment in knowledge always pays the best interest.
-        <br>
-        <em>- Benjamin Franklin</em>
       </p>
-      <span style="font-size: 2rem">&#128170;&#127995;</span>
+      <blockquote cite="https://www.brainyquote.com/quotes/benjamin_franklin_141119">
+        An investment in knowledge always pays the best interest.
+      </blockquote>
+      <p class="quote-by">- Benjamin Franklin</p>
+      <!-- <span style="font-size: 2rem">&#128170;&#127995;</span> -->
+      <span style="font-size: 2rem">&#128176;</span>
       <br>
       <br>
       <a href="https://github.com/yoyoyojoe" class="link" target="_blank" rel="noopener noreferrer">

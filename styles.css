@@ -14,27 +14,48 @@
   url("https://yoyoyojoe.github.io/font/EeveeMode-SemiBold.otf") format("opentype");
 }
 
+:root {
+  --primary-color: #000;
+  --secondary-color: #666;
+  --primary-link-color: #666;
+  --secondary-link-color: #000;
+  --primary-background-color: #f3f3f3;
+  --secondary-background-color: #eee;
+}
+
+.dark-mode {
+  --primary-color: #E1E1E1;
+  --secondary-color: #eee;
+  --primary-link-color: #888;
+  --secondary-link-color: #E1E1E1;
+  --primary-background-color: rgb(0, 0, 0);;
+  --secondary-background-color: rgb(32, 32, 32);
+}
+
 html {
   min-width: 350px;
   min-height: 580px;
 }
 
-button { 
-  margin: 10px 1rem; 
-}
-
-.dark-mode {
-  color: #eee;
-  background: #323941;
-  background-color: rgb(0, 0, 0);
-}
-
 body {
+  color: var(--primary-color);
+  background-color: var(--primary-background-color);
   font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  margin: 0;
   /* margin: 0 --> moves menu bar to stick to top of window */
-  transition-property: background-color, color;
-  transition-duration: 1s;
+  margin: 0;
+  /* transition-property: background-color, color;
+  transition-duration: 1s; */
+}
+
+.navbar {
+  color: var(--primary-color);
+  background-color: var(--secondary-background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 2rem 0px 2rem; 
+  /* transition: background-color 1s; */
+  /* padding left & right does not work not the same as margin */
 }
 
 h1 {
@@ -42,45 +63,16 @@ h1 {
   margin-bottom: 1rem;
 }
 
-/* header */
-header {
-  display: flex;
-  flex-direction: column;
-  color: #666;
-  background-color: #f3f3f3;
+button { 
+  margin: 10px 1rem; 
 }
 
-.header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0px 2rem 0px 2rem; 
-  transition: background-color 1s;
-  /* padding left & right does not work not the same as margin */
-}
-
-/* .uk-icon-caret-down::before {
-    -webkit-text-size-adjust: 100%;
-    list-style: none;
-    font: inherit;
-    text-transform: none;
-    font-size: 1rem;
-    text-align: center;
-    text-shadow: 0 1px 0 rgba(106, 106, 106, 0.968);
-    cursor: pointer;
-    display: inline-block;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    text-decoration: none;
-} */
 
 .link {
+  color: var(--primary-link-color);
   background: none;
   border: none;
   text-decoration: none;
-  color: #666;
   font-size: inherit;
   cursor: pointer;
   padding: 0;
@@ -88,37 +80,37 @@ header {
 
 
 a.link:hover {
-  color: #000;
+  color: var(--secondary-link-color);
 }
 
-a.link.dark-mode {
+/* a.link.dark-mode {
   color: #E1E1E1;
   opacity: 0.7;
-}
+} */
 
-a.link.dark-mode:hover {
+/* a.link.dark-mode:hover {
   opacity: 1;
-}
+} */
 
 .main-menu {
-  color:#666;
+  color: var(--primary-link-color);
   position: relative;
   display: flex;
   align-items: center;
   /* If the margin property has two values: top & bottom are 1rem, right & left are 0px */
 }
 
-/* .main-menu:hover {
-  color: #eee;
-} */
+.main-menu:hover {
+  color: var(--secondary-link-color);
+}
 
-.main-menu.link.dark-mode {
+/* .main-menu.link.dark-mode {
   color: #919191;
 }
 
 .main-menu.link.dark-mode:hover {
-  color: white;
-}
+  color: var(--secondary-color);
+} */
 
 .dropdown-container1, .dropdown-container2 {
   position: relative;
@@ -129,22 +121,26 @@ a.link.dark-mode:hover {
 /* focus: keyboard or mouse event */
 .dropdown-container1.active > .link, .link:hover, 
 .dropdown-container2.active > .link, .link:hover {
-  color: black;
+  color: var(--secondary-link-color);
 }
 
 .dropdown-container1.active > .link.dark-mode, .link.dark-mode:hover, 
 .dropdown-container2.active > .link.dark-mode, .link.dark-mode:hover {
-  color: white;
+  color: var(--secondary-link-color);
 }
 
 /* inside of our dropdown-container, for when link is focused and the dropdown-menu (sibling) that comes after the link */
 .dropdown-container1.active > .link + .dropdown-menu {
+  background-color: var(--secondary-background-color);
+  color: var(--primary-color);
   opacity: 1;
   transform: translateY(0px); 
   pointer-events: auto;
 }
 
 .dropdown-container2.active > .link + .dropdown-menu {
+  background-color: var(--secondary-background-color);
+  color: var(--primary-color);
   opacity: 1;
   transform: translateY(0px); 
   pointer-events: auto;
@@ -185,7 +181,8 @@ a.link.dark-mode:hover {
 .dropdown-menu {
   position: absolute; 
   top: calc(100% + .25rem);
-  background-color: white;
+  color: var(--primary-color);
+  background-color: var(--primary-background-color);
   padding: 0rem .75rem .75rem;
   border-radius: .25rem;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
@@ -207,9 +204,9 @@ a.link.dark-mode:hover {
   /* max-width: 200px; */
 }
 
-.dropdown-menu.dark-mode {
-  background-color: #1e1e1e;
-}
+/* .dropdown-menu.dark-mode {
+  background-color: var(--primary-background-color);
+} */
 
 .dropdown-heading {
   margin-top: .75rem;
@@ -223,9 +220,11 @@ a.link.dark-mode:hover {
 }
 
 .dark-mode-container {
-  align-self: center;
   display: flex;
   justify-content: end;
+  align-self: center;
+  /* flex: 1;
+  text-align: right; */
   margin: 2em;
   min-width: 375px;
   padding: .5rem!important;
@@ -284,7 +283,7 @@ a.link.dark-mode:hover {
   border-bottom-color: rgba(0,0,0,.3);
   border-radius: 4px;
   box-sizing: border-box;
-  color: #666;
+  color: var(--primary-color);
   font-size: 1rem;
   font-weight: 400;
   line-height: 28px;
@@ -298,14 +297,14 @@ a.link.dark-mode:hover {
 }
 
 .button:hover {
-  background-color: #fafafa;
+  background-color: var(--primary-background-color);
   background-image: none;
   box-shadow: 0 2px 5px rgba(0,0,0,.1);
-  color: #666;
+  color: var(--primary-color);
 }
 
 .dark-button {
-  background: #323941;
+  background: var(--primary-background-color);
   background-image: linear-gradient(to bottom,rgba(50, 50, 50, 0),rgb(81, 81, 81));
   background-origin: border-box;
   display: inline-block;
@@ -344,7 +343,7 @@ section {
 }
 .links > a {
   padding: 2rem;
-  color: #000;
+  color: var(--secondary-color);
 }
 .links > a:hover {
   opacity: 0.5;
@@ -357,20 +356,25 @@ section {
 }
 
 #hello {
-  background-color: white;
+  background-color: var(--primary-background-color);
   border-radius: 5px;
   transition: background-color, 1s;
 }
 
 #hello-dark-mode {
-  background-color: rgb(175, 175, 175);
+  background-color: var(--primary-color);
+  /* rgb(175, 175, 175); */
   border-radius: 5px;
   transition: background-color, 1s;
 }
 
+.quote-by {
+  text-align: right;
+  font-style: italic;
+}
 /* footer */ 
 footer {
-  color: #666666;
+  color: var(--primary-color);
   display: flex;
   flex-direction: column;
   justify-content: center;

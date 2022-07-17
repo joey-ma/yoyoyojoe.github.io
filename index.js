@@ -2,38 +2,33 @@ let previousURL;
 let catchWindow = null;
 const darkModeToggle = document.getElementById('darkModeToggle');
 
-// let lsDarkModePref = localStorage.getItem('darkMode');
-
-// const enableDarkMode = () => {
-//   document.body.classList.add('dark-mode');
-//   localStorage.setItem('darkModePreference', 'enabled');
-// };
-
-// const disableDarkMode = () => {
-//   document.body.classList.remove('dark-mode');
-//   localStorage.setItem('darkModePreference', null);
-// };
-
-// on load
-// if (lsDarkModePref === 'enabled') enableDarkMode();
-
-// on click
-// darkModeToggle.addEventListener('click', () => {
-//   lsDarkModePref = localStorage.getItem('darkMode');
-//   if (lsDarkModePref !== 'enabled') enableDarkMode();
-//   else disableDarkMode();
-// });
-
-// * functions!
-// function getLocalStorage(key) {
-// only on the client side, stored locally, no cookie warning, not used for the server side
-
-// }
-
-// ? version 3: use localStorage
-
-// ? version 2: use cookie (custom getter for cookie values)
 /*
+? setting dark mode preference using local storage
+let lsDarkModePref = localStorage.getItem('darkMode');
+
+const enableDarkMode = () => {
+  document.body.classList.add('dark-mode');
+  localStorage.setItem('darkModePreference', 'enabled');
+};
+
+const disableDarkMode = () => {
+  document.body.classList.remove('dark-mode');
+  localStorage.setItem('darkModePreference', null);
+};
+
+on load
+if (lsDarkModePref === 'enabled') enableDarkMode();
+
+on click
+darkModeToggle.addEventListener('click', () => {
+  lsDarkModePref = localStorage.getItem('darkMode');
+  if (lsDarkModePref !== 'enabled') enableDarkMode();
+  else disableDarkMode();
+});
+*/
+
+/*
+? if using cookie (custom getter for cookie values)
 function getCookie(key) {
   const keyName = `${key}=`;
   const decodedCookie = decodeURIComponent(document.cookie);
@@ -52,18 +47,20 @@ function getCookie(key) {
 }
 */
 
-// ? version 1: use cookie (use regex)
-// function getCookie(key) {
-//   const match = document.cookie.match(new RegExp(`(^| )${name}=([^;]+)`));
-//   // if there's any match or value at all
-//   if (match) {
-//     // console.log('Cookie:', name, 'found;', 'value:', match[2]);
-//     // match[2] would be a string
-//     if (match[2] === 'true') return true;
-//     if (match[2] === 'false') return false;
-//   }
-//   return undefined;
-// }
+/*
+? version 1: use cookie (use regex)
+function getCookie(key) {
+  const match = document.cookie.match(new RegExp(`(^| )${name}=([^;]+)`));
+  // if there's any match or value at all
+  if (match) {
+    // console.log('Cookie:', name, 'found;', 'value:', match[2]);
+    // match[2] would be a string
+    if (match[2] === 'true') return true;
+    if (match[2] === 'false') return false;
+  }
+  return undefined;
+}
+*/
 
 function changeView() {
   // ? check current view in cookie
@@ -85,7 +82,7 @@ function changeView() {
     // console.log('going from dark', isDark, 'to bright');
     darkModeToggle.src = 'https://yoyoyojoe.github.io/assets/icons8-sun.svg';
 
-    const header = document.querySelector('.header');
+    const header = document.querySelector('.navbar');
     header.style.setProperty('background-color', '#f3f3f3');
 
     const dropdownMenuInfoGrid = document.querySelectorAll('.dropdown-menu.info-grid');
@@ -121,7 +118,7 @@ function changeView() {
     // console.log('going from bright', !isDark, 'to dark');
     darkModeToggle.src = 'https://yoyoyojoe.github.io/assets/night-dark.png';
 
-    const header = document.querySelector('.header');
+    const header = document.querySelector('.navbar');
     header.style.setProperty('background-color', '#202020');
 
     const dropdownMenuInfoGrid = document.querySelectorAll('.dropdown-menu.info-grid');
@@ -158,7 +155,7 @@ function changeView() {
     localStorage.setItem('dark mode preference', 'true');
   }
 
-  const header = document.querySelector('.header');
+  const header = document.querySelector('.navbar');
   const content = document.body;
   header.classList.toggle('dark-mode');
   content.classList.toggle('dark-mode');
@@ -195,9 +192,7 @@ function letsGoCatchEmAll(url) {
   return false;
 }
 
-// validate form function for filling out contact form
-
-/*
+/* validate form function for filling out contact form
 function validateForm() {
   const name = document.getElementById('name').value;
   if (name === '') {
@@ -230,25 +225,29 @@ function validateForm() {
 */
 
 // todo receiving a 'message' from django app url,
-// send a post request to django app
 window.addEventListener('message', (event) => {
   const isDark = localStorage.getItem('dark mode preference');
   console.log('event origin: ', event.origin);
   if (event.origin !== 'https://django-polls-mysite.herokuapp.com/') return;
   console.log('message, event: ', event);
-  // ... to be worked on ?
-  const response = fetch('https://yoyoyojoe.github.io/', {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: `{ 'isDark': ${isDark} }`,
-  });
-  response.json().then((data) => {
+  // todo send a post request to django app according to client's dark mode preference in local storage
+  async function requestDarkMode() {
+    const response = await fetch('https://yoyoyojoe.github.io/', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: `{ 'isDark': ${isDark} }`,
+    });
+
+    const data = await response.json();
     console.log(data);
+
     localStorage.setItem('dark mode preference', data);
-  });
+  }
+
+  requestDarkMode();
 }, false);
 
 window.onload = (e) => {
@@ -274,6 +273,7 @@ window.onload = (e) => {
 };
 
 document.addEventListener('DOMContentLoaded', (e) => {
+  console.log('for Django Polls app: e.target.location.href = ', e.target.location.href);
   // for Django Polls app
   if (e.target.location.href === 'https://django-polls-mysite.herokuapp.com/') {
     fetch('https://yoyoyojoe.github.io/')
@@ -288,18 +288,20 @@ document.addEventListener('DOMContentLoaded', (e) => {
   // on page load, check the darkMode key value pair
   // ? const darkModeOnLoad = getCookie('darkModePreference');
   let darkModeOnLoad = localStorage.getItem('dark mode preference');
-
-  if (darkModeOnLoad) { // if not null, reassign it a boolean value
+  // if not null, reassign it a boolean value
+  if (darkModeOnLoad) {
     // ? console.log('dark mode on load should have a value:', darkModeOnLoad);
     if (darkModeOnLoad === 'true') darkModeOnLoad = true;
     if (darkModeOnLoad === 'false') darkModeOnLoad = false;
-  } else { // set default dark mode preference to false
+  } else {
+    // if the darkModePreference does not exist || there is no match
+    // set default dark mode preference to false
     localStorage.setItem('dark mode preference', 'false');
   }
   // console.log('loading dark mode preference:', darkModeOnLoad);
 
+  // ? if using cookie to store dark mode preference
   // ? if (darkModeOnLoad === undefined) {
-  // ?   // if the darkModePreference cookie does not exist || there is no match
   // ?   console.log('--cookie name not found, setting cookie "darkModePreference=false"---');
   // ?   document.cookie = 'darkModePreference=false;path=/';
   // ? }
@@ -308,7 +310,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
   if (darkModeOnLoad) {
     darkModeToggle.src = 'https://yoyoyojoe.github.io/assets/night-dark.png';
 
-    const header = document.querySelector('.header');
+    const header = document.querySelector('.navbar');
     header.style.setProperty('background-color', '#202020');
     header.classList.toggle('dark-mode');
 
@@ -344,6 +346,10 @@ document.addEventListener('DOMContentLoaded', (e) => {
   } else {
     // ? console.log('dark mode on load should be false:', getCookie('darkModePreference'));
     // darkModeOnLoad is false, load regular page
+
+    const { body } = document;
+    body.setAttribute('transition-property', 'background-color, color');
+    body.setAttribute('transition-duration', '1s');
   }
 });
 
@@ -404,33 +410,3 @@ document.addEventListener('pointerdown', (e) => {
   const darkModeButton = e.target.matches('#darkModeToggle');
   if (darkModeButton) changeView();
 });
-
-/* ipstack: Locate and identify website visitors by IP address
-
-> index.js:32
-Mixed Content: The page at 'https://yoyoyojoe.github.io/' was loaded over HTTPS, but requested an insecure resource 'http://api.ipstack.com/check?access_key=712b054a2c30061f29245a96f5751335'. This request has been blocked; the content must be served over HTTPS.
-> (anonymous) @ index.js:32
-
-> yoyoyojoe.github.io/:1
-Uncaught (in promise) TypeError: Failed to fetch
-Promise.then (async)
-> (anonymous) @ index.js:34
-
-> https://ipstack.com/documentation
-
-Connecting via HTTPS
-
-All premium subscription plans come with support for 256-bit SSL encryption.
-To connect to the API via HTTPS, simply use the https protocol instead of standard http.
-
-> https://ipstack.com/product
-
-FREE
-
-$0
-No hidden costs
-
-SHOW OPTIONS
-100 requests / mo
-Limited Support
-Location Module */
