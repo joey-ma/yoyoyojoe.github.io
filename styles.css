@@ -21,8 +21,9 @@
   --primary-color: #000;
   --secondary-color: #666;
   --primary-link-color: #666;
+  --primary-link-background-color: rgb(222, 222, 222);
   --secondary-link-color: #000;
-  --primary-background-color: #f3f3f3;
+  --primary-background-color: #fff;
   --secondary-background-color: #eee;
 }
 
@@ -30,15 +31,10 @@
   --primary-color: #E1E1E1;
   --secondary-color: #eee;
   --primary-link-color: #888;
+  --primary-link-background-color: #555;
   --secondary-link-color: #E1E1E1;
   --primary-background-color: rgb(0, 0, 0);;
   --secondary-background-color: rgb(32, 32, 32);
-}
-
-html {
-  display:flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 body {
@@ -181,10 +177,6 @@ button {
   /* max-width: 200px; */
 }
 
-/* .dropdown-menu.dark-mode {
-  background-color: var(--primary-background-color);
-} */
-
 .dropdown-heading {
   margin-top: .75rem;
   margin-bottom: 5px;
@@ -264,12 +256,12 @@ button {
 }
 
 .button {
-  background: #f7f7f7;
-  background-image: linear-gradient(to bottom,#fff,#eee);
+  background: var(--primary-background-color);
+  background-image: linear-gradient(to bottom,var(--primary-background-color),var(--primary-link-background-color));
   background-origin: border-box;
   display: inline-block;
   border: 1px solid rgba(0,0,0,.2);
-  border-bottom-color: rgba(0,0,0,.3);
+  border-color: var(--primary-color);
   border-radius: 4px;
   box-sizing: border-box;
   color: var(--primary-color);
@@ -279,14 +271,14 @@ button {
   margin: 10px 1rem; 
   min-height: 30px;
   padding: 0 12px;
-  text-shadow: 0 1px 0 #fff;
+  /* text-shadow: 0 1px 0 var(--primary-background-color); */
   text-transform: none;
   transition-property: background-color, color;
   transition-duration: 1s;
 }
 
 .button:hover {
-  background-color: var(--primary-background-color);
+  background-color: var(--secondary-background-color);
   background-image: none;
   box-shadow: 0 2px 5px rgba(0,0,0,.1);
   color: var(--primary-color);

@@ -62,13 +62,14 @@ function getCookie(key) {
 }
 */
 
-function checkDarkModePref(prevURL) {
+function checkDarkModePref(prevURL = 'tbd') {
   // ? check current view in cookie
   // ? const isDark = getCookie('darkModePreference');
   // ? console.log('isDark:', getCookie('darkModePreference'));
 
-  const isDark = localStorage.getItem('dark mode preference');
+  const isDark = localStorage.getItem('dark mode preference'); // string
   console.log('change view:', isDark, typeof isDark);
+  console.log('prevURL:', prevURL);
 
   if (isDark === null) {
     console.log('dark mode preference not set yet: setting to false');
@@ -79,6 +80,7 @@ function checkDarkModePref(prevURL) {
   }
   if (isDark === 'true') {
     document.body.classList.toggle('dark-mode');
+
     if (document.body.classList.contains('dark-mode')) {
       darkModeToggle.src = 'https://yoyoyojoe.github.io/assets/night-dark.png';
     } else {
@@ -86,56 +88,64 @@ function checkDarkModePref(prevURL) {
     }
   }
 
+  return isDark; // string
 }
 
-function changeView(prevURL) {
+function changeView(currentlyDark, prevURL = 'tbd') {
   // ? check current view in cookie
   // ? const isDark = getCookie('darkModePreference');
   // ? console.log('isDark:', getCookie('darkModePreference'));
 
-  let isDark = localStorage.getItem('dark mode preference');
+  const isDark = localStorage.getItem('dark mode preference');
   console.log('change view:', isDark, typeof isDark);
+  console.log('currentlyDark:', currentlyDark, typeof currentlyDark);
   // if prevURL === thisURL
 
-  if (isDark === null) {
-    console.log('dark mode preference not set yet: setting to false');
-    localStorage.setItem('dark mode preference', 'false');
-  }
-  if (isDark === 'false') {
-    darkModeToggle.src = 'https://yoyoyojoe.github.io/assets/icons8-sun.svg';
-  }
-  if (isDark === 'true') {
-    localStorage.setItem('dark mode preference', 'true');
-    if (isDark === 'false') isDark = false;
-  }
+  // if (isDark === null) {
+  //   console.log('dark mode preference not set yet: setting to false');
+  //   localStorage.setItem('dark mode preference', 'false');
+  // }
+  // if (isDark === 'false') {
+  //   darkModeToggle.src = 'https://yoyoyojoe.github.io/assets/icons8-sun.svg';
+  // }
+  // if (isDark === 'true') {
+  //   localStorage.setItem('dark mode preference', 'true');
+  //   if (isDark === 'false') isDark = false;
+  // }
 
-  if (isDark) { // if current view is dark, then change to bright
+  if (currentlyDark === 'true') { // if current view is dark, then change to bright
     // console.log(darkModeToggle);
     // console.log('going from dark', isDark, 'to bright');
 
-    const header = document.querySelector('.navbar');
-    header.style.setProperty('background-color', '#f3f3f3');
+    // const header = document.querySelector('.navbar');
+    // header.style.setProperty('background-color', '#f3f3f3');
 
-    const dropdownMenuInfoGrid = document.querySelectorAll('.dropdown-menu.info-grid');
-    dropdownMenuInfoGrid.forEach((dropdownMenu) => dropdownMenu.classList.toggle('dark-mode'));
-
-    const links = document.querySelectorAll('.link');
-    links.forEach((link) => {
-      // link.style.setProperty('color', '#666');
-      link.classList.toggle('dark-mode');
-    });
-
-    const contactButton = document.querySelector('#contact') || document.querySelector('#send');
-    if (contactButton) {
-      if (contactButton.className === 'button') {
-        contactButton.className = 'dark-button';
-      } else {
-        contactButton.className = 'button';
-      }
+    if (document.body.classList.contains('dark-mode')) {
+      darkModeToggle.src = 'https://yoyoyojoe.github.io/assets/night-dark.png';
+    } else {
+      darkModeToggle.src = 'https://yoyoyojoe.github.io/assets/icons8-sun.svg';
     }
 
-    const contactDiv = document.querySelector('#hello');
-    if (contactDiv) contactDiv.style.setProperty('background-color', 'white');
+    // const dropdownMenuInfoGrid = document.querySelectorAll('.dropdown-menu.info-grid');
+    // dropdownMenuInfoGrid.forEach((dropdownMenu) => dropdownMenu.classList.toggle('dark-mode'));
+
+    // const links = document.querySelectorAll('.link');
+    // links.forEach((link) => {
+    //   // link.style.setProperty('color', '#666');
+    //   link.classList.toggle('dark-mode');
+    // });
+
+    // const contactButton = document.querySelector('#contact') || document.querySelector('#send');
+    // if (contactButton) {
+    //   if (contactButton.className === 'button') {
+    //     contactButton.className = 'dark-button';
+    //   } else {
+    //     contactButton.className = 'button';
+    //   }
+    // }
+
+    // const contactDiv = document.querySelector('#hello');
+    // if (contactDiv) contactDiv.style.setProperty('background-color', 'white');
 
     // console.log('----------gone bright----------');
 
@@ -143,39 +153,48 @@ function changeView(prevURL) {
     // ? document.cookie = 'darkModePreference=false;path=/';
     // ? console.log('darkModePreference now:', getCookie('darkModePreference'));
     localStorage.setItem('dark mode preference', 'false');
-  } else {
+  }
+
+  if (currentlyDark === 'false') {
     // console.log(darkModeToggle);
     // console.log('isDark?', isDark);
     // console.log('going from bright', !isDark, 'to dark');
     darkModeToggle.src = 'https://yoyoyojoe.github.io/assets/night-dark.png';
+    document.body.classList.toggle('dark-mode');
 
-    const header = document.querySelector('.navbar');
-    header.style.setProperty('background-color', '#202020');
+    // if (document.body.classList.contains('dark-mode')) {
+    //   darkModeToggle.src = 'https://yoyoyojoe.github.io/assets/night-dark.png';
+    // } else {
+    //   darkModeToggle.src = 'https://yoyoyojoe.github.io/assets/icons8-sun.svg';
+    // }
 
-    const dropdownMenuInfoGrid = document.querySelectorAll('.dropdown-menu.info-grid');
-    dropdownMenuInfoGrid.forEach((dropdownMenu) => dropdownMenu.classList.toggle('dark-mode'));
+    // const header = document.querySelector('.navbar');
+    // header.style.setProperty('background-color', '#202020');
 
-    const links = document.querySelectorAll('.link');
-    links.forEach((link) => {
-      // link.style.setProperty('color', '#666');
-      // link.style.setProperty('color', '#E1E1E1');
-      link.classList.toggle('dark-mode');
-    });
+    // const dropdownMenuInfoGrid = document.querySelectorAll('.dropdown-menu.info-grid');
+    // dropdownMenuInfoGrid.forEach((dropdownMenu) => dropdownMenu.classList.toggle('dark-mode'));
 
-    const contactButton = document.querySelector('#contact') || document.querySelector('#send');
-    // console.log('Here', contactButton.className === 'button');
-    if (contactButton) {
-      if (contactButton.className === 'button') {
-        contactButton.className = 'dark-button';
-      } else {
-        contactButton.className = 'button';
-      }
-    }
+    // const links = document.querySelectorAll('.link');
+    // links.forEach((link) => {
+    //   // link.style.setProperty('color', '#666');
+    //   // link.style.setProperty('color', '#E1E1E1');
+    //   link.classList.toggle('dark-mode');
+    // });
 
-    if (document.querySelector('#hello')) {
-      const contactDiv = document.querySelector('#hello');
-      contactDiv.style.setProperty('background-color', 'rgb(175, 175, 175)');
-    }
+    // const contactButton = document.querySelector('#contact') || document.querySelector('#send');
+    // // console.log('Here', contactButton.className === 'button');
+    // if (contactButton) {
+    //   if (contactButton.className === 'button') {
+    //     contactButton.className = 'dark-button';
+    //   } else {
+    //     contactButton.className = 'button';
+    //   }
+    // }
+
+    // if (document.querySelector('#hello')) {
+    //   const contactDiv = document.querySelector('#hello');
+    //   contactDiv.style.setProperty('background-color', 'rgb(175, 175, 175)');
+    // }
 
     // console.log('-----------------gone dark-------------------');
 
@@ -188,8 +207,8 @@ function changeView(prevURL) {
 
   const header = document.querySelector('.navbar');
   const content = document.body;
-  header.classList.toggle('dark-mode');
-  content.classList.toggle('dark-mode');
+  // header.classList.toggle('dark-mode');
+  // content.classList.toggle('dark-mode');
 }
 
 function letsGoCatchEmAll(url) {
@@ -284,6 +303,7 @@ window.addEventListener('message', (event) => {
 
 window.onload = (e) => {
   console.log(e);
+  checkDarkModePref();
   // Get the window displayed in the iframe.
   // var receiver = document.getElementById('receiver').contentWindow;
 
@@ -441,5 +461,10 @@ document.addEventListener('pointerdown', (e) => {
 
   const darkModeButton = e.target.matches('#darkModeToggle');
   previousURL = window.location.host; // 127.0.0.1:5501 || yoyoyojoe.github.io/
-  if (darkModeButton) changeView(previousURL);
+
+  if (darkModeButton) {
+    console.log(previousURL);
+    const currDarkModePref = checkDarkModePref();
+    changeView(currDarkModePref, previousURL);
+  }
 });
