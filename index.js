@@ -62,17 +62,49 @@ function getCookie(key) {
 }
 */
 
-function changeView() {
+function checkDarkModePref(prevURL) {
+  // ? check current view in cookie
+  // ? const isDark = getCookie('darkModePreference');
+  // ? console.log('isDark:', getCookie('darkModePreference'));
+
+  const isDark = localStorage.getItem('dark mode preference');
+  console.log('change view:', isDark, typeof isDark);
+
+  if (isDark === null) {
+    console.log('dark mode preference not set yet: setting to false');
+    localStorage.setItem('dark mode preference', 'false');
+  }
+  if (isDark === 'false') {
+    darkModeToggle.src = 'https://yoyoyojoe.github.io/assets/icons8-sun.svg';
+  }
+  if (isDark === 'true') {
+    document.body.classList.toggle('dark-mode');
+    if (document.body.classList.contains('dark-mode')) {
+      darkModeToggle.src = 'https://yoyoyojoe.github.io/assets/night-dark.png';
+    } else {
+      darkModeToggle.src = 'https://yoyoyojoe.github.io/assets/icons8-sun.svg';
+    }
+  }
+
+}
+
+function changeView(prevURL) {
   // ? check current view in cookie
   // ? const isDark = getCookie('darkModePreference');
   // ? console.log('isDark:', getCookie('darkModePreference'));
 
   let isDark = localStorage.getItem('dark mode preference');
-  if (isDark) {
-    if (isDark === 'true') isDark = true;
-    if (isDark === 'false') isDark = false;
-  } else {
-    console.log('dark mode preference not set: should not be here');
+  console.log('change view:', isDark, typeof isDark);
+  // if prevURL === thisURL
+
+  if (isDark === null) {
+    console.log('dark mode preference not set yet: setting to false');
+    localStorage.setItem('dark mode preference', 'false');
+  }
+  if (isDark === 'false') {
+    darkModeToggle.src = 'https://yoyoyojoe.github.io/assets/icons8-sun.svg';
+  }
+  if (isDark === 'true') {
     localStorage.setItem('dark mode preference', 'true');
     if (isDark === 'false') isDark = false;
   }
@@ -80,7 +112,6 @@ function changeView() {
   if (isDark) { // if current view is dark, then change to bright
     // console.log(darkModeToggle);
     // console.log('going from dark', isDark, 'to bright');
-    darkModeToggle.src = 'https://yoyoyojoe.github.io/assets/icons8-sun.svg';
 
     const header = document.querySelector('.navbar');
     header.style.setProperty('background-color', '#f3f3f3');
@@ -228,6 +259,7 @@ function validateForm() {
 window.addEventListener('message', (event) => {
   const isDark = localStorage.getItem('dark mode preference');
   console.log('event origin: ', event.origin);
+  console.log('window.location.host: ', window.location.host);
   if (event.origin !== 'https://django-polls-mysite.herokuapp.com/') return;
   console.log('message, event: ', event);
   // todo send a post request to django app according to client's dark mode preference in local storage
@@ -272,86 +304,86 @@ window.onload = (e) => {
   // btn.addEventListener('click', sendMessage);
 };
 
-document.addEventListener('DOMContentLoaded', (e) => {
-  console.log('for Django Polls app: e.target.location.href = ', e.target.location.href);
-  // for Django Polls app
-  if (e.target.location.href === 'https://django-polls-mysite.herokuapp.com/') {
-    fetch('https://yoyoyojoe.github.io/')
-      .then((res) => res.json)
-      .then((data) => {
-        console.log(`sending a fetch request to https://yoyoyojoe.github.io/ from ${e.target.location.href}`);
-        console.log(JSON.stringify(data));
-        localStorage.setItem('dark mode preference', data);
-      });
-  }
+// document.addEventListener('DOMContentLoaded', (e) => {
+//   console.log('for Django Polls app: e.target.location.href = ', e.target.location.href);
+//   // for Django Polls app
+//   if (e.target.location.href === 'https://django-polls-mysite.herokuapp.com/') {
+//     fetch('https://yoyoyojoe.github.io/')
+//       .then((res) => res.json)
+//       .then((data) => {
+//         console.log(`sending a fetch request to https://yoyoyojoe.github.io/ from ${e.target.location.href}`);
+//         console.log(JSON.stringify(data));
+//         localStorage.setItem('dark mode preference', data);
+//       });
+//   }
 
-  // on page load, check the darkMode key value pair
-  // ? const darkModeOnLoad = getCookie('darkModePreference');
-  let darkModeOnLoad = localStorage.getItem('dark mode preference');
-  // if not null, reassign it a boolean value
-  if (darkModeOnLoad) {
-    // ? console.log('dark mode on load should have a value:', darkModeOnLoad);
-    if (darkModeOnLoad === 'true') darkModeOnLoad = true;
-    if (darkModeOnLoad === 'false') darkModeOnLoad = false;
-  } else {
-    // if the darkModePreference does not exist || there is no match
-    // set default dark mode preference to false
-    localStorage.setItem('dark mode preference', 'false');
-  }
-  // console.log('loading dark mode preference:', darkModeOnLoad);
+//   // on page load, check the darkMode key value pair
+//   // ? const darkModeOnLoad = getCookie('darkModePreference');
+//   let darkModeOnLoad = localStorage.getItem('dark mode preference');
+//   // if not null, reassign it a boolean value
+//   if (darkModeOnLoad) {
+//     // ? console.log('dark mode on load should have a value:', darkModeOnLoad);
+//     if (darkModeOnLoad === 'true') darkModeOnLoad = true;
+//     if (darkModeOnLoad === 'false') darkModeOnLoad = false;
+//   } else {
+//     // if the darkModePreference does not exist || there is no match
+//     // set default dark mode preference to false
+//     localStorage.setItem('dark mode preference', 'false');
+//   }
+//   // console.log('loading dark mode preference:', darkModeOnLoad);
 
-  // ? if using cookie to store dark mode preference
-  // ? if (darkModeOnLoad === undefined) {
-  // ?   console.log('--cookie name not found, setting cookie "darkModePreference=false"---');
-  // ?   document.cookie = 'darkModePreference=false;path=/';
-  // ? }
+//   // ? if using cookie to store dark mode preference
+//   // ? if (darkModeOnLoad === undefined) {
+//   // ?   console.log('--cookie name not found, setting cookie "darkModePreference=false"---');
+//   // ?   document.cookie = 'darkModePreference=false;path=/';
+//   // ? }
 
-  // if darkModeOnLoad is true, modify the darkModeToggle icon and theme colors accordingly
-  if (darkModeOnLoad) {
-    darkModeToggle.src = 'https://yoyoyojoe.github.io/assets/night-dark.png';
+//   // if darkModeOnLoad is true, modify the darkModeToggle icon and theme colors accordingly
+//   if (darkModeOnLoad) {
+//     darkModeToggle.src = 'https://yoyoyojoe.github.io/assets/night-dark.png';
 
-    const header = document.querySelector('.navbar');
-    header.style.setProperty('background-color', '#202020');
-    header.classList.toggle('dark-mode');
+//     const header = document.querySelector('.navbar');
+//     header.style.setProperty('background-color', '#202020');
+//     header.classList.toggle('dark-mode');
 
-    const dropdownMenuInfoGrid = document.querySelectorAll('.dropdown-menu.info-grid');
-    dropdownMenuInfoGrid.forEach((dropdownMenu) => dropdownMenu.classList.toggle('dark-mode'));
+//     const dropdownMenuInfoGrid = document.querySelectorAll('.dropdown-menu.info-grid');
+//     dropdownMenuInfoGrid.forEach((dropdownMenu) => dropdownMenu.classList.toggle('dark-mode'));
 
-    const links = document.querySelectorAll('.link');
-    links.forEach((link) => {
-      // link.style.setProperty('color', '#E1E1E1');
-      link.classList.toggle('dark-mode');
-    });
+//     const links = document.querySelectorAll('.link');
+//     links.forEach((link) => {
+//       // link.style.setProperty('color', '#E1E1E1');
+//       link.classList.toggle('dark-mode');
+//     });
 
-    const contactButton = document.querySelector('#contact') || document.querySelector('#send');
+//     const contactButton = document.querySelector('#contact') || document.querySelector('#send');
 
-    if (contactButton) {
-      if (contactButton.className === 'button') {
-        contactButton.className = 'dark-button';
-      } else {
-        contactButton.className = 'button';
-      }
-    }
+//     if (contactButton) {
+//       if (contactButton.className === 'button') {
+//         contactButton.className = 'dark-button';
+//       } else {
+//         contactButton.className = 'button';
+//       }
+//     }
 
-    const content = document.body;
-    content.classList.toggle('dark-mode');
+//     const content = document.body;
+//     content.classList.toggle('dark-mode');
 
-    // console.log(window.location.pathname);
-    if (window.location.pathname === '/contact/') {
-      const contactDiv = document.querySelector('#hello');
-      // console.log('Here', contactDiv.classList);
-      contactDiv.style.setProperty('background-color', 'rgb(175, 175, 175)');
-      // contactDiv.classList.add('#hello-dark-mode');
-    }
-  } else {
-    // ? console.log('dark mode on load should be false:', getCookie('darkModePreference'));
-    // darkModeOnLoad is false, load regular page
+//     // console.log(window.location.pathname);
+//     if (window.location.pathname === '/contact/') {
+//       const contactDiv = document.querySelector('#hello');
+//       // console.log('Here', contactDiv.classList);
+//       contactDiv.style.setProperty('background-color', 'rgb(175, 175, 175)');
+//       // contactDiv.classList.add('#hello-dark-mode');
+//     }
+//   } else {
+//     // ? console.log('dark mode on load should be false:', getCookie('darkModePreference'));
+//     // darkModeOnLoad is false, load regular page
 
-    const { body } = document;
-    body.setAttribute('transition-property', 'background-color, color');
-    body.setAttribute('transition-duration', '1s');
-  }
-});
+//     const { body } = document;
+//     body.setAttribute('transition-property', 'background-color, color');
+//     body.setAttribute('transition-duration', '1s');
+//   }
+// });
 
 // * menu dropdown javascript: event.target matching
 document.addEventListener('pointerdown', (e) => {
@@ -408,5 +440,6 @@ document.addEventListener('pointerdown', (e) => {
   if (catchButton) letsGoCatchEmAll(catchButton.href);
 
   const darkModeButton = e.target.matches('#darkModeToggle');
-  if (darkModeButton) changeView();
+  previousURL = window.location.host; // 127.0.0.1:5501 || yoyoyojoe.github.io/
+  if (darkModeButton) changeView(previousURL);
 });
