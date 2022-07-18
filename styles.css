@@ -1,3 +1,6 @@
+*, *:before, *::after {
+  box-sizing: border-box;
+}
 @font-face {
   font-family: "Eevee Mode";
   src: url("https://yoyoyojoe.github.io/font/EeveeMode-Regular.eot");
@@ -33,8 +36,9 @@
 }
 
 html {
-  min-width: 350px;
-  min-height: 580px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 body {
@@ -42,6 +46,7 @@ body {
   background-color: var(--primary-background-color);
   font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   /* margin: 0 --> moves menu bar to stick to top of window */
+  padding: 1em;
   margin: 0;
   /* transition-property: background-color, color;
   transition-duration: 1s; */
@@ -50,10 +55,8 @@ body {
 .navbar {
   color: var(--primary-color);
   background-color: var(--secondary-background-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0px 2rem 0px 2rem; 
+  display: block;
+  padding: 0px 2rem; 
   /* transition: background-color 1s; */
   /* padding left & right does not work not the same as margin */
 }
@@ -102,13 +105,6 @@ button {
 .dropdown-container2.active > .link, .link:hover {
   color: var(--secondary-link-color);
 }
-
-/* .dropdown-container1.active > .link.dark-mode, 
-.link.dark-mode:hover, 
-.dropdown-container2.active > .link.dark-mode, 
-.link.dark-mode:hover {
-  color: var(--secondary-link-color);
-} */
 
 /* inside of our dropdown-container, for when link is focused and the dropdown-menu (sibling) that comes after the link */
 .dropdown-container1.active > .link + .dropdown-menu {
@@ -202,11 +198,18 @@ button {
 
 .dark-mode-container {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column;
   margin-top: 3.5em;
   min-width: 375px;
+  max-width: 375px;
+  padding-right: 2em;
   position: absolute;
   z-index: 0;
+}
+.dark-mode-button {
+  display: flex;
+  position: absolute;
+  right: 2em;
 }
 
 .dark-mode-toggle {
@@ -235,12 +238,20 @@ button {
 .second-container {
   /* min-width: 375px; */
   min-height: 100px;
-  max-width: 375px;
+  min-width: 280px;
   /* align-items:center; */
   /* min-height: 100px; */
   /* min-width: 375px; */
   padding: 2em;
   font-weight: 300;
+}
+
+.about-container h1,
+.blog-container h1,
+.contact-container h1,
+.second-container h1 {
+  display: flex;
+  justify-content: space-between;
 }
 
 .special-access {
