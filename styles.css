@@ -1,7 +1,4 @@
-*, *:before, *::after {
-  box-sizing: border-box;
-}
-@font-face {
+@font-face { /* Eevee Mode */
   font-family: "Eevee Mode";
   src: url("https://yoyoyojoe.github.io/font/EeveeMode-Regular.eot");
   src: url("https://yoyoyojoe.github.io/font/EeveeMode-Regular.woff") format("woff"),
@@ -9,12 +6,16 @@
   url("https://yoyoyojoe.github.io/font/EeveeMode-Regular.otf") format("opentype");
 }
 
-@font-face {
+@font-face { /* Eevee Mode SemiBold */
   font-family: "Eevee Mode SemiBold";
   src: url("https://yoyoyojoe.github.io/font/EeveeMode-SemiBold.eot");
   src: url("https://yoyoyojoe.github.io/font/EeveeMode-SemiBold.woff") format("woff"),
   url("https://yoyoyojoe.github.io/font/EeveeMode-SemiBold.woff2") format("woff2"),
   url("https://yoyoyojoe.github.io/font/EeveeMode-SemiBold.otf") format("opentype");
+}
+
+*, *:before, *::after {
+  box-sizing: border-box;
 }
 
 :root {
@@ -35,6 +36,8 @@
   --secondary-link-color: #E1E1E1;
   --primary-background-color: rgb(0, 0, 0);;
   --secondary-background-color: rgb(32, 32, 32);
+  transition-property: background-color, color;
+  transition-duration: 1s;
 }
 
 body {
@@ -44,8 +47,8 @@ body {
   /* margin: 0 --> moves menu bar to stick to top of window */
   padding: 1em;
   margin: 0;
-  /* transition-property: background-color, color;
-  transition-duration: 1s; */
+  transition-property: background-color, color;
+  transition-duration: 1s;
 }
 
 .navbar {
@@ -66,7 +69,6 @@ button {
   margin: 10px 1rem; 
 }
 
-
 .link {
   color: var(--primary-link-color);
   background: none;
@@ -84,7 +86,6 @@ button {
   align-items: center;
   /* If the margin property has two values: top & bottom are 1rem, right & left are 0px */
 }
-
 .main-menu:hover {
   color: var(--secondary-link-color);
 }
@@ -95,7 +96,6 @@ button {
   align-items: center;
   z-index: 1;
 }
-
 /* focus: keyboard or mouse event */
 .dropdown-container1.active > .link, .link:hover, 
 .dropdown-container2.active > .link, .link:hover {
@@ -110,44 +110,12 @@ button {
   transform: translateY(0px); 
   pointer-events: auto;
 }
-
 .dropdown-container2.active > .link + .dropdown-menu {
   background-color: var(--secondary-background-color);
   color: var(--primary-color);
   opacity: 1;
   transform: translateY(0px); 
   pointer-events: auto;
-}
-
-/* Use a media query to add a break point at 418px: */
-@media screen and (max-width: 418px) {
-  .dropdown-container1.active > .link + .dropdown-menu {
-    transform: translateY(25px); 
-  }
-  .last {
-    right: -1em;
-  }
-}
-
-@media screen and (min-width: 419px) and (max-width: 441px) {
-  .dropdown-container1.active > .link + .dropdown-menu {
-    right: 0;
-  }
-  .last {
-    right: -20%;
-  }
-}
-
-@media screen and (min-width: 500px) {
-  .dropdown-container2.active > .link + .dropdown-menu {
-    right: 0;
-  }
-  .dropdown-menu {
-    left: 10px;
-  }
-  .last {
-    right: 0;
-  }
 }
 
 /* inside of our dropdown container */
@@ -188,40 +156,43 @@ button {
   /* gap: .25rem; */
 }
 
-.dark-mode-container {
-  display: flex;
-  flex-direction: column;
-  margin-top: 3.5em;
-  /* min-width: 375px; */
-  /* max-width: 375px; */
-  padding-right: 2em;
-  position: absolute;
-  z-index: 0;
-}
-.dark-mode-button {
-  display: flex;
-  position: absolute;
-  right: 2em;
+/* Use a media query to add a break point at 418px: */
+@media screen and (max-width: 418px) {
+  .dropdown-container1.active > .link + .dropdown-menu {
+    transform: translateY(25px); 
+  }
+  .last {
+    right: -1em;
+  }
 }
 
-.dark-mode-toggle {
-  width: 32px;
-  height: 32px;
-  cursor: pointer;
-  transition: content 1s;
+@media screen and (min-width: 419px) and (max-width: 441px) {
+  .dropdown-container1.active > .link + .dropdown-menu {
+    right: 0;
+  }
+  .last {
+    right: -20%;
+  }
 }
 
-.dark-mode-toggle:hover {
-  border-radius: 5px;
-  background-color: #999;
+@media screen and (min-width: 500px) {
+  .dropdown-container2.active > .link + .dropdown-menu {
+    right: 0;
+  }
+  .dropdown-menu {
+    left: 10px;
+  }
+  .last {
+    right: 0;
+  }
 }
 
 /* main-content */
 .main-content {
-  /* display: flex;
-  flex-direction: column;
-  align-items: center; */
   font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .about-container,
@@ -230,9 +201,9 @@ button {
 .second-container {
   font-weight: 300;
   min-height: 100px;
-  min-width: 280px;
+  min-width: 150px;
+  max-width: 400px;
   padding: 2em;
-  margin: 0;
 }
 
 .about-container h1,
@@ -241,17 +212,20 @@ button {
 .second-container h1 {
   display: flex;
   justify-content: space-between;
+  margin: 0 0 50px 0;
 }
 
 .form-control {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   border: 1px solid #ced4da;
+  border-radius: 5px;
   height: 2.5em;
   width: 100%;
   padding: 5px 15px;
 }
 
 textarea.form-control {
+  border-radius: 5px;
   height: 5em;
 }
 
@@ -293,7 +267,7 @@ textarea.form-control {
   color: var(--primary-color);
 }
 
-.dark-button {
+/* .dark-button {
   background: var(--primary-background-color);
   background-image: linear-gradient(to bottom,rgba(50, 50, 50, 0),rgb(81, 81, 81));
   background-origin: border-box;
@@ -320,12 +294,9 @@ textarea.form-control {
   background-image: none;
   box-shadow: 0 2px 5px rgba(255, 255, 255, 0.8);
   color: rgb(223, 223, 223);
-}
+} */
 
 /* contact-section */
-section {
-  margin: 50px;
-}
 
 .md-form {
   margin: 20px auto;
@@ -352,7 +323,7 @@ section {
   justify-content: space-evenly;
   background-color: var(--primary-background-color);
   border-radius: 5px;
-  /* transition: background-color, 1s; */
+  transition: background-color, 1s;
 }
 
 .center {

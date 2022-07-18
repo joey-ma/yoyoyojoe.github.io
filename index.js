@@ -2,6 +2,8 @@ let previousURL;
 let catchWindow = null;
 const darkModeToggle = document.getElementById('darkModeToggle');
 
+const a = new URL(window.location);
+console.log('Here', a, window.location.pathname);
 /*
 ? setting dark mode preference using local storage
 let lsDarkModePref = localStorage.getItem('darkMode');
