@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://yoyoyojoe.github.io/blog</id>
+    <title>Joey Ma Blog</title>
+    <updated>2022-12-24T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://yoyoyojoe.github.io/blog"/>
+    <subtitle>Joey Ma Blog</subtitle>
+    <icon>https://yoyoyojoe.github.io/img/jam.png</icon>
+    <entry>
+        <title type="html"><![CDATA[Merry Christmas 2022]]></title>
+        <id>merry-christmas-2022</id>
+        <link href="https://yoyoyojoe.github.io/blog/merry-christmas-2022"/>
+        <updated>2022-12-24T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Welcome to my website!]]></summary>
+        <content type="html"><![CDATA[<p>Welcome to my website! </p><p>I look forward to documenting some useful notes and resources here.</p><p>I will also document a bit about my journey as a software engineer here.</p><p><img loading="lazy" alt="Docusaurus Plushie" src="/assets/images/docusaurus-plushie-banner-a60f7593abca1e3eef26a9afa244e4fb.jpeg" width="1500" height="500" class="img_ev3q"></p>]]></content>
+        <author>
+            <name>Joey Ma</name>
+            <uri>https://github.com/yoyoyojoe</uri>
+        </author>
+        <category label="hello" term="hello"/>
+        <category label="docusaurus" term="docusaurus"/>
+        <category label="facebook" term="facebook"/>
+    </entry>
+</feed>

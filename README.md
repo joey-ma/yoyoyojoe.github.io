@@ -1,3 +1,0 @@
-- Built from scratch
-- Hosted with Github Pages
-- Monitored with Checkly
