@@ -1,9 +1,10 @@
+
 # yoyoyojoe.github.io
 
-Joey Ma's website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
 The development code is stored in a separate repository `clever-subterfuge`. Initially I wanted to test out Docusaurus as a separate project, but after learning a bit more about it, I will continue to use it to build my personal website for the time being.
-Learn more about its pros and cons [here](https://docusaurus.io/docs#features).
+You can learn more about its pros and cons [here](https://docusaurus.io/docs#features).
 
 ### Installation
 
