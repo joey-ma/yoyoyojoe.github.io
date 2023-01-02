@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkclever_subterfuge=self.webpackChunkclever_subterfuge||[]).push([[2535],{5641:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Merry Christmas 2022","permalink":"/blog/merry-christmas-2022"}]}')}}]);
