@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkclever_subterfuge=self.webpackChunkclever_subterfuge||[]).push([[3205],{4863:e=>{e.exports=JSON.parse('{"label":"docusaurus","permalink":"/blog/tags/docusaurus","allTagsPath":"/blog/tags","count":2}')}}]);
