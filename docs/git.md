@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 4
 ---
 
 # Git Fabulous
@@ -93,21 +93,33 @@ $ git commit -m 'adds helpful tricks for git operations'
 
 Ever wondered how you can enter single quotes or double quotes in your git commit message?
 
-Let's use `git commit -a -m` in this example. The [`-a`](https://git-scm.com/docs/git-commit#Documentation/git-commit.txt--a) flag tells git to automatically stage all files that have been modified or deleted, but new files you have not told Git about are not affected. The [`-m`]((https://git-scm.com/docs/git-commit#Documentation/git-commit.txt--mltmsggt)) flag tells git to use the given <msg> as the commit message.
+Let's use `git commit -a -m` in this example. The [`-a`](https://git-scm.com/docs/git-commit#Documentation/git-commit.txt--a) flag tells git to automatically stage all files that have been modified or deleted, but new files you have not told Git about are not affected. The [`-m`]((https://git-scm.com/docs/git-commit#Documentation/git-commit.txt--mltmsggt)) flag tells git to use the given `<msg>` as the commit message.
 
-This is helpful to frequently document changes in one command line. Probably best to keep comments short, though.
+This is helpful to frequently document changes with one-line commands. Probably best to keep comments short, though.
 
 ```bash
 
 git commit -a -m 'adds "git tricky"'
 
-# or 
+# including single quotes within double quotes within the commit message which is in single quotes 
 git commit -a -m 'per deployment warning/recommendation: "'"When deploying to GitHub Pages, it is better to use an explicit '"'trailingSlash'"' site config.
 Otherwise, GitHub Pages will add an extra trailing slash to your site urls only on direct-access (not when navigation) with a server redirect.
 This behavior can have SEO impacts and create relative link issues."'"'
 
 # or 
 git commit -a -m 'include a multi-paragraph commit, quoting "'"Probably best to keep comments short, though. '"'Wink...'"'"'"' -m 'but sometimes you have to'
+# outputs:
+# include a multi-paragraph commit, quoting "Probably best to keep comm…
+# …ents short, though. 'Wink...'"
+# but sometimes you have to
+
+# this will look better though
+
+git commit -a -m 'include a multi-paragraph commit,' -m 'quoting "'"Probably best to keep comments short, though. "'"' -m 'but sometimes you have to! '"'Wink...'"''
+# outputs:
+# include a multi-paragraph commit, 
+# quoting "Probably best to keep comments short, though. 'Wink...'"
+# but sometimes you have to
 
 ```
 
