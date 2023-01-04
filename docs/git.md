@@ -107,6 +107,11 @@ git commit -a -m 'adds "git tricky"'
 git commit -a -m 'per deployment warning/recommendation: "'"When deploying to GitHub Pages, it is better to use an explicit '"'trailingSlash'"' site config.
 Otherwise, GitHub Pages will add an extra trailing slash to your site urls only on direct-access (not when navigation) with a server redirect.
 This behavior can have SEO impacts and create relative link issues."'"'
+# outputs:
+# per deployment warning/recomm...
+# ...endation: "When deploying to GitHub Pages, it is better to use an explicit 'trailingSlash' site config.
+# Otherwise, GitHub Pages will add an extra trailing slash to your site urls only on direct-access (not when navigation) with a server redirect.
+# This behavior can have SEO impacts and create relative link issues."
 
 # example 3
 # multi-paragraph commit message
@@ -119,6 +124,7 @@ git commit -a -m 'include a multi-paragraph commit message, quoting "'"Probably 
 # example 4
 # multi-paragraph commit message, I think this looks better though
 git commit -a -m 'include a multi-paragraph commit message,' -m 'quoting "'"Probably best to keep comments short, though. "'"' -m 'but sometimes you have to! '"'Wink...'"''
+# (don't mind the formatting here)
 # outputs:
 # include a multi-paragraph commit, 
 # quoting "Probably best to keep comments short, though. "
