@@ -93,7 +93,7 @@ $ git commit -m 'adds helpful tricks for git operations'
 
 Ever wondered how you can enter single quotes or double quotes in your git commit message?
 
-Let's use `git commit -a -m` in this example. The [`-a`](https://git-scm.com/docs/git-commit#Documentation/git-commit.txt--a) flag tells git to automatically stage all files that have been modified or deleted, but new files you have not told Git about are not affected. The [`-m`]((https://git-scm.com/docs/git-commit#Documentation/git-commit.txt--mltmsggt)) flag tells git to use the given `<msg>` as the commit message.
+Let's use `git commit -a -m` in this example. The [`-a`](https://git-scm.com/docs/git-commit#Documentation/git-commit.txt--a) flag tells git to automatically stage all files that have been modified or deleted, but new files you have not told Git about are not affected. The [`-m`](https://git-scm.com/docs/git-commit#Documentation/git-commit.txt--mltmsggt) flag tells git to use the given `<msg>` as the commit message.
 
 This is helpful to frequently document changes with one-line commands. Probably best to keep comments short, though.
 
