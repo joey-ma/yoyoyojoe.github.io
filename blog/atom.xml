@@ -2,11 +2,35 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yoyoyojoe.github.io/blog</id>
     <title>Joey Ma Blog</title>
-    <updated>2022-12-24T00:00:00.000Z</updated>
+    <updated>2022-12-31T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yoyoyojoe.github.io/blog"/>
     <subtitle>Joey Ma Blog</subtitle>
     <icon>https://yoyoyojoe.github.io/img/jam.png</icon>
+    <entry>
+        <title type="html"><![CDATA[Goodbye 2022]]></title>
+        <id>goodbye-2022</id>
+        <link href="https://yoyoyojoe.github.io/blog/goodbye-2022"/>
+        <updated>2022-12-31T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[I am so grateful for everything that I have, and though 2022 has been a trying year for me in its own way, I have no complaints.]]></summary>
+        <content type="html"><![CDATA[<p>I am so grateful for everything that I have, and though 2022 has been a trying year for me in its own way, I have no complaints.</p><p>Onwards and upwards, here's to a better year ahead!</p><p>This blog post is written in <code>md</code>,</p><p>Use a <code>&lt;!--</code> <code>truncate</code> <code>--&gt;</code> comment to limit blog post size in the list view.</p><p>This paragraph would only show after you click into this blog post.</p><p>Docusaurus Site Showcase<br>
+<em>List of websites people are building with Docusaurus</em><br>
+<a href="https://docusaurus.io/showcase" target="_blank" rel="noopener noreferrer">https://docusaurus.io/showcase</a></p><p>30 Days of SWA<br>
+<em>A 30-Day Developer Guide to Azure Static Web Apps</em><br>
+<a href="https://www.azurestaticwebapps.dev/" target="_blank" rel="noopener noreferrer">https://www.azurestaticwebapps.dev/</a></p><p>404Lab.Wiki<br>
+<em>Docs and blogs about development and study</em><br>
+<a href="https://wiki.404lab.top/" target="_blank" rel="noopener noreferrer">https://wiki.404lab.top/</a></p><p>7Wate's Wiki<br>
+<em>Developer Wiki and Blog</em><br>
+<a href="https://wiki.7wate.com/" target="_blank" rel="noopener noreferrer">https://wiki.7wate.com/</a></p>]]></content>
+        <author>
+            <name>Joey Ma</name>
+            <uri>https://github.com/yoyoyojoe</uri>
+        </author>
+        <category label="hello" term="hello"/>
+        <category label="goodbye" term="goodbye"/>
+        <category label="docusaurus" term="docusaurus"/>
+        <category label="facebook" term="facebook"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Merry Christmas 2022]]></title>
         <id>merry-christmas-2022</id>
