@@ -99,29 +99,32 @@ This is helpful to frequently document changes with one-line commands. Probably 
 
 ```bash
 
+# example 1
 git commit -a -m 'adds "git tricky"'
 
+# example 2
 # including single quotes within double quotes within the commit message which is in single quotes 
 git commit -a -m 'per deployment warning/recommendation: "'"When deploying to GitHub Pages, it is better to use an explicit '"'trailingSlash'"' site config.
 Otherwise, GitHub Pages will add an extra trailing slash to your site urls only on direct-access (not when navigation) with a server redirect.
 This behavior can have SEO impacts and create relative link issues."'"'
 
-# or 
-git commit -a -m 'include a multi-paragraph commit, quoting "'"Probably best to keep comments short, though. '"'Wink...'"'"'"' -m 'but sometimes you have to'
+# example 3
+# multi-paragraph commit message
+git commit -a -m 'include a multi-paragraph commit message, quoting "'"Probably best to keep comments short, though. '"'Wink...'"'"'"' -m 'but sometimes you have to'
 # outputs:
 # include a multi-paragraph commit, quoting "Probably best to keep comm…
 # …ents short, though. 'Wink...'"
 # but sometimes you have to
 
-# this will look better though
-
-git commit -a -m 'include a multi-paragraph commit,' -m 'quoting "'"Probably best to keep comments short, though. "'"' -m 'but sometimes you have to! '"'Wink...'"''
+# example 4
+# multi-paragraph commit message, I think this looks better though
+git commit -a -m 'include a multi-paragraph commit message,' -m 'quoting "'"Probably best to keep comments short, though. "'"' -m 'but sometimes you have to! '"'Wink...'"''
 # outputs:
 # include a multi-paragraph commit, 
-# quoting "Probably best to keep comments short, though. 'Wink...'"
-# but sometimes you have to
-
+# quoting "Probably best to keep comments short, though. "
+# but sometimes you have to! 'Wink...'
 ```
 
 Stack overflow [link](https://stackoverflow.com/a/16033290/16330123)
 
+Now go and git started!
