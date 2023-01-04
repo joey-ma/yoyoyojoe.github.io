@@ -1,0 +1,8 @@
+{
+  "label": "Docusaurus",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Here is an introduction of Docusaurus as well as some hands-on tutorials to learn the most important Docusaurus concepts."
+  }
+}
