@@ -6,13 +6,43 @@ sidebar_position: 4
 
 ## Basics
 
-Use `git status` to check your git status.
+Use `git clone <YOUR_FORKED_REPO_URL>` to clone your forked repo onto your local machine. A nickname `origin` is used by default as your local repo name.
 
 Use `git add` to stage your files.
 
 Use `git commit` to commit your staged files.
 
 Use `git push` to push your committed staged files to the cloud (e.g., GitHub for most).
+
+Use `git remote add <REPOSITORY_NICKNAME> <REMOTE_REPO_URL>` to add your remote repository with your repo name and remote url entered. `git clone` essentially did this [+ `git fetch` and `git pull`](https://git-scm.com/docs/git-clone).
+
+Use `git remote -v` to check your current remote setup.
+
+Use `git status` to check your git status.
+## Git setup
+
+Example:
+- if you had forked my GitHub repo `press-play`, and you do everything on the `dev` branch and use `main` only for deployment.
+
+
+```bash
+$ git clone https://github.com/<YOUR_GITHUB_USERNAME>/press-play.git # please replace <YOUR_GITHUB_USERNAME>
+
+$ git remote -v
+origin  https://github.com/<YOUR_GITHUB_USERNAME>/press-play.git (fetch)
+origin  https://github.com/<YOUR_GITHUB_USERNAME>/press-play.git (push)
+
+$ git remote add upstream https://github.com/yoyoyojoe/press-play.git # note the nickname upstream and the web URL being where you forked the repo from
+
+$ git remote -v
+origin  https://github.com/<YOUR_GITHUB_USERNAME>/press-play.git (fetch)
+origin  https://github.com/<YOUR_GITHUB_USERNAME>/press-play.git (push)
+upstream https://github.com/yoyoyojoe/press-play.git
+upstream https://github.com/yoyoyojoe/press-play.git
+
+```
+
+## Git started
 
 Example:
 - your `git.md` file is in your `docs` directory
@@ -73,7 +103,7 @@ adding git tricks to docs
 
 :::note
 
-You have to enter a git commit message. If you do not enter a message, the commit will fail.
+You have to enter a git commit message. If you do not enter a message, the commit will fail, and you will see:
 ```
 Aborting commit due to empty commit message.
 ```
@@ -88,6 +118,54 @@ $ git commit -m 'adds helpful tricks for git operations'
  1 file changed, 48 insertions(+)
  create mode 100644 docs/git.md
 ```
+
+Then we can push to our remote repo.
+
+```bash
+$ git push
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 10 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 353 bytes | 353.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To github.com:yoyoyojoe/yoyoyojoe.github.io.git
+   1f7307a..b0fcfad  main -> main
+```
+
+```bash
+$ git push
+```
+
+:::note
+
+If you're using `git push` for the first time without using `git clone`; i.e., setting up your git manually using `git remote add <REPOSITORY_NICKNAME> <REMOTE_REPO_URL>`, follow CLI instructions to use `git push --set-upstream <REPOSITORY_NICKNAME> <BRANCH_NAME>` or use the `-u` flag to set the default remote repo & branch you'd like to push type less in the future. For example: 
+```bash
+$ git push
+fatal: The current branch main has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin main
+
+$ git push --set-upstream origin main # does exactly the same thing as next line command
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 10 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 353 bytes | 353.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To github.com:yoyoyojoe/yoyoyojoe.github.io.git
+   1f7307a..b0fcfad  main -> main
+
+$ git push -u origin main # only need to do once though
+Everything up-to-date
+
+# now you only need to enter "git push" for all future pushes
+
+```
+:::
 
 ## Git Tricky
 
@@ -134,3 +212,9 @@ git commit -a -m 'include a multi-paragraph commit message,' -m 'quoting "'"Prob
 Stack overflow [link](https://stackoverflow.com/a/16033290/16330123)
 
 Now go and git started!
+
+## Additional Resources
+- [git-scm](https://git-scm.com/docs)  
+- [joshnh/Git-Commands](https://github.com/joshnh/Git-Commands)
+- [GitHub/Repositories](https://docs.github.com/en/repositories/creating-and-managing-repositories/about-repositories)
+- [yoyoyojoe/git-legendary-chainsaw](https://github.com/yoyoyojoe/git-legendary-chainsaw)
