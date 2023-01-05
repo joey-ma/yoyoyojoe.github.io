@@ -209,7 +209,7 @@ git commit -a -m 'include a multi-paragraph commit message,' -m 'quoting "'"Prob
 # but sometimes you have to! 'Wink...'
 ```
 
-Stack overflow [link](https://stackoverflow.com/a/16033290/16330123)
+Ref: Stack overflow [link](https://stackoverflow.com/a/16033290/16330123)
 
 Now go and git started!
 
