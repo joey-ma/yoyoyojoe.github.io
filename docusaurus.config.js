@@ -72,20 +72,26 @@ const config = {
           {to: '/about', label: 'About', position: 'left'},
           {to: '/blog', label: 'Blog', position: 'left'},
           {
-            type: 'doc',
-            docId: 'about',
             label: 'Docs',
-            position: 'left'
-          },
-          {
-            to: 'https://github.com/yoyoyojoe/catch',
-            docId: 'catch',
-            label: 'Catch',
+            docId: 'about',
             position: 'left',
+            type: 'doc',
           },
           {
-            href: 'https://github.com/yoyoyojoe/yoyoyojoe.github.io',
+            label: 'Catch',
+            docId: 'catch',
+            position: 'left',
+            to: 'https://github.com/yoyoyojoe/catch',
+          },
+          {
+            label: 'Recoilize',
+            docId: 'recoilize',
+            position: 'left',
+            to: 'https://github.com/open-source-labs/Recoilize',
+          },
+          {
             label: 'GitHub',
+            href: 'https://github.com/yoyoyojoe/yoyoyojoe.github.io',
             position: 'right',
           },
         ],
@@ -139,6 +145,15 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+
+      // todo: add an algolia search bar
+      // algolia: {
+      //   apiKey: process.env.API_KEY,
+      //   indexName: process.env.INDEX_NAME,
+      //   contextualSearch: true,
+      //   placeholder: 'Search',
+      //   appId: process.env.APP_ID,
+      // },
     }),
 };
 
