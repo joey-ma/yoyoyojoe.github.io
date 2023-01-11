@@ -91,7 +91,7 @@ const config = {
           },
           {
             label: 'GitHub',
-            href: 'https://github.com/yoyoyojoe/yoyoyojoe.github.io',
+            href: 'https://github.com/yoyoyojoe/',
             position: 'right',
           },
         ],
