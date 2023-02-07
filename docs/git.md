@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 # Git Fabulous
@@ -19,6 +19,7 @@ Use `git remote add <REPOSITORY_NICKNAME> <REMOTE_REPO_URL>` to add your remote 
 Use `git remote -v` to check your current remote setup.
 
 Use `git status` to check your git status.
+
 ## Git setup
 
 Example:
@@ -218,3 +219,4 @@ Now go and git started!
 - [joshnh/Git-Commands](https://github.com/joshnh/Git-Commands)
 - [GitHub/Repositories](https://docs.github.com/en/repositories/creating-and-managing-repositories/about-repositories)
 - [yoyoyojoe/git-legendary-chainsaw](https://github.com/yoyoyojoe/git-legendary-chainsaw)
+- [Master the Essentials of Git in Under 2 Hours](https://www.donnfelker.com/git/)

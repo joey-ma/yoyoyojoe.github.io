@@ -1,51 +1,21 @@
-# yoyoyojoe.github.io
+# yoyoyojoe.github.io Docs (Alpha)
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+Disclaimer: articles contents includes random issues and solutions and may be out-of-context.
 
-The development code is stored in a separate repository `clever-subterfuge`. Initially I wanted to test out Docusaurus as a separate project, but after learning a bit more about it, I will continue to use it to build my personal website for the time being.
-You can learn more about its pros and cons [here](https://docusaurus.io/docs#features).
+## Intention
 
-### Installation
+While I can't memorize everything I've learned, I'd like be able to reference useful information on demand.
 
-```bash
-$ npm install
-```
+The intention of these Docs were to serve me as my personal collection of notes and references: clear and concise. 
 
-### Local Development
+However, soon I realized this is an enormous endeavor.
 
-```bash
-$ npm start
-```
+## Confronting Imperfection
 
-or 
+Recognizing that creating good documentation is a meaningful but tedious task and documenting a lesson learned (concisely) requires patience and time to process and summarize the experience, I took some time to document some of my lessons learned and saved most of my notes without having them posted.
 
-```bash
-npm run start
-```
+After a while though, I realized that these notes do not exist. I'd reference my files, make small edits, and the notes are saved locally. This defeats the purpose of this Docs section of my site. The perfectionist in me will require me to either (1) remove the Docs section because it will never be perfect, (2) have 2 somewhat helpful articles for a year (they are incomplete anyways, the intention is not to replace the official docs), or (3) post these random, incomplete notes, but I can still refer back to them, and they _might_ possibly be helpful to someone.
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+So, I hope this can be helpful to others in addition to myself, but if you see room for improvements and would like to contribute, please feel free to create an issue so I can review it, or submit a PR to make it better! _Since I'm quite opinionated about how my Docs should look like, please reach out and see the ([Contributing Guide](./CONTRIBUTING.md)) before you spend a huge amount of time on this PR!_
 
-### Build
-
-```bash
-$ npm run build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-Using SSH:
-
-```bash
-$ USE_SSH=true npm run deploy
-```
-
-Not using SSH:
-
-```bash
-$ GIT_USER=<Your GitHub username> npm run deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
-Note: since August 13, 2021, GitHub no longer accept account passwords when authenticating Git operations on GitHub.com. You can use your [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) as your password if you are not using SSH. However, to access GitHub from the command line, consider using GitHub CLI or Git Credential Manager instead of creating a personal access token. For more details, see above link for personal-access-token.
+:)

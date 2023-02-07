@@ -3,6 +3,7 @@
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/nightOwl');
+require('dotenv').config();
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -41,7 +42,7 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/yoyoyojoe/yoyoyojoe.github.io/tree/main/',
-          exclude: [ '**/README.md**' ]
+          exclude: [ '**/README.md**', '**/CONTRIBUTING.md**', '**/TYPES_OF_CONTRIBUTIONS.md/**', '**/CODE_OF_CONDUCT.md/**',]
         },
         blog: {
           showReadingTime: true,
@@ -72,7 +73,7 @@ const config = {
           {to: '/about', label: 'About', position: 'left'},
           {to: '/blog', label: 'Blog', position: 'left'},
           {
-            label: 'Docs',
+            label: 'Docs (Alpha)',
             docId: 'about',
             position: 'left',
             type: 'doc',
@@ -147,13 +148,17 @@ const config = {
       },
 
       // todo: add an algolia search bar
-      // algolia: {
-      //   apiKey: process.env.API_KEY,
-      //   indexName: process.env.INDEX_NAME,
-      //   contextualSearch: true,
-      //   placeholder: 'Search',
-      //   appId: process.env.APP_ID,
-      // },
+      algolia: {
+        // The application ID provided by Algolia
+        appId: process.env.APP_ID,
+        // Public API key: it is safe to commit it
+        apiKey: process.env.API_KEY,
+        indexName: process.env.INDEX_NAME,
+        // Optional: see doc section below
+        contextualSearch: true,
+        // searchPagePath: 'search',
+        debug: false
+      },
     }),
 };
 
