@@ -4,6 +4,12 @@ sidebar_position: 5
 
 # Git Fabulous
 
+## Flow
+
+https://github.com/firstcontributions/first-contributions
+
+https://www.freecodecamp.org/news/how-to-sync-your-fork-with-the-original-git-repository/
+
 ## Basics
 
 Use `git clone <YOUR_FORKED_REPO_URL>` to clone your forked repo onto your local machine. A nickname `origin` is used by default as your local repo name.
@@ -213,6 +219,7 @@ git commit -a -m 'include a multi-paragraph commit message,' -m 'quoting "'"Prob
 Ref: Stack overflow [link](https://stackoverflow.com/a/16033290/16330123)
 
 Now go and git started!
+
 
 ## Additional Resources
 - [git-scm](https://git-scm.com/docs)  
