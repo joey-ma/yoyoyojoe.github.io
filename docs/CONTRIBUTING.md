@@ -1,7 +1,6 @@
 # Welcome to My Contributing Guide
-<!-- referencing & following the format of GitHub Docs https://github.com/github/docs/blob/main/CONTRIBUTING.md -->
 
-Thank you for investing your time in exploring, and possibly contributing to my project! :kissing_heart: <!-- Any contribution you make will be reflected on [docs.github.com](https://docs.github.com/en) :sparkles:. -->
+Thank you for investing your time in exploring, and possibly contributing to my project! :kissing_heart: :sparkles:.
 
 Read our [Code of Conduct](./CODE_OF_CONDUCT.md) to keep our community approachable and respectable.
 
@@ -11,7 +10,7 @@ Use the table of contents icon <img src="../assets/images/table-of-contents.png"
 
 ## New contributor guide
 
-To get an overview of the project, read the [README](README.md). Here are some resources to help you get started with open source contributions:
+To get an overview of the project, read the [README][readme]. Here are some resources to help you get started with open source contributions:
 
 - [Finding ways to contribute to open source on GitHub](https://docs.github.com/en/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)
 - [Set up Git](https://docs.github.com/en/get-started/quickstart/set-up-git)
@@ -20,7 +19,7 @@ To get an overview of the project, read the [README](README.md). Here are some r
 
 ## Getting started
 
-To navigate our codebase with confidence, see [the introduction to working in the docs repository](/contributing/working-in-docs-repository.md) :confetti_ball:. For more information on how we write our markdown files, see [the GitHub Markdown reference](contributing/content-markup-reference.md).
+To navigate our codebase with confidence, see [the introduction to working in the docs repository][working-in-docs] :confetti_ball:. For more information on how we write our markdown files, see [the GitHub Markdown reference][content-markup-reference].
 
 Check to see what [types of contributions](./TYPES_OF_CONTRIBUTIONS.md) we accept before making changes. Some of them don't even require writing a single line of code :sparkles:.
 
@@ -52,8 +51,6 @@ As a general rule, we don’t assign issues to anyone. If you find an issue to w
 
 Click **Make a contribution** at the bottom of any docs page to make small changes such as a typo, sentence fix, or a broken link. This takes you to the `.md` file where you can make your changes and [create a pull request](#pull-request) for a review. 
 
- <!-- <img src="./assets/images/contribution_cta.png" width="300" height="150" />  -->
-
 #### Make changes in a codespace
 
 For more information about using a codespace for working on GitHub documentation, see "[Working in a codespace](https://github.com/github/docs/blob/main/contributing/codespace.md)."
@@ -70,7 +67,7 @@ For more information about using a codespace for working on GitHub documentation
 - Using the command line:
   - [Fork the repo](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo#fork-an-example-repository) so that you can make your changes without affecting the original project until you're ready to merge them.
 
-3. Install or update to **Node.js v16**. For more information, see [the development guide](contributing/development.md).
+3. Install or update to **Node.js v16**. For more information, see [the development guide][development-guide].
 
 4. Create a working branch and start with your changes!
 
@@ -107,3 +104,13 @@ This site can be developed on Windows, however a few potential gotchas need to b
 4. Filename too long error: There is a 260 character limit for a filename when Git is compiled with `msys`. While the suggestions below are not guaranteed to work and could cause other issues, a few workarounds include:
     - Update Git configuration: `git config --system core.longpaths true`
     - Consider using a different Git client on Windows
+
+## References
+
+Referencing & following the format of [GitHub Docs][gh-docs].
+
+[gh-docs]:https://github.com/github/docs/blob/main/CONTRIBUTING.md
+[readme]:https://github.com/yoyoyojoe/yoyoyojoe.github.io/blob/main/docs/README.md
+[working-in-docs]:https://github.com/github/docs/blob/main/contributing/working-in-docs-repository.md
+[content-markup-reference]:https://github.com/github/docs/blob/main/contributing/content-markup-reference.md
+[development-guide]:https://github.com/github/docs/blob/main/contributing/development.md

@@ -30,4 +30,4 @@ This website is internationalized and available in multiple languages. The sourc
 ### :balance_scale: Site Policy
 GitHub's site policies are published on docs.github.com, too! -->
 
-If you find a typo, you can open a pull request to fix it. For anything else, see [the CONTRIBUTING guide](./CONTRIBUTING.md).
+If you find a typo, you can open a pull request to fix it. For anything else, see [the CONTRIBUTING guide](https://github.com/yoyoyojoe/yoyoyojoe.github.io/blob/main/docs/CONTRIBUTING.md).
