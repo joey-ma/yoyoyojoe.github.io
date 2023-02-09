@@ -42,7 +42,7 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/yoyoyojoe/yoyoyojoe.github.io/tree/main/',
-          exclude: [ '**/README.md**', '**/CONTRIBUTING.md**', '**/TYPES_OF_CONTRIBUTIONS.md/**', '**/CODE_OF_CONDUCT.md/**',]
+          exclude: [ '**/README.md**', '**/CONTRIBUTING.md**', '**/CODE_OF_CONDUCT.md**', '**/TYPES_OF_CONTRIBUTIONS.md**' ]
         },
         blog: {
           showReadingTime: true,
