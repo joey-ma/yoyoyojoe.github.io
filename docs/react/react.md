@@ -64,7 +64,7 @@ const App = () => {
 
 #### `useMount`
 
-A simple way to fetch data on load is using `useEffect`. [see docs](reactjs.org/reference/react/useEffect)
+A simple way to fetch data on load is using `useEffect`. [see docs](https://reactjs.org/docs/hooks-reference.html#useeffect)
 
 ```js
 useEffect(() => {
