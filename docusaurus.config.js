@@ -73,7 +73,7 @@ const config = {
           {to: '/about', label: 'About', position: 'left'},
           {to: '/blog', label: 'Blog', position: 'left'},
           {
-            label: 'Docs (Alpha)',
+            label: 'Docs',
             docId: 'about',
             position: 'left',
             type: 'doc',
