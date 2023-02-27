@@ -2,6 +2,7 @@
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
  * work well for content-centric websites.
+ * Here's a tool to help with choosing your theme color: https://docusaurus.io/docs/styling-layout
  */
 
 /* You can override the default Infima variables here. */
@@ -14,13 +15,13 @@ src: url("https://www.kevc.xyz/_next/static/media/Satoshi-Regular.58c0b378.woff"
 }
 
 :root {
-  --ifm-color-primary: #02026A;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #0000c1;
+  --ifm-color-primary-dark: #0000ae;
+  --ifm-color-primary-darker: #0000a4;
+  --ifm-color-primary-darkest: #000087;
+  --ifm-color-primary-light: #0000d4;
+  --ifm-color-primary-lighter: #0000de;
+  --ifm-color-primary-lightest: #0000fb;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --ifm-font-family-base: Satoshi, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -28,13 +29,13 @@ src: url("https://www.kevc.xyz/_next/static/media/Satoshi-Regular.58c0b378.woff"
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #93A8FD;
-  --ifm-color-primary-dark: #6B81FB;
-  --ifm-color-primary-darker: #3342F2;
-  --ifm-color-primary-darkest: #02026A;
-  --ifm-color-primary-light: #A8BDFD;
-  --ifm-color-primary-lighter: #BECEFE;
-  --ifm-color-primary-lightest: #D3E1FF;
+  --ifm-color-primary: #858dff;
+  --ifm-color-primary-dark: #5e69ff;
+  --ifm-color-primary-darker: #4b57ff;
+  --ifm-color-primary-darkest: #1120ff;
+  --ifm-color-primary-light: #acb1ff;
+  --ifm-color-primary-lighter: #bfc3ff;
+  --ifm-color-primary-lightest: #f9faff;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
