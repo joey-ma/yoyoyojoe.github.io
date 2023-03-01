@@ -49,11 +49,8 @@ module.exports = {
 }
 ```
 
-Source: https://stackoverflow.com/a/67559032/16330123
-
-How can I use JavaScript source maps?
-
-https://stackoverflow.com/questions/21719562/how-can-i-use-javascript-source-maps-map-files
-
-[Webpack Config Basics - 8. Source-maps](https://www.youtube.com/watch?v=fGed9phNkto)
+Reference:  
+- [Error message "DevTools failed to load SourceMap: Could not load content](https://stackoverflow.com/a/67559032/16330123)
+- [How can I use JavaScript source maps?](https://stackoverflow.com/questions/21719562/how-can-i-use-javascript-source-maps-map-files)
+- [Webpack Config Basics - 8. Source-maps](https://www.youtube.com/watch?v=fGed9phNkto)
 
