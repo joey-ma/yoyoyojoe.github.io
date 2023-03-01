@@ -57,7 +57,6 @@ desktop-linux   docker
 This displays the default builtin driver, that uses the BuildKit server components built directly into the docker engine, also known as the `docker` driver.
 While you can create a new builder to access more complex features like multi-platform builds (see [Multi-Platform/Getting Started](https://docs.docker.com/build/building/multi-platform/#getting-started) for more details), you could also just pass the `--platform` flag into your build command. 
 
-
 Here is an build command without the `--platform` flag. The `-t` flag adds a name and optionally a tag in the `name:tag` format:
 
 ```bash
@@ -70,8 +69,6 @@ And we can pass in the `--platform` flag like so to build a Docker image setting
 docker build --platform=linux/amd64 -t people-depot-backend-dev .
 ```
 
-
-
 [Dockerizing a Node.js web app](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/)
 
 To only deploy your backend server, here is a really good sample project:
@@ -80,9 +77,8 @@ https://github.com/GoogleCloudPlatform/serverless-expeditions/tree/main/hosting-
 
 Together with a YouTube walk-through @ [Google Cloud Tech](https://www.youtube.com/watch?v=M53VqNtioxE)
 
-References: 
-
-[How to Deploy your Serverless Full-Stack App with Google Cloud Run and MongoDB Atlas @ YouTube](https://www.youtube.com/watch?v=-UobUxpW6WQ)
+### References:  
+- [How to Deploy your Serverless Full-Stack App with Google Cloud Run and MongoDB Atlas @ YouTube](https://www.youtube.com/watch?v=-UobUxpW6WQ)
 
 The command `docker run -entrypoint="/bin/bash" -i test` runs a Docker container using the specified options.
 
