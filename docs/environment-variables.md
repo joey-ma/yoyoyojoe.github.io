@@ -105,6 +105,7 @@ VITE_SOME_KEY=123
 DB_PASSWORD=foobar
 ```
 Only VITE_SOME_KEY will be exposed as import.meta.env.VITE_SOME_KEY to your client source code, but DB_PASSWORD will not.
+
 :::
 
 ### cross-env
