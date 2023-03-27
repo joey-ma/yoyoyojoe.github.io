@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkyoyoyojoe_github_io=self.webpackChunkyoyoyojoe_github_io||[]).push([[8894],{8894:(o,e,u)=>{u.r(e)}}]);
