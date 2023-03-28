@@ -6,7 +6,9 @@ hide_table_of_contents: true
 
 # About
 
-Currently building backend database infrastructure at [Hack for LA](https://www.hackforla.org/). Previously optimized developer experience at [Recoilize](https://www.recoilize.io/).
+Currently building backend database infrastructure at [Hack for LA](https://www.hackforla.org/).  
+Empowering users to take an active role in the fight against climate change at [Program Equity](https://github.com/ProgramEquity/amplify).  
+Previously optimized developer experience at [Recoilize](https://www.recoilize.io/).
 
 <!-- Love building applications, solving problems, and making the world a better place. -->
 
@@ -14,7 +16,7 @@ Currently building backend database infrastructure at [Hack for LA](https://www.
 
 <!-- React, Node, Express, PostgreSQL, and MongoDB.  -->
 
-Passionate about learning new technologies, solving complex problems, and actively contributing to open-source tools.
+Passionate about learning new technologies, solving complex problems, and actively contributing to open-source products.
 
 <!-- In addition, I believe in lifelong learning and am always picking up something new. -->
 
