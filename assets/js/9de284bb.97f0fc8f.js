@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkyoyoyojoe_github_io=self.webpackChunkyoyoyojoe_github_io||[]).push([[896],{1652:e=>{e.exports=JSON.parse('{"title":"SQL","description":"SQL notes.","slug":"/category/sql","permalink":"/docs/category/sql","navigation":{"previous":{"title":"Regex","permalink":"/docs/regex"},"next":{"title":"SQL","permalink":"/docs/sql/"}}}')}}]);
