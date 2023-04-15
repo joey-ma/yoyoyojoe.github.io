@@ -1,7 +1,3 @@
----
-sidebar_position: 5
----
-
 # Git Fabulous
 
 ## Git Process

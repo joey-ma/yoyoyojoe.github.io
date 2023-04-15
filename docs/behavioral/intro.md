@@ -3,7 +3,9 @@ sidebar_position: 1
 ---
 
 
-# STAR Everything
+# The STAR Method
+
+a structured manner of responding to a behavioral-based interview question.
 
 It turns out, answering behavioral questions is where I require significant amount of work.
 

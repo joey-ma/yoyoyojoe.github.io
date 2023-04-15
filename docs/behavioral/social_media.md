@@ -1,5 +1,7 @@
 
-# Be so good that they can't ignore you - Jae Taylor
+# Be good
+
+Be so good that they can't ignore you - Jae Taylor
 
 https://www.linkedin.com/in/jaeontech/
 

@@ -1,7 +1,3 @@
----
-sidebar_position: 7
----
-
 # Regex
 
 To match a string that contains only those characters (or an empty string), try
