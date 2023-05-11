@@ -1,0 +1,167 @@
+---
+slug: resources
+title: Stay Resilient
+authors: yoyoyojoe
+tags: [resources, frontend, backend, algos]
+---
+
+[Tech Interview Handbook](https://www.techinterviewhandbook.org/)  
+Free curated interview preparation materials for busy people
+Brought to you by the author of Blind 75
+
+
+[12+ Github Repositories to Help You Ace Your Job Interview](https://dev.to/olanetsoft/12-github-repositories-to-help-you-ace-your-job-interview-2a08)
+
+<!--truncate-->
+
+This is very unorganized. I'll come back to organize this.
+
+[LC.1962](https://leetcode.com/problems/remove-stones-to-minimize-the-total/description/)
+
+You are given a 0-indexed integer array `piles`, where `piles[i]` represents the number of stones in the `ith` pile, and an integer `k`. You should apply the following operation exactly `k` times:
+
+Choose any `piles[i]` and remove `floor(piles[i] / 2)` stones from it.
+Notice that you can apply the operation on the same pile more than once.
+
+Return the minimum possible total number of stones remaining after applying the `k` operations.
+
+`floor(x)` is the greatest integer that is smaller than or equal to `x` (i.e., rounds `x` down).
+
+### Example 1
+Input: `piles = [5,4,9], k = 2`
+Output: `12`
+Explanation: `Steps of a possible scenario are:
+- Apply the operation on pile 2. The resulting piles are [5,4,5].
+- Apply the operation on pile 0. The resulting piles are [3,4,5].
+The total number of stones in [3,4,5] is 12.`
+
+### Example 2:
+
+Input: `piles = [4,3,6,7], k = 3`
+Output: `12`
+Explanation: `Steps of a possible scenario are:
+- Apply the operation on pile 2. The resulting piles are [4,3,3,7].
+- Apply the operation on pile 3. The resulting piles are [4,3,3,4].
+- Apply the operation on pile 0. The resulting piles are [2,3,3,4].
+The total number of stones in [2,3,3,4] is 12.`
+
+### Constraints:
+
+- `1 <= piles.length <= 105`
+- `1 <= piles[i] <= 104`
+- `1 <= k <= 105`
+
+### Solution
+
+*using recursion*
+```js
+var minStoneSum = function(piles, k) {
+    // console.log('k', k === 0)
+    // console.log(piles.reduce((acc, curr) => acc + curr));
+    if (k === 0) return piles.reduce((acc, curr) => acc + curr);
+    
+    // sort piles
+    piles.sort((a, b) => a - b);
+
+    // find largest pile (per each operation)
+    const lp = piles[piles.length - 1]
+
+    // console.log('sorted piles', piles)
+    // console.log('lcp', lcp)
+    
+    // apply logic to replace largest element in pile in place
+    piles[piles.length - 1] = lp - Math.floor(lp / 2)
+
+    return minStoneSum(piles, k - 1) //
+};
+```
+
+LC 2225. Find Players With Zero or One Losses
+```js
+/**
+ * @param {number[][]} matches
+ * @return {number[][]}
+ */
+var findWinners = function(matches) {
+    const players = {}; // k:v -> player (id): counts of losses
+    const output = [[], []];
+
+    // record all winners & losers and their counts of losses
+    // regardless of counts of wins
+    matches.forEach((match) => {
+        const winner = match[0];
+        const loser = match[1]
+
+        if (players[winner] === undefined) players[winner] = 0;
+        if (players[loser] === undefined) players[loser] = 1; 
+        else players[loser] += 1; 
+    })
+
+    // console.log(players);
+
+    for (const key in players) {
+        const value = players[key];
+        if (value === 0) output[0].push(key)
+        if (value === 1) output[1].push(key);
+    }
+
+    return output;
+};
+```
+
+```js
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var removeDuplicates = function(s) {
+    let output = '';
+    // recursive approach possible
+    // base case: no more duplicates
+    if (!findDuplicates(s, output)) return output;
+    else removeDuplicates(s, output); // remove duplicates
+    // helper fn: to find duplicates
+    function findDuplicates(input, output) {
+        return true
+    }
+};
+```
+
+```js
+const removeDuplicates = (string) => {
+  const stack = [];
+
+  for (const char of string) {
+    const noDuplicate = char !== stack[stack.length - 1];
+
+    if (noDuplicate) stack.push(char);
+    else stack.pop();
+  }
+
+  return stack.join('');
+};
+```
+
+```js
+var maxProfit = (prices) => {
+    let lowestPrice = prices[0]; // aka buyPrice
+    let highestProfit = 0;
+    
+    for (const currentPrice of prices) {
+        if (currentPrice < lowestPrice) lowestPrice = currentPrice;
+        
+        const currentProfit = currentPrice - lowestPrice;
+        if (currentProfit > highestProfit) highestProfit = currentProfit;
+    }
+    
+    return highestProfit;
+}
+
+/* it's ok to overwrite lowestPrice since we're also keeping track of the highestProfit.
+in other words: 
+- if current Price is lower than lowestPrice (a buyPrice from before), 
+    a highestProfit will always be from currentPrice, so it'll be ok to reassign lowestPrice. 
+    (i.e. [3, 6, 1, 7] : buy at 3, sell at 7 will never be more profitable than: buy at 1, sell at 7.
+- we only update the highestProfit if the currentProfit is higher than highestProfit (so far)
+    (i.e. [7, 3, 8, 1, 5, 4] : buy at 3, sell at 8 (highestProfit = currentProfit = 5) will not be overwritten when: buy at 1, sell at 5 (currentProfit = 4) */
+```

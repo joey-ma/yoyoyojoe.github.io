@@ -2,12 +2,11 @@
 sidebar_position: 1
 ---
 
-
 # The STAR Method
 
 a structured manner of responding to a behavioral-based interview question.
 
-It turns out, answering behavioral questions is where I require significant amount of work.
+It turns out, this is extremely important and is where I also require significant amount of work.
 
 ## Getting started
 
@@ -23,9 +22,6 @@ It seems that talks of my experiences / my answers are best received when I am f
     Result: `Share what outcomes your actions achieved`,
   }
 ```
-<!-- <button onClick={() => alert('button clicked!')}>Click me!</button> -->
-
-<!-- <button onClick={() => alert('button clicked!')}>Click me!</button> -->
 
 :::
 
@@ -47,10 +43,6 @@ From my interviewing experiences so far, it seems like yes is the answer.
 
 <!-- My opinion? No one ever asked. -->
 
-<!-- <button onClick={() => alert('button clicked!')}>Click me!</button> -->
-
-<!-- <button onClick={() => alert('button clicked!')}>Click me!</button> -->
-
 :::
 
 ### Example questions
@@ -66,7 +58,6 @@ const example_1 = {
 }
 ```
 
-
 #### Does `STAR Everything` follow the STAR format?
 
 _I think so?_
@@ -79,3 +70,7 @@ const STAR_Everything = {
   Result: `The entire article that you've read`,
 }
 ```
+
+What are you most proud of?
+
+https://careersherpa.net/what-are-you-most-proud-of/
