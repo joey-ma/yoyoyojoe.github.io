@@ -4,10 +4,47 @@
         <title>Joey Ma Blog</title>
         <link>https://yoyoyojoe.github.io/blog</link>
         <description>Joey Ma Blog</description>
-        <lastBuildDate>Sat, 31 Dec 2022 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 01 Apr 2023 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Stay Resilient]]></title>
+            <link>https://yoyoyojoe.github.io/blog/stay-resilient</link>
+            <guid>https://yoyoyojoe.github.io/blog/stay-resilient</guid>
+            <pubDate>Sat, 01 Apr 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA["Here’s to the crazy ones, the misfits, the rebels, the troublemakers, the round pegs in the square holes… the ones who see things differently — they’re not fond of rules… You can quote them, disagree with them, glorify or vilify them, but the only thing you can’t do is ignore them because they change things… they push the human race forward, and while some may see them as the crazy ones, we see genius, because the ones who are crazy enough to think that they can change the world, are the ones who do."]]></description>
+            <content:encoded><![CDATA[<p>"Here’s to the crazy ones, the misfits, the rebels, the troublemakers, the round pegs in the square holes… the ones who see things differently — they’re not fond of rules… You can quote them, disagree with them, glorify or vilify them, but the only thing you can’t do is ignore them because they change things… they push the human race forward, and while some may see them as the crazy ones, we see genius, because the ones who are crazy enough to think that they can change the world, are the ones who do."<br>
+<em>- Steve Jobs</em></p><p>"Stay hungry. Stay foolish."</p><p><a href="https://www.youtube.com/watch?v=Hd_ptbiPoXM" target="_blank" rel="noopener noreferrer">Steve Jobs told seniors at Stanford University in 2005</a> that dropping out of college was one of the best decisions he ever made.</p><p>"Sometimes life is going to hit you in the head with a brick. Don't lose faith. I'm convinced that the only thing that kept me going, was that I loved what I did. You've got to find what you love. And that is as true for work, as it is for your lover. Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work. And the only way to do great work, is to love what you do. If you haven't found it yet. Keep looking. And don't settle. As with all matters of the heart, you'll know when you find it. And like any great relationship, it just gets better and better as the years roll on. So keep looking. Don't settle" (<a href="https://youtu.be/Hd_ptbiPoXM?t=929" target="_blank" rel="noopener noreferrer">I love this part</a>)</p><p>Apple Computer Company was founded on April 1, 1976, by Steve Jobs, Steve Wozniak, and Ronald Wayne as a business partnership. </p><p>Apple Computer, Inc. is incorporated on January 3, 1977, by Steven Jobs and Stephen Wozniak. </p><p>References: </p><ul><li><a href="https://www.washingtonpost.com/blogs/answer-sheet/post/steve-jobs-told-students-stay-hungry-stay-foolish/2011/10/05/gIQA1qVjOL_blog.html" target="_blank" rel="noopener noreferrer">Steve Jobs told students: ‘Stay hungry. Stay foolish.’</a></li><li><a href="https://guides.loc.gov/this-month-in-business-history/april/apple-computer-founded#:~:text=Apple%20Computer%2C%20Inc.%20was%20founded,in%20their%20homes%20or%20offices." target="_blank" rel="noopener noreferrer">The Founding of Apple Computer, Inc.</a></li><li><a href="https://www.computerhistory.org/tdih/January/3/" target="_blank" rel="noopener noreferrer">What Happened on January 3rd</a></li><li><a href="https://timepath.co/apple" target="_blank" rel="noopener noreferrer">Apple's Timepath</a></li></ul>]]></content:encoded>
+            <category>apple</category>
+            <category>stevejobs</category>
+            <category>stevewozniak</category>
+            <category>ronaldwayne</category>
+        </item>
+        <item>
+            <title><![CDATA[Believe It]]></title>
+            <link>https://yoyoyojoe.github.io/blog/believe-it</link>
+            <guid>https://yoyoyojoe.github.io/blog/believe-it</guid>
+            <pubDate>Wed, 08 Feb 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA["Being realistic is the most commonly traveled road to mediocrity."]]></description>
+            <content:encoded><![CDATA[<p>"Being realistic is the most commonly traveled road to mediocrity."<br>
+<em>- Will Smith</em></p><p>Will Smith is extremely intelligent and worldly. Here are some other things he said that I appreciated. It could be something I resonate with. It could be something to reflect on even if I don't agree with it wholeheartedly. It could be something that I absolutely need to learn to embrace.</p><p>"Concentrate on your strengths. I do everything well."^1</p><p>"There's no reason to have a plan B because it distracts from plan A." </p><p>“The first step, before anybody in the world believes it, is you have to believe it.” </p><p><em>Nope, he shouldn't have hit Chris Rock!</em></p>]]></content:encoded>
+            <category>willsmith</category>
+            <category>reflection</category>
+            <category>quotes</category>
+        </item>
+        <item>
+            <title><![CDATA[Time for Reflection]]></title>
+            <link>https://yoyoyojoe.github.io/blog/reflection-2022</link>
+            <guid>https://yoyoyojoe.github.io/blog/reflection-2022</guid>
+            <pubDate>Sun, 01 Jan 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA["By three methods we may learn wisdom: First, by reflection, which is noblest; Second, by imitation, which is easiest; and third by experience, which is the bitterest."]]></description>
+            <content:encoded><![CDATA[<p>"By three methods we may learn wisdom: First, by reflection, which is noblest; Second, by imitation, which is easiest; and third by experience, which is the bitterest."<br>
+<em>- Confucius</em></p><p>"The Man who says he can, and the man who says he can not... are both correct."</p>]]></content:encoded>
+            <category>confucius</category>
+            <category>reflection</category>
+            <category>quotes</category>
+        </item>
         <item>
             <title><![CDATA[Goodbye 2022]]></title>
             <link>https://yoyoyojoe.github.io/blog/goodbye-2022</link>
@@ -34,7 +71,7 @@
             <guid>https://yoyoyojoe.github.io/blog/merry-christmas-2022</guid>
             <pubDate>Sat, 24 Dec 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[Welcome to my website!]]></description>
-            <content:encoded><![CDATA[<p>Welcome to my website! </p><p>I look forward to documenting some useful notes and resources here.</p><p>I will also document a bit about my journey as a software engineer here.</p><p><img loading="lazy" alt="Docusaurus Plushie" src="/assets/images/docusaurus-plushie-banner-a60f7593abca1e3eef26a9afa244e4fb.jpeg" width="1500" height="500" class="img_ev3q"></p>]]></content:encoded>
+            <content:encoded><![CDATA[<p>Welcome to my website! </p><p>I look forward to documenting some useful notes and resources here.</p><p>For what doesn't fit within the Docs, e.g., quotes that I appreciate, random findings, I'll jot down something here and maybe document a bit about my journey as a software engineer as well.</p><p>I'm not good with <em>"blogging"</em> though, so don't hate! Do reach out though if you want to connect!</p><p><img loading="lazy" alt="Docusaurus Plushie" src="/assets/images/docusaurus-plushie-banner-a60f7593abca1e3eef26a9afa244e4fb.jpeg" width="1500" height="500" class="img_ev3q"></p>]]></content:encoded>
             <category>hello</category>
             <category>docusaurus</category>
             <category>facebook</category>

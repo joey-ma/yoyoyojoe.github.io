@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkyoyoyojoe_github_io=self.webpackChunkyoyoyojoe_github_io||[]).push([[1864],{7240:o=>{o.exports=JSON.parse('{"label":"confucius","permalink":"/blog/tags/confucius","allTagsPath":"/blog/tags","count":1}')}}]);
