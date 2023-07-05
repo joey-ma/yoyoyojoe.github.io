@@ -20,7 +20,7 @@ Passionate about learning new technologies, solving complex problems, and active
 
 <!-- In addition, I believe in lifelong learning and am always picking up something new. -->
 
-Find my **resume** **[here](https://yoyoyojoe.github.io/pdf/joeyma_resume_2023.pdf)**.
+Find my **resume** **[here](https://joey-ma.github.io/pdf/joeyma_resume_2023.pdf)**.
 
 <!-- ### Contributions
 

@@ -41,13 +41,13 @@ $ git remote -v
 origin  https://github.com/<YOUR_GITHUB_USERNAME>/press-play.git (fetch)
 origin  https://github.com/<YOUR_GITHUB_USERNAME>/press-play.git (push)
 
-$ git remote add upstream https://github.com/yoyoyojoe/press-play.git # note the nickname upstream and the web URL being where you forked the repo from
+$ git remote add upstream https://github.com/joey-ma/press-play.git # note the nickname upstream and the web URL being where you forked the repo from
 
 $ git remote -v
 origin  https://github.com/<YOUR_GITHUB_USERNAME>/press-play.git (fetch)
 origin  https://github.com/<YOUR_GITHUB_USERNAME>/press-play.git (push)
-upstream https://github.com/yoyoyojoe/press-play.git
-upstream https://github.com/yoyoyojoe/press-play.git
+upstream https://github.com/joey-ma/press-play.git
+upstream https://github.com/joey-ma/press-play.git
 
 ```
 
@@ -139,7 +139,7 @@ Compressing objects: 100% (4/4), done.
 Writing objects: 100% (4/4), 353 bytes | 353.00 KiB/s, done.
 Total 4 (delta 3), reused 0 (delta 0), pack-reused 0
 remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
-To github.com:yoyoyojoe/yoyoyojoe.github.io.git
+To github.com:joey-ma/joey-ma.github.io.git
    1f7307a..b0fcfad  main -> main
 ```
 
@@ -165,7 +165,7 @@ Compressing objects: 100% (4/4), done.
 Writing objects: 100% (4/4), 353 bytes | 353.00 KiB/s, done.
 Total 4 (delta 3), reused 0 (delta 0), pack-reused 0
 remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
-To github.com:yoyoyojoe/yoyoyojoe.github.io.git
+To github.com:joey-ma/joey-ma.github.io.git
    1f7307a..b0fcfad  main -> main
 
 $ git push -u origin main # only need to do once though
@@ -226,7 +226,7 @@ Now go and git started!
 - [git-scm](https://git-scm.com/docs)  
 - [joshnh/Git-Commands](https://github.com/joshnh/Git-Commands)
 - [GitHub/Repositories](https://docs.github.com/en/repositories/creating-and-managing-repositories/about-repositories)
-- [yoyoyojoe/git-legendary-chainsaw](https://github.com/yoyoyojoe/git-legendary-chainsaw)
+- [joey-ma/git-legendary-chainsaw](https://github.com/joey-ma/git-legendary-chainsaw)
 - [Master the Essentials of Git in Under 2 Hours](https://www.donnfelker.com/git/)
 - [First Contributions](https://github.com/firstcontributions/first-contributions)
 - [freeCodeCamp/Sync Your Fork](https://www.freecodecamp.org/news/how-to-sync-your-fork-with-the-original-git-repository/)

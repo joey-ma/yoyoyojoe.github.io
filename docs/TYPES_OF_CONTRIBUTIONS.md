@@ -4,12 +4,12 @@ You can contribute to this project in several ways. This repo is a place to disc
 ### :mega: Discussions
 Discussions are where we have conversations.
 
-If you'd like help troubleshooting a docs PR you're working on, have a great new idea, or want to share something amazing you've learned in our docs, join us in [discussions](https://github.com/yoyoyojoe/press-play/discussions).
+If you'd like help troubleshooting a docs PR you're working on, have a great new idea, or want to share something amazing you've learned in our docs, join us in [discussions](https://github.com/joey-ma/press-play/discussions).
 
 ### :lady_beetle: Issues
 [Issues](https://docs.github.com/en/github/managing-your-work-on-github/about-issues) are used to track tasks that contributors can help with. If an issue has a triage label, we haven't reviewed it yet, and you shouldn't begin work on it.
 
-If you've found something in the content or the website that should be updated, search open issues to see if someone else has reported the same thing. If it's something new, open an issue using a [template](https://github.com/yoyoyojoe/press-play/issues/new/choose). We'll use the issue to have a conversation about the problem you want to fix.
+If you've found something in the content or the website that should be updated, search open issues to see if someone else has reported the same thing. If it's something new, open an issue using a [template](https://github.com/joey-ma/press-play/issues/new/choose). We'll use the issue to have a conversation about the problem you want to fix.
 
 ### :hammer_and_wrench: Pull requests
 A [pull request](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests) is a way to suggest changes in our repository. When we merge those changes, they should be deployed to the live site within 24 hours. :earth_africa:
@@ -30,4 +30,4 @@ This website is internationalized and available in multiple languages. The sourc
 ### :balance_scale: Site Policy
 GitHub's site policies are published on docs.github.com, too! -->
 
-If you find a typo, you can open a pull request to fix it. For anything else, see [the CONTRIBUTING guide](https://github.com/yoyoyojoe/yoyoyojoe.github.io/blob/main/docs/CONTRIBUTING.md).
+If you find a typo, you can open a pull request to fix it. For anything else, see [the CONTRIBUTING guide](https://github.com/joey-ma/joey-ma.github.io/blob/main/docs/CONTRIBUTING.md).

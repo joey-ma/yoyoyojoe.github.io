@@ -5,8 +5,8 @@ Google Chrome DevTools is super useful and helpful, but from time to time, we li
 Why am I getting this error message? 
 
 ```console
-[warning] DevTools failed to load source map: Could not load content for file:///Users/yoyoyojoe/Documents/file_path/examine_the_page/bootstrap.bundle.min.js.map: System error: net::ERR_FILE_NOT_FOUND
-[warning] DevTools failed to load source map: Could not load content for file:///Users/yoyoyojoe/Documents/file_path/examine_the_page/bootstrap.min.css.map: System error: net::ERR_FILE_NOT_FOUND
+[warning] DevTools failed to load source map: Could not load content for file:///Users/joey-ma/Documents/file_path/examine_the_page/bootstrap.bundle.min.js.map: System error: net::ERR_FILE_NOT_FOUND
+[warning] DevTools failed to load source map: Could not load content for file:///Users/joey-ma/Documents/file_path/examine_the_page/bootstrap.min.css.map: System error: net::ERR_FILE_NOT_FOUND
 ```
 
 A search on Stack Overflow leads to various clues, but I only have a simple `index.html` referencing `bootstrap.min.css` (and `bootstrap.bundle.min.js`).

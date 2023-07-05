@@ -27,13 +27,13 @@ Check to see what [types of contributions](./TYPES_OF_CONTRIBUTIONS.md) we accep
 
 #### Create a new issue
 
-If you spot a problem with the app, [search if an issue already exists](https://docs.github.com/en/github/searching-for-information-on-github/searching-on-github/searching-issues-and-pull-requests#search-by-the-title-body-or-comments). If a related issue doesn't exist, you can open a new issue using a relevant [issue form](https://github.com/yoyoyojoe/yoyoyojoe.github.io/issues/new/choose). 
+If you spot a problem with the app, [search if an issue already exists](https://docs.github.com/en/github/searching-for-information-on-github/searching-on-github/searching-issues-and-pull-requests#search-by-the-title-body-or-comments). If a related issue doesn't exist, you can open a new issue using a relevant [issue form](https://github.com/joey-ma/joey-ma.github.io/issues/new/choose). 
 
 Notes on how to [configure issue templates for your repository](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository)
 
 #### Solve an issue
 
-Scan through our [existing issues](https://github.com/yoyoyojoe/yoyoyojoe.github.io/issues) to find one that interests you. You can narrow down the search using `labels` as filters. 
+Scan through our [existing issues](https://github.com/joey-ma/joey-ma.github.io/issues) to find one that interests you. You can narrow down the search using `labels` as filters. 
 
 #### Labels
 Labels can help you find an issue you'd like to help with.
@@ -90,7 +90,7 @@ Once you submit your PR, a Docs team member will review your proposal. We may as
 
 Congratulations :tada::tada: I thank you :sparkles:.
 
-Once your PR is merged, your contributions will be publicly visible on the [`yoyoyojoe.github.io`](https://github.com/yoyoyojoe/yoyoyojoe.github.io) repo. 
+Once your PR is merged, your contributions will be publicly visible on the [`joey-ma.github.io`](https://github.com/joey-ma/joey-ma.github.io) repo. 
 
 Now that you are part of the open source community, see other types of contributions [here](./TYPES_OF_CONTRIBUTIONS.md).
 
@@ -110,7 +110,7 @@ This site can be developed on Windows, however a few potential gotchas need to b
 Referencing & following the format of [GitHub Docs][gh-docs].
 
 [gh-docs]:https://github.com/github/docs/blob/main/CONTRIBUTING.md
-[readme]:https://github.com/yoyoyojoe/yoyoyojoe.github.io/blob/main/docs/README.md
+[readme]:https://github.com/joey-ma/joey-ma.github.io/blob/main/docs/README.md
 [working-in-docs]:https://github.com/github/docs/blob/main/contributing/working-in-docs-repository.md
 [content-markup-reference]:https://github.com/github/docs/blob/main/contributing/content-markup-reference.md
 [development-guide]:https://github.com/github/docs/blob/main/contributing/development.md

@@ -1,7 +1,7 @@
 ---
 slug: stay-resilient
 title: Stay Resilient
-authors: yoyoyojoe
+authors: joey-ma
 tags: [apple, stevejobs, stevewozniak, ronaldwayne, apple]
 ---
 

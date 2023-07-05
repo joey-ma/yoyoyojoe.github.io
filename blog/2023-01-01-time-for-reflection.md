@@ -1,7 +1,7 @@
 ---
 slug: reflection-2022
 title: Time for Reflection
-authors: yoyoyojoe
+authors: joey-ma
 tags: [confucius, reflection, quotes]
 ---
 

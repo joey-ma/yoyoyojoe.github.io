@@ -9,7 +9,7 @@ require('dotenv').config();
 const config = {
   title: 'Joey Ma',
   tagline: 'Software Engineer',
-  url: 'https://yoyoyojoe.github.io',
+  url: 'https://joey-ma.github.io',
   // GitHub Pages adds a trailing slash to Docusaurus URLs by default
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -19,8 +19,8 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'yoyoyojoe', // Usually your GitHub org/user name.
-  projectName: 'yoyoyojoe.github.io', // Usually your repo name.
+  organizationName: 'joey-ma', // Usually your GitHub org/user name.
+  projectName: 'joey-ma.github.io', // Usually your repo name.
   deploymentBranch: 'gh-pages',
 
   // Even if you don't use internalization, you can use this field to set useful
@@ -41,7 +41,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/yoyoyojoe/yoyoyojoe.github.io/tree/main/',
+            'https://github.com/joey-ma/joey-ma.github.io/tree/main/',
           exclude: [ '**/README.md**', '**/CONTRIBUTING.md**', '**/CODE_OF_CONDUCT.md**', '**/TYPES_OF_CONTRIBUTIONS.md**' ]
         },
         blog: {
@@ -49,7 +49,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/yoyoyojoe/yoyoyojoe.github.io/tree/main/',
+            'https://github.com/joey-ma/joey-ma.github.io/tree/main/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -82,7 +82,7 @@ const config = {
             label: 'Catch',
             docId: 'catch',
             position: 'left',
-            to: 'https://github.com/yoyoyojoe/catch',
+            to: 'https://github.com/joey-ma/catch',
           },
           {
             label: 'Recoilize',
@@ -92,7 +92,7 @@ const config = {
           },
           {
             label: 'GitHub',
-            href: 'https://github.com/yoyoyojoe/',
+            href: 'https://github.com/joey-ma/',
             position: 'right',
           },
         ],
@@ -105,7 +105,7 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/yoyoyojoe',
+                href: 'https://github.com/joey-ma',
               },
               {
                 label: 'LinkedIn',
@@ -135,7 +135,7 @@ const config = {
               },
               {
                 label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/users/16330123/yoyoyojoe',
+                href: 'https://stackoverflow.com/users/16330123/joey-ma',
               },
             ],
           },
